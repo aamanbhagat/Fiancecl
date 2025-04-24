@@ -54,14 +54,66 @@ import {
 import dynamic from 'next/dynamic';
 import Link from "next/link";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Chart } from 'chart.js';
 
-// Dynamically import components that use browser APIs
-const ChartJSWithRegistration = dynamic(
-  () => import('./components/ChartJSWithRegistration'),
-  { ssr: false }
+// Chart.js registration - This is critical to solve the "arc is not registered element" error
+import {
+  Chart,
+  ArcElement,
+  LineElement,
+  BarElement,
+  PointElement,
+  CategoryScale,
+  LinearScale,
+  LogarithmicScale,
+  RadialLinearScale,
+  TimeScale,
+  Title,
+  Tooltip as ChartTooltip,
+  Legend,
+  Filler,
+  PieController,
+  LineController,
+  BarController,
+  DoughnutController,
+  RadarController,
+  BubbleController,
+  ScatterController
+} from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
+// Register all Chart.js components immediately
+Chart.register(
+  // Elements
+  ArcElement, // This fixes the "arc is not a registered element" error
+  LineElement,
+  BarElement,
+  PointElement,
+  
+  // Scales
+  CategoryScale,
+  LinearScale,
+  LogarithmicScale,
+  RadialLinearScale,
+  TimeScale,
+  
+  // Controllers
+  PieController,
+  LineController,
+  BarController,
+  DoughnutController,
+  RadarController,
+  BubbleController,
+  ScatterController,
+  
+  // Plugins
+  Title,
+  ChartTooltip,
+  Legend,
+  Filler,
+  ChartDataLabels
 );
 
+// Dynamically import chart components
 const DynamicPie = dynamic(
   () => import('react-chartjs-2').then(mod => mod.Pie),
   { ssr: false }
@@ -294,32 +346,32 @@ export default function MortgageCalculator() {
   );
 
   const pieChartOptions = useMemo(
-  () => ({
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: "bottom" as const,
-        labels: {
-          padding: 20,
-          usePointStyle: true,
-          pointStyle: "circle",
-          font: { size: 14 },
-          color: isDarkMode ? "white" : "black",
+    () => ({
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: "bottom" as const,
+          labels: {
+            padding: 20,
+            usePointStyle: true,
+            pointStyle: "circle",
+            font: { size: 14 },
+            color: isDarkMode ? "white" : "black",
+          },
+        },
+        datalabels: {
+          color: "#fff",
+          font: { weight: "bold" as const, size: 14 },
+          formatter: (value: number) => {
+            const total = Object.values(paymentBreakdown).reduce((a, b) => a + b, 0);
+            return total ? ((value / total) * 100).toFixed(1) + "%" : "0%";
+          },
         },
       },
-      datalabels: {
-        color: "#fff",
-        font: { weight: "bold" as const, size: 14 },
-        formatter: (value: number) => {
-          const total = Object.values(paymentBreakdown).reduce((a, b) => a + b, 0);
-          return total ? ((value / total) * 100).toFixed(1) + "%" : "0%";
-        },
-      },
-    },
-  }),
-  [isDarkMode, paymentBreakdown]
-);
+    }),
+    [isDarkMode, paymentBreakdown]
+  );
 
   const lineChartData = useMemo(
     () => ({
@@ -345,38 +397,38 @@ export default function MortgageCalculator() {
   );
 
   const lineChartOptions = useMemo(
-  () => ({
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      y: {
-        beginAtZero: true,
-        grid: { color: isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)" },
-        ticks: {
-          color: isDarkMode ? "white" : "black",
-          callback: (value: number | string) => "$" + (typeof value === "number" ? value.toLocaleString() : value),
+    () => ({
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { color: isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)" },
+          ticks: {
+            color: isDarkMode ? "white" : "black",
+            callback: (value: number | string) => "$" + (typeof value === "number" ? value.toLocaleString() : value),
+          },
+        },
+        x: {
+          grid: { display: false },
+          ticks: { color: isDarkMode ? "white" : "black" },
         },
       },
-      x: {
-        grid: { display: false },
-        ticks: { color: isDarkMode ? "white" : "black" },
-      },
-    },
-    plugins: {
-      legend: {
-        position: "bottom" as const,
-        labels: {
-          padding: 20,
-          usePointStyle: true,
-          pointStyle: "circle",
-          font: { size: 14 },
-          color: isDarkMode ? "white" : "black",
+      plugins: {
+        legend: {
+          position: "bottom" as const,
+          labels: {
+            padding: 20,
+            usePointStyle: true,
+            pointStyle: "circle",
+            font: { size: 14 },
+            color: isDarkMode ? "white" : "black",
+          },
         },
       },
-    },
-  }),
-  [isDarkMode]
-);
+    }),
+    [isDarkMode]
+  );
 
   // PDF Export - client-side only
   const exportPDF = async () => {
@@ -389,7 +441,9 @@ export default function MortgageCalculator() {
       // Dynamically import browser-only libraries
       const html2canvas = (await import('html2canvas')).default;
       const { jsPDF } = await import('jspdf');
-      require('jspdf-autotable');
+      
+      // Using require for jspdf-autotable
+      const jspdfAutoTable = await import('jspdf-autotable');
 
       const canvas = await html2canvas(element);
       const imgData = canvas.toDataURL("image/png");
@@ -490,18 +544,18 @@ export default function MortgageCalculator() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-24 flex items-center justify-center">
-  <div className="absolute inset-0 bg-grid-white/10 bg-[size:var(--grid-size)_var(--grid-size)] [mask-image:radial-gradient(white,transparent_85%)] dark:bg-grid-white/10"></div>
-  <div className="container relative z-10 max-w-screen-xl">
-    <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl animate-text-glow">
-        Mortgage <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent inline-block">Calculator</span>
-      </h1>
-      <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-        Calculate your monthly mortgage payments and see a detailed breakdown of costs over time.
-      </p>
-    </div>
-  </div>
-</section>
+          <div className="absolute inset-0 bg-grid-white/10 bg-[size:var(--grid-size)_var(--grid-size)] [mask-image:radial-gradient(white,transparent_85%)] dark:bg-grid-white/10"></div>
+          <div className="container relative z-10 max-w-screen-xl">
+            <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl animate-text-glow">
+                Mortgage <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent inline-block">Calculator</span>
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+                Calculate your monthly mortgage payments and see a detailed breakdown of costs over time.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Calculator Section */}
         <section className="py-12">
@@ -803,8 +857,7 @@ export default function MortgageCalculator() {
               </div>
             </div>
           </div>
-        </section> 
-        
+        </section>         
          {/* Blog Section */}
 <section id="blog-section" className="py-12 bg-white dark:bg-black">
 <div className="container mx-auto max-w-5xl px-4">
