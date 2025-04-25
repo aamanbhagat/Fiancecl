@@ -35,10 +35,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/repayment"
   }
+  // Remove this problematic property entirely
+  // alternates: {
+  //   canonical: "https://calculatorhub.space/calculators/repayment"
+  // }
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function RepaymentCalculatorLayout({
@@ -46,5 +51,13 @@ export default function RepaymentCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/repayment" 
+      />
+      {children}
+    </>
+  )
 }

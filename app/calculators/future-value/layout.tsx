@@ -35,10 +35,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/future-value"
   }
+  // Remove this problematic property
+  // alternates: {
+  //   canonical: "https://calculatorhub.space/calculators/future-value"
+  // }
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function FutureValueCalculatorLayout({
@@ -46,5 +51,13 @@ export default function FutureValueCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/future-value" 
+      />
+      {children}
+    </>
+  )
 }

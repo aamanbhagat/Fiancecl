@@ -22,6 +22,7 @@ import { jsPDF } from 'jspdf'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Link from 'next/link'
 import type { ChartOptions } from 'chart.js'
+import FourZeroOneKSchema from './schema';
 
 // Register ChartJS components
 ChartJS.register(
@@ -37,18 +38,57 @@ ChartJS.register(
   ChartDataLabels
 )
 
+// Starting at line 32
 interface YearlyProjection {
   year: number
   balance: number
   contributions: number
   employerMatch: number
   returns: number
+  
+  // You could add these optional fields from my schema
+  salary?: number
+  cumulativeContributions?: number
+  cumulativeReturns?: number
 }
 
 interface TotalContributions {
   personal: number
   employer: number
   returns: number
+}
+
+// Add any additional interfaces here before line 44
+interface User401kInputs {
+  currentAge: number
+  retirementAge: number
+  currentBalance: number
+  annualSalary: number
+  contributionRate: number
+  employerMatchRate: number
+  employerMatchLimit: number
+  annualSalaryIncrease: number
+  expectedReturn: number
+  inflationRate: number
+  managementFees: number
+  compoundingFrequency: string
+  additionalContributions: number
+  catchUpContributions: boolean
+}
+
+interface User401kResults {
+  projectedBalance: number
+  inflationAdjustedBalance: number
+  yearsToRetirement: number
+  totalContributions: TotalContributions
+  yearlyProjections: YearlyProjection[]
+  recommendations: Recommendation[]
+}
+
+interface Recommendation {
+  type: string
+  message: string
+  potentialImpact?: number
 }
 
 export default function FourZeroOneKCalculator() {
@@ -316,6 +356,7 @@ export default function FourZeroOneKCalculator() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+      <FourZeroOneKSchema />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-24 flex items-center justify-center">

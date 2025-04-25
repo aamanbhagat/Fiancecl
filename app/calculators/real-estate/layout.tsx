@@ -35,10 +35,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/real-estate"
   }
+  // Remove this problematic property entirely
+  // alternates: {
+  //   canonical: "https://calculatorhub.space/calculators/real-estate"
+  // }
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function RealEstateCalculatorLayout({
@@ -46,5 +51,13 @@ export default function RealEstateCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/real-estate" 
+      />
+      {children}
+    </>
+  )
 }

@@ -35,10 +35,12 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/currency-converter"
   }
+  // Removed alternates.canonical property that was causing conflicts
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function CurrencyConverterLayout({
@@ -46,5 +48,13 @@ export default function CurrencyConverterLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/currency-converter" 
+      />
+      {children}
+    </>
+  )
 }

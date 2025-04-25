@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Make sure this base URL exactly matches your domain
   const baseUrl = 'https://calculatehub.space'
   
   const calculators = [
@@ -67,45 +68,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'interest',
   ]
 
+  // Create static pages array with absolute URLs
   const staticPages = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
     },
     {
       url: `${baseUrl}/calculators`,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
     },
   ]
 
+  // Create calculator pages array
   const calculatorPages = calculators.map((calculator) => ({
     url: `${baseUrl}/calculators/${calculator}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.9,
   }))
 
+  // Return combined array
   return [...staticPages, ...calculatorPages]
 }

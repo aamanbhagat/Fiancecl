@@ -35,10 +35,12 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/compound-interest"
   }
+  // Remove the alternates.canonical property entirely
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function CompoundInterestCalculatorLayout({
@@ -46,5 +48,13 @@ export default function CompoundInterestCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/compound-interest" 
+      />
+      {children}
+    </>
+  )
 }

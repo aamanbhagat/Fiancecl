@@ -1,26 +1,26 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Estate Calculator | CalculateHub",
-  description: "Plan your estate, estimate inheritance taxes, and calculate asset distribution with our free estate calculator to help with your legacy planning.",
-  keywords: "estate calculator, inheritance tax calculator, estate planning calculator, estate value calculator, legacy planning, estate distribution calculator",
+  title: "Estate Tax Calculator | CalculateHub",
+  description: "Plan your estate, estimate inheritance taxes, and calculate asset distribution with our free estate tax calculator to help with your legacy planning.",
+  keywords: "estate tax calculator, inheritance tax calculator, estate planning calculator, estate value calculator, legacy planning, estate distribution calculator",
   openGraph: {
-    title: "Estate Calculator | CalculateHub",
+    title: "Estate Tax Calculator | CalculateHub",
     description: "Plan your estate and calculate potential inheritance taxes and asset distribution.",
     type: "website",
-    url: "https://calculatorhub.space/calculators/estate",
+    url: "https://calculatorhub.space/calculators/estate-tax",
     images: [
       {
         url: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "Estate Calculator"
+        alt: "Estate Tax Calculator"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Estate Calculator | CalculateHub",
+    title: "Estate Tax Calculator | CalculateHub",
     description: "Plan your estate and calculate potential inheritance taxes and asset distribution.",
     images: ["https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"]
   },
@@ -35,16 +35,26 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/estate"
   }
+  // Removed the alternates.canonical property
 }
 
-export default function EstateCalculatorLayout({
+export const viewport = {
+  themeColor: '#ffffff',
+}
+
+export default function EstateTaxCalculatorLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/estate-tax" 
+      />
+      {children}
+    </>
+  )
 }

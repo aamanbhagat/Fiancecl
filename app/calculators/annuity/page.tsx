@@ -21,6 +21,7 @@ import html2canvas from 'html2canvas'
 import { jsPDF } from 'jspdf'
 import Link from 'next/link'
 import type { ChartOptions } from 'chart.js'
+import AnnuitySchema from './schema';
 
 // Register ChartJS components
 ChartJS.register(
@@ -254,6 +255,7 @@ export default function AnnuityCalculator() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+      <AnnuitySchema />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-24 flex items-center justify-center">

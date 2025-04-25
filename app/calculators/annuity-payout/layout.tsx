@@ -35,10 +35,11 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/annuity-payout"
   }
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function AnnuityPayoutCalculatorLayout({
@@ -46,5 +47,13 @@ export default function AnnuityPayoutCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/annuity-payout" 
+      />
+      {children}
+    </>
+  )
 }

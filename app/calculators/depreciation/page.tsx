@@ -21,6 +21,7 @@ import html2canvas from 'html2canvas'
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
 import { format } from 'date-fns'
+import DepreciationSchema from './schema';
 
 // Register ChartJS components
 ChartJS.register(
@@ -381,6 +382,7 @@ export default function DepreciationCalculator() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+      <DepreciationSchema />
       <main className="flex-1">
       <section className="relative overflow-hidden py-16 md:py-24 flex items-center justify-center">
   <div className="absolute inset-0 bg-grid-white/10 bg-[size:var(--grid-size)_var(--grid-size)] [mask-image:radial-gradient(white,transparent_85%)] dark:bg-grid-white/10"></div>

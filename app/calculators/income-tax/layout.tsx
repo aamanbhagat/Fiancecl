@@ -35,10 +35,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/income-tax"
   }
+  // Remove this problematic property
+  // alternates: {
+  //   canonical: "https://calculatorhub.space/calculators/income-tax"
+  // }
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function IncomeTaxCalculatorLayout({
@@ -46,5 +51,13 @@ export default function IncomeTaxCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/income-tax" 
+      />
+      {children}
+    </>
+  )
 }

@@ -75,6 +75,7 @@ import {
   Tooltip as ChartJSTooltip,
   Legend as ChartJSLegend,
 } from "chart.js";
+import AmortizationSchema from './schema';
 
 // Register Chart.js components
 ChartJS.register(
@@ -924,6 +925,7 @@ export default function AmortizationCalculatorPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <SiteHeader />
+      <AmortizationSchema />
       <main className="flex-1">
         <HeroSection />
         <AmortizationCalculator />

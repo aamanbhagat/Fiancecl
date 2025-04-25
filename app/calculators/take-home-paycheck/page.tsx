@@ -21,6 +21,7 @@ import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, T
 import { Pie, Bar } from 'react-chartjs-2'
 import html2canvas from 'html2canvas'
 import { jsPDF } from 'jspdf'
+import TakeHomePaycheckSchema from './schema';
 
 // Register ChartJS components
 ChartJS.register(
@@ -290,6 +291,7 @@ export default function TakeHomePaycheckPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+      <TakeHomePaycheckSchema />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-24 flex items-center justify-center">

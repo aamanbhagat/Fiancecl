@@ -2,16 +2,16 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Personal Loan Calculator | CalculateHub",
-  description: "Calculate personal loan payments, compare interest rates, and plan your borrowing strategy with our free personal loan calculator.",
-  keywords: "personal loan calculator, loan payment calculator, installment loan calculator, loan interest calculator, loan comparison calculator, debt payment calculator",
+  description: "Calculate personal loan payments, compare interest rates, and plan your borrowing with our free personal loan calculator.",
+  keywords: "personal loan calculator, loan payment calculator, loan interest calculator, loan repayment calculator, installment loan calculator, loan comparison tool",
   openGraph: {
     title: "Personal Loan Calculator | CalculateHub",
-    description: "Calculate monthly payments for personal loans and understand the total cost of borrowing.",
+    description: "Calculate your personal loan payments and understand the true cost of borrowing.",
     type: "website",
     url: "https://calculatorhub.space/calculators/personal-loan",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1589666564459-93cdd3d3f500?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
         alt: "Personal Loan Calculator"
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Personal Loan Calculator | CalculateHub",
-    description: "Calculate monthly payments for personal loans and understand the total cost of borrowing.",
-    images: ["https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"]
+    description: "Calculate your personal loan payments and understand the true cost of borrowing.",
+    images: ["https://images.unsplash.com/photo-1589666564459-93cdd3d3f500?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"]
   },
   robots: {
     index: true,
@@ -35,10 +35,12 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/personal-loan"
   }
+  // Important: Do NOT include alternates.canonical here
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function PersonalLoanCalculatorLayout({
@@ -46,5 +48,13 @@ export default function PersonalLoanCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/personal-loan" 
+      />
+      {children}
+    </>
+  )
 }

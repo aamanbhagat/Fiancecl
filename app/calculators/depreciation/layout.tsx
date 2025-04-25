@@ -35,10 +35,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/depreciation"
   }
+  // Remove this problematic alternates.canonical property
+  // alternates: {
+  //   canonical: "https://calculatorhub.space/calculators/depreciation"
+  // }
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function DepreciationCalculatorLayout({
@@ -46,5 +51,13 @@ export default function DepreciationCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/depreciation" 
+      />
+      {children}
+    </>
+  )
 }

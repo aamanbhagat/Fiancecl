@@ -80,6 +80,7 @@ import {
   ScatterController
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import MortgageSchema from './schema';
 
 // Register all Chart.js components immediately
 Chart.register(
@@ -541,6 +542,7 @@ export default function MortgageCalculator() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
       <SiteHeader />
+      <MortgageSchema />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-24 flex items-center justify-center">

@@ -35,10 +35,12 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/commission"
   }
+  // Removed alternates.canonical property
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function CommissionCalculatorLayout({
@@ -46,5 +48,13 @@ export default function CommissionCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/commission" 
+      />
+      {children}
+    </>
+  )
 }

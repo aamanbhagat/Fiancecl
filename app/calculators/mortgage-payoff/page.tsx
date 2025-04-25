@@ -63,6 +63,7 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable"; // Corrected import
 import Link from "next/link";
+import MortgagePayoffSchema from './schema';
 
 
 // Register ChartJS components
@@ -364,6 +365,7 @@ export default function MortgagePayoffCalculator() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+      <MortgagePayoffSchema />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-6 flex items-center justify-center">

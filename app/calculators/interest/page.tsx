@@ -22,6 +22,7 @@ import { jsPDF } from 'jspdf'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Link from 'next/link'
 import type { ChartOptions } from 'chart.js'
+import InterestSchema from './schema';
 
 // Register ChartJS components
 ChartJS.register(
@@ -362,6 +363,7 @@ export default function InterestCalculator() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+      <InterestSchema />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-24 flex items-center justify-center">

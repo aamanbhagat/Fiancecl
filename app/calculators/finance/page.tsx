@@ -41,6 +41,7 @@ import { Separator } from "@/components/ui/separator";
 import 'katex/dist/katex.min.css'
 import { Bar, Line, Pie } from "react-chartjs-2";
 import { InlineMath, BlockMath } from 'react-katex'
+import FinanceSchema from './schema';
 
 export default function FinanceCalculator() {
   const [presentValue, setPresentValue] = useState({
@@ -112,6 +113,7 @@ export default function FinanceCalculator() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+      <FinanceSchema />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-24 flex items-center justify-center">

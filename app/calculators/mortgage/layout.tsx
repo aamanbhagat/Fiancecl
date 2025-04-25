@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   keywords: "mortgage calculator, home loan calculator, monthly mortgage payment, mortgage amortization, mortgage interest calculator, house payment calculator",
   openGraph: {
     title: "Mortgage Calculator | CalculateHub",
-    description: "Calculate your monthly mortgage payments and understand the total cost of your home loan.",
+    description: "Calculate your monthly payments and understand the total cost of your home loan.",
     type: "website",
     url: "https://calculatorhub.space/calculators/mortgage",
     images: [
@@ -35,16 +35,27 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/mortgage"
   }
 }
 
+// Override canonical URL specifically for this route
+export const viewport = {
+  themeColor: '#ffffff',
+}
+
+// This ensures this layout has its own canonical URL that won't conflict
 export default function MortgageCalculatorLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/mortgage" 
+      />
+      {children}
+    </>
+  )
 }

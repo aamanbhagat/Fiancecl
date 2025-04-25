@@ -35,10 +35,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/social-security"
   }
+  // Remove this problematic property entirely - this is the main issue!
+  // alternates: {
+  //   canonical: "https://calculatorhub.space/calculators/social-security"
+  // }
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function SocialSecurityCalculatorLayout({
@@ -46,5 +51,13 @@ export default function SocialSecurityCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/social-security" 
+      />
+      {children}
+    </>
+  )
 }

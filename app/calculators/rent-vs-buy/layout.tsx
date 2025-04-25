@@ -35,10 +35,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     }
-  },
-  alternates: {
-    canonical: "https://calculatorhub.space/calculators/rent-vs-buy"
   }
+  // Remove this problematic property
+  // alternates: {
+  //   canonical: "https://calculatorhub.space/calculators/rent-vs-buy"
+  // }
+}
+
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function RentVsBuyCalculatorLayout({
@@ -46,5 +51,13 @@ export default function RentVsBuyCalculatorLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <link 
+        rel="canonical" 
+        href="https://calculatorhub.space/calculators/rent-vs-buy" 
+      />
+      {children}
+    </>
+  )
 }
