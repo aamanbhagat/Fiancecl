@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the ROI calculator
 export function generateRoiSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/roi', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateRoiSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/roi-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/roi-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateRoiSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'ROI Calculator',
-            'item': '/calculators/roi'
+            'item': `${baseUrl}/calculators/roi`
           }
         ]
       },

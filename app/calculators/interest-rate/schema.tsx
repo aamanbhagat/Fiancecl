@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the interest rate calculator
 export function generateInterestRateSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/interest-rate', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateInterestRateSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/interest-rate-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/interest-rate-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateInterestRateSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Interest Rate Calculator',
-            'item': '/calculators/interest-rate'
+            'item': `${baseUrl}/calculators/interest-rate`
           }
         ]
       },

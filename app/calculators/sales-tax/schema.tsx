@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the sales tax calculator
 export function generateSalesTaxSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/sales-tax', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateSalesTaxSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/sales-tax-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/sales-tax-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateSalesTaxSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Sales Tax Calculator',
-            'item': '/calculators/sales-tax'
+            'item': `${baseUrl}/calculators/sales-tax`
           }
         ]
       },

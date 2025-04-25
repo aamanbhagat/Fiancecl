@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the annuity calculator
 export function generateAnnuitySchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/annuity', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -30,7 +33,7 @@ export function generateAnnuitySchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/annuity-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/annuity-screenshot.jpg`
         }
       },
       
@@ -42,19 +45,19 @@ export function generateAnnuitySchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Annuity Calculator',
-            'item': '/calculators/annuity'
+            'item': `${baseUrl}/calculators/annuity`
           }
         ]
       },

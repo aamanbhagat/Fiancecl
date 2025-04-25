@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the payment calculator
 export function generatePaymentSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/payment', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generatePaymentSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/payment-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/payment-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generatePaymentSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Payment Calculator',
-            'item': '/calculators/payment'
+            'item': `${baseUrl}/calculators/payment`
           }
         ]
       },

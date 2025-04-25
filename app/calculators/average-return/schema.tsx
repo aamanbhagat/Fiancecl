@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the average return calculator
 export function generateAverageReturnSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/average-return', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateAverageReturnSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/average-return-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/average-return-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateAverageReturnSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Average Return Calculator',
-            'item': '/calculators/average-return'
+            'item': `${baseUrl}/calculators/average-return`
           }
         ]
       },

@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the credit cards payoff calculator
 export function generateCreditCardsPayoffSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/credit-cards-payoff', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateCreditCardsPayoffSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/credit-cards-payoff-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/credit-cards-payoff-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateCreditCardsPayoffSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Credit Cards Payoff Calculator',
-            'item': '/calculators/credit-cards-payoff'
+            'item': `${baseUrl}/calculators/credit-cards-payoff`
           }
         ]
       },
@@ -109,6 +112,24 @@ export function generateCreditCardsPayoffSchema(url: string) {
     ]
   };
 }
+
+// Export metadata for the page
+export const metadata: Metadata = {
+  title: 'Credit Cards Payoff Calculator | Multiple Card Debt Strategies',
+  description: 'Create a debt payoff strategy for multiple credit cards with our free calculator that compares snowball and avalanche methods to find your fastest path to freedom.',
+  keywords: [
+    'credit cards payoff calculator',
+    'multiple card debt calculator',
+    'debt snowball calculator',
+    'debt avalanche calculator',
+    'debt payoff strategy',
+    'credit card debt elimination',
+    'debt repayment planner',
+    'interest savings calculator',
+    'debt freedom calculator',
+    'multiple debt comparison tool'
+  ]
+};
 
 // Export the schema component
 export default function CreditCardsPayoffSchema() {

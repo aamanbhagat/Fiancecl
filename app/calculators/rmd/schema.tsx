@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the RMD calculator
 export function generateRmdSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/rmd', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateRmdSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/rmd-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/rmd-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateRmdSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'RMD Calculator',
-            'item': '/calculators/rmd'
+            'item': `${baseUrl}/calculators/rmd`
           }
         ]
       },

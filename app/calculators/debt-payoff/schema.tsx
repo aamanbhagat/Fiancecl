@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the debt payoff calculator
 export function generateDebtPayoffSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/debt-payoff', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateDebtPayoffSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/debt-payoff-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/debt-payoff-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateDebtPayoffSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Debt Payoff Calculator',
-            'item': '/calculators/debt-payoff'
+            'item': `${baseUrl}/calculators/debt-payoff`
           }
         ]
       },

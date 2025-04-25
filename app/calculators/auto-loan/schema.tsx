@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the auto loan calculator
 export function generateAutoLoanSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/auto-loan', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateAutoLoanSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/auto-loan-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/auto-loan-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateAutoLoanSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Auto Loan Calculator',
-            'item': '/calculators/auto-loan'
+            'item': `${baseUrl}/calculators/auto-loan`
           }
         ]
       },

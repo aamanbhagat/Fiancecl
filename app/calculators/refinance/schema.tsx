@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the refinance calculator
 export function generateRefinanceSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/refinance', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateRefinanceSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/refinance-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/refinance-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateRefinanceSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Refinance Calculator',
-            'item': '/calculators/refinance'
+            'item': `${baseUrl}/calculators/refinance`
           }
         ]
       },

@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the real estate calculator
 export function generateRealEstateSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/real-estate', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateRealEstateSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/real-estate-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/real-estate-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateRealEstateSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Real Estate Calculator',
-            'item': '/calculators/real-estate'
+            'item': `${baseUrl}/calculators/real-estate`
           }
         ]
       },

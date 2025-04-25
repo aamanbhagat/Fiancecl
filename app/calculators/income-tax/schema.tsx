@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the income tax calculator
 export function generateIncomeTaxSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/income-tax', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateIncomeTaxSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/income-tax-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/income-tax-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateIncomeTaxSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Income Tax Calculator',
-            'item': '/calculators/income-tax'
+            'item': `${baseUrl}/calculators/income-tax`
           }
         ]
       },

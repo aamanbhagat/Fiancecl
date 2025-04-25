@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the present value calculator
 export function generatePresentValueSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/present-value', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generatePresentValueSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/present-value-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/present-value-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generatePresentValueSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Present Value Calculator',
-            'item': '/calculators/present-value'
+            'item': `${baseUrl}/calculators/present-value`
           }
         ]
       },

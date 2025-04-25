@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the salary calculator
 export function generateSalarySchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/salary', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateSalarySchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/salary-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/salary-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateSalarySchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Salary Calculator',
-            'item': '/calculators/salary'
+            'item': `${baseUrl}/calculators/salary`
           }
         ]
       },

@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the personal loan calculator
 export function generatePersonalLoanSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/personal-loan', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generatePersonalLoanSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/personal-loan-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/personal-loan-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generatePersonalLoanSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Personal Loan Calculator',
-            'item': '/calculators/personal-loan'
+            'item': `${baseUrl}/calculators/personal-loan`
           }
         ]
       },

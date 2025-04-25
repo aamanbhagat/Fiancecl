@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the 401k calculator
 export function generate401kSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/401k', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -28,11 +31,11 @@ export function generate401kSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/401k-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/401k-screenshot.jpg`
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED with absolute URLs
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -40,19 +43,19 @@ export function generate401kSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': '401(k) Calculator',
-            'item': '/calculators/401k'
+            'item': `${baseUrl}/calculators/401k`
           }
         ]
       },

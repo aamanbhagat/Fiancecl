@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the rent vs. buy calculator
 export function generateRentVsBuySchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/rent-vs-buy', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateRentVsBuySchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/rent-vs-buy-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/rent-vs-buy-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateRentVsBuySchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Rent vs. Buy Calculator',
-            'item': '/calculators/rent-vs-buy'
+            'item': `${baseUrl}/calculators/rent-vs-buy`
           }
         ]
       },

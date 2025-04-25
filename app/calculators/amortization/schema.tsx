@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the amortization calculator
 export function generateAmortizationSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/amortization', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -27,7 +30,7 @@ export function generateAmortizationSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/amortization-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/amortization-screenshot.jpg`
         }
       },
       
@@ -39,19 +42,19 @@ export function generateAmortizationSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Amortization Calculator',
-            'item': '/calculators/amortization'
+            'item': `${baseUrl}/calculators/amortization`
           }
         ]
       },
@@ -130,7 +133,7 @@ export default function AmortizationSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateAmortizationSchema('https://calculatorhub.space/calculators/amortization')),
+        __html: JSON.stringify(generateAmortizationSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/amortization')),
       }}
     />
   );

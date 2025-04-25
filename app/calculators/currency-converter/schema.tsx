@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the currency converter calculator
 export function generateCurrencyConverterSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/currency-converter', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateCurrencyConverterSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/currency-converter-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/currency-converter-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateCurrencyConverterSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Currency Converter',
-            'item': '/calculators/currency-converter'
+            'item': `${baseUrl}/calculators/currency-converter`
           }
         ]
       },

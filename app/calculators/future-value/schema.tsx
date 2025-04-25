@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the future value calculator
 export function generateFutureValueSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/future-value', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateFutureValueSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/future-value-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/future-value-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateFutureValueSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Future Value Calculator',
-            'item': '/calculators/future-value'
+            'item': `${baseUrl}/calculators/future-value`
           }
         ]
       },

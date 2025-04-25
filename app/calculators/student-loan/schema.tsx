@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the student loan calculator
 export function generateStudentLoanSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/student-loan', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateStudentLoanSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/student-loan-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/student-loan-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateStudentLoanSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Student Loan Calculator',
-            'item': '/calculators/student-loan'
+            'item': `${baseUrl}/calculators/student-loan`
           }
         ]
       },

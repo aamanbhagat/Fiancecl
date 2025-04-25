@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the estate tax calculator
 export function generateEstateTaxSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/estate-tax', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateEstateTaxSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/estate-tax-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/estate-tax-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateEstateTaxSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Estate Tax Calculator',
-            'item': '/calculators/estate-tax'
+            'item': `${baseUrl}/calculators/estate-tax`
           }
         ]
       },

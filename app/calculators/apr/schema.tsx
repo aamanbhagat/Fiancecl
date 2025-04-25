@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the APR calculator
 export function generateAPRSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/apr', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -29,7 +32,7 @@ export function generateAPRSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/apr-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/apr-screenshot.jpg`
         }
       },
       
@@ -41,19 +44,19 @@ export function generateAPRSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'APR Calculator',
-            'item': '/calculators/apr'
+            'item': `${baseUrl}/calculators/apr`
           }
         ]
       },

@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the mortgage calculator
 export function generateMortgageSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/mortgage', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,11 +34,11 @@ export function generateMortgageSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/mortgage-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/mortgage-screenshot.jpg`
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED with absolute URLs
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -43,19 +46,19 @@ export function generateMortgageSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Mortgage Calculator',
-            'item': '/calculators/mortgage'
+            'item': `${baseUrl}/calculators/mortgage`
           }
         ]
       },

@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Make sure this base URL exactly matches your domain
-  const baseUrl = 'https://calculatehub.space'
-  
+  // Use relative paths; Next.js will resolve them based on the app's base URL
+  const basePath = ''
+
   const calculators = [
     'mortgage',
     'amortization',
@@ -68,36 +68,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'interest',
   ]
 
-  // Create static pages array with absolute URLs
+  // Static pages with relative URLs
   const staticPages = [
     {
-      url: baseUrl,
+      url: `${basePath}/`,           // Root path
       lastModified: new Date(),
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${basePath}/about`,     // About page
       lastModified: new Date(),
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${basePath}/blog`,      // Blog page
       lastModified: new Date(),
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${basePath}/contact`,   // Contact page
       lastModified: new Date(),
     },
     {
-      url: `${baseUrl}/calculators`,
+      url: `${basePath}/calculators`, // Calculators index page
       lastModified: new Date(),
     },
   ]
 
-  // Create calculator pages array
+  // Calculator pages with relative URLs
   const calculatorPages = calculators.map((calculator) => ({
-    url: `${baseUrl}/calculators/${calculator}`,
+    url: `${basePath}/calculators/${calculator}`, // Individual calculator pages
     lastModified: new Date(),
   }))
 
-  // Return combined array
+  // Combine and return all sitemap entries
   return [...staticPages, ...calculatorPages]
 }

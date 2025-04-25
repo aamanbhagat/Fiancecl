@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the repayment calculator
 export function generateRepaymentSchema(url: string) {
+  // Extract the base URL (without the path)
+  const baseUrl = url.replace('/calculators/repayment', '');
+  
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,7 +34,7 @@ export function generateRepaymentSchema(url: string) {
         ],
         'screenshot': {
           '@type': 'ImageObject',
-          'url': '/images/calculators/repayment-screenshot.jpg'
+          'url': `${baseUrl}/images/calculators/repayment-screenshot.jpg`
         }
       },
       
@@ -43,19 +46,19 @@ export function generateRepaymentSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': '/'
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': '/calculators'
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Repayment Calculator',
-            'item': '/calculators/repayment'
+            'item': `${baseUrl}/calculators/repayment`
           }
         ]
       },
