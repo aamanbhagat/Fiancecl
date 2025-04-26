@@ -2,19 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the 401k calculator
 export function generate401kSchema(url: string) {
-  // Properly parse the URL to get the origin (protocol + domain)
-  let baseUrl = '';
-  try {
-    const urlObj = new URL(url);
-    baseUrl = urlObj.origin; // Gets https://domain.com without trailing slash
-  } catch (e) {
-    // Fallback if URL parsing fails
-    baseUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
-    // Remove any trailing path if it exists in the environment variable
-    if (baseUrl.includes('/calculators')) {
-      baseUrl = baseUrl.split('/calculators')[0];
-    }
-  }
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -46,7 +35,7 @@ export function generate401kSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema with properly formatted absolute URLs
+      // BreadcrumbList schema with properly formatted structure
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -54,19 +43,28 @@ export function generate401kSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': '401(k) Calculator',
-            'item': `${baseUrl}/calculators/401k`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/401k`
+            }
           }
         ]
       },
@@ -145,7 +143,7 @@ export default function FourZeroOneKSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generate401kSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/401k')),
+        __html: JSON.stringify(generate401kSchema('https://calculatorhub.space/calculators/401k')),
       }}
     />
   );
