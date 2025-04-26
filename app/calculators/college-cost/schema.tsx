@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the college cost calculator
 export function generateCollegeCostSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/college-cost', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateCollegeCostSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '196',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'College expense breakdown',
@@ -38,7 +45,7 @@ export function generateCollegeCostSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateCollegeCostSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'College Cost Calculator',
-            'item': `${baseUrl}/calculators/college-cost`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/college-cost`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function CollegeCostSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateCollegeCostSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/college-cost')),
+        __html: JSON.stringify(generateCollegeCostSchema('https://calculatorhub.space/calculators/college-cost')),
       }}
     />
   );

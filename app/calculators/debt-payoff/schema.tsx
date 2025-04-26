@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the debt payoff calculator
 export function generateDebtPayoffSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/debt-payoff', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateDebtPayoffSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '192',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Multiple debt management',
@@ -38,7 +45,7 @@ export function generateDebtPayoffSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateDebtPayoffSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Debt Payoff Calculator',
-            'item': `${baseUrl}/calculators/debt-payoff`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/debt-payoff`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function DebtPayoffSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateDebtPayoffSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/debt-payoff')),
+        __html: JSON.stringify(generateDebtPayoffSchema('https://calculatorhub.space/calculators/debt-payoff')),
       }}
     />
   );

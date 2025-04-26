@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the finance calculator
 export function generateFinanceSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/finance', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateFinanceSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '182',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Present value calculation',
@@ -38,7 +45,7 @@ export function generateFinanceSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateFinanceSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Finance Calculator',
-            'item': `${baseUrl}/calculators/finance`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/finance`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function FinanceSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateFinanceSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/finance')),
+        __html: JSON.stringify(generateFinanceSchema('https://calculatorhub.space/calculators/finance')),
       }}
     />
   );

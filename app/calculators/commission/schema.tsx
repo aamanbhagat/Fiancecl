@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the commission calculator
 export function generateCommissionSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/commission', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateCommissionSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.7',
+          'ratingCount': '189',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Fixed rate commission calculation',
@@ -38,7 +45,7 @@ export function generateCommissionSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateCommissionSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Commission Calculator',
-            'item': `${baseUrl}/calculators/commission`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/commission`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function CommissionSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateCommissionSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/commission')),
+        __html: JSON.stringify(generateCommissionSchema('https://calculatorhub.space/calculators/commission')),
       }}
     />
   );

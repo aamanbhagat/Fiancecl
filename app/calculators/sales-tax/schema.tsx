@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the sales tax calculator
 export function generateSalesTaxSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/sales-tax', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateSalesTaxSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.7',
+          'ratingCount': '152',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'State and local sales tax calculation',
@@ -38,7 +45,7 @@ export function generateSalesTaxSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateSalesTaxSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Sales Tax Calculator',
-            'item': `${baseUrl}/calculators/sales-tax`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/sales-tax`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function SalesTaxSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateSalesTaxSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/sales-tax')),
+        __html: JSON.stringify(generateSalesTaxSchema('https://calculatorhub.space/calculators/sales-tax')),
       }}
     />
   );

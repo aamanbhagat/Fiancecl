@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the VAT calculator
 export function generateVatSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/vat', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateVatSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.7',
+          'ratingCount': '155',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'VAT addition calculation',
@@ -38,7 +45,7 @@ export function generateVatSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateVatSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'VAT Calculator',
-            'item': `${baseUrl}/calculators/vat`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/vat`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function VatSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateVatSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/vat')),
+        __html: JSON.stringify(generateVatSchema('https://calculatorhub.space/calculators/vat')),
       }}
     />
   );

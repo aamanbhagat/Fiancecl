@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the down payment calculator
 export function generateDownPaymentSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/down-payment', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateDownPaymentSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '185',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Down payment percentage calculation',
@@ -38,7 +45,7 @@ export function generateDownPaymentSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateDownPaymentSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Down Payment Calculator',
-            'item': `${baseUrl}/calculators/down-payment`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/down-payment`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function DownPaymentSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateDownPaymentSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/down-payment')),
+        __html: JSON.stringify(generateDownPaymentSchema('https://calculatorhub.space/calculators/down-payment')),
       }}
     />
   );

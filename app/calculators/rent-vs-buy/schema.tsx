@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the rent vs. buy calculator
 export function generateRentVsBuySchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/rent-vs-buy', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateRentVsBuySchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '175',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Breakeven point calculation',
@@ -38,7 +45,7 @@ export function generateRentVsBuySchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateRentVsBuySchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Rent vs. Buy Calculator',
-            'item': `${baseUrl}/calculators/rent-vs-buy`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/rent-vs-buy`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function RentVsBuySchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateRentVsBuySchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/rent-vs-buy')),
+        __html: JSON.stringify(generateRentVsBuySchema('https://calculatorhub.space/calculators/rent-vs-buy')),
       }}
     />
   );

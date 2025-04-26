@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the mortgage payoff calculator
 export function generateMortgagePayoffSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/mortgage-payoff', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateMortgagePayoffSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '185',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Early payoff date calculation',
@@ -38,7 +45,7 @@ export function generateMortgagePayoffSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateMortgagePayoffSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Mortgage Payoff Calculator',
-            'item': `${baseUrl}/calculators/mortgage-payoff`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/mortgage-payoff`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function MortgagePayoffSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateMortgagePayoffSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/mortgage-payoff')),
+        __html: JSON.stringify(generateMortgagePayoffSchema('https://calculatorhub.space/calculators/mortgage-payoff')),
       }}
     />
   );

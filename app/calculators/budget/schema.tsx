@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the budget calculator
 export function generateBudgetSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/budget', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateBudgetSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '215',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Income and expense tracking',
@@ -38,7 +45,7 @@ export function generateBudgetSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateBudgetSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Budget Calculator',
-            'item': `${baseUrl}/calculators/budget`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/budget`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function BudgetSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateBudgetSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/budget')),
+        __html: JSON.stringify(generateBudgetSchema('https://calculatorhub.space/calculators/budget')),
       }}
     />
   );

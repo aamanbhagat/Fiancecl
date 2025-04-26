@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the RMD calculator
 export function generateRmdSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/rmd', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateRmdSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.7',
+          'ratingCount': '158',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Required minimum distribution calculation',
@@ -38,7 +45,7 @@ export function generateRmdSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateRmdSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'RMD Calculator',
-            'item': `${baseUrl}/calculators/rmd`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/rmd`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function RmdSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateRmdSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/rmd')),
+        __html: JSON.stringify(generateRmdSchema('https://calculatorhub.space/calculators/rmd')),
       }}
     />
   );

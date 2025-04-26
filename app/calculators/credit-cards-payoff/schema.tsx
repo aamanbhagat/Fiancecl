@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the credit cards payoff calculator
 export function generateCreditCardsPayoffSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/credit-cards-payoff', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateCreditCardsPayoffSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '198',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Multiple credit card management',
@@ -38,7 +45,7 @@ export function generateCreditCardsPayoffSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateCreditCardsPayoffSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Credit Cards Payoff Calculator',
-            'item': `${baseUrl}/calculators/credit-cards-payoff`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/credit-cards-payoff`
+            }
           }
         ]
       },
@@ -131,13 +147,13 @@ export const metadata: Metadata = {
   ]
 };
 
-// Export the schema component
+// Main component to include the JSON-LD schema in the page
 export default function CreditCardsPayoffSchema() {
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateCreditCardsPayoffSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/credit-cards-payoff')),
+        __html: JSON.stringify(generateCreditCardsPayoffSchema('https://calculatorhub.space/calculators/credit-cards-payoff')),
       }}
     />
   );

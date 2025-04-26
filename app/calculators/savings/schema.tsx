@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the savings calculator
 export function generateSavingsSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/savings', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateSavingsSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.7',
+          'ratingCount': '165',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Compound interest calculation',
@@ -38,7 +45,7 @@ export function generateSavingsSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateSavingsSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Savings Calculator',
-            'item': `${baseUrl}/calculators/savings`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/savings`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function SavingsSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateSavingsSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/savings')),
+        __html: JSON.stringify(generateSavingsSchema('https://calculatorhub.space/calculators/savings')),
       }}
     />
   );

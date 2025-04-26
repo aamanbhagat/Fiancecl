@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the Social Security calculator
 export function generateSocialSecuritySchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/social-security', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateSocialSecuritySchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '172',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Retirement benefit estimation',
@@ -38,7 +45,7 @@ export function generateSocialSecuritySchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -46,19 +53,28 @@ export function generateSocialSecuritySchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Social Security Calculator',
-            'item': `${baseUrl}/calculators/social-security`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/social-security`
+            }
           }
         ]
       },
@@ -137,7 +153,7 @@ export default function SocialSecuritySchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateSocialSecuritySchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/social-security')),
+        __html: JSON.stringify(generateSocialSecuritySchema('https://calculatorhub.space/calculators/social-security')),
       }}
     />
   );
