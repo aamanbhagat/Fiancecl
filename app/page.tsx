@@ -6,7 +6,7 @@ import {
   TrendingUp, BarChart3, BarChart4, BarChart, Wallet, Clock, Calendar, 
   BadgeDollarSign, Briefcase, ShieldCheck, CircleDollarSign, CreditCard, 
   Divide, Minus, Plus, Repeat, GraduationCap, School, Receipt, Trash2, 
-  ShoppingCart, Tag, Store, FileSpreadsheet, Users
+  ShoppingCart, Tag, Store, FileSpreadsheet, Users, Activity, Weight
 } from "lucide-react";
 
 import { SiteHeader } from "@/components/site-header";
@@ -450,6 +450,18 @@ export default function HomePage() {
           description: "Calculate interest earned or paid over any time period.",
           icon: DollarSign,
           href: "/calculators/interest",
+        },
+      ],
+    },
+    {
+      id: "health",
+      name: "Health & Wellness",
+      calculators: [
+        {
+          title: "BMI Calculator",
+          description: "Calculate your Body Mass Index to assess if your weight is healthy for your height.",
+          icon: Weight,
+          href: "/calculators/bmi",
         },
       ],
     },

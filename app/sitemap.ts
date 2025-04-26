@@ -66,6 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'commission',
     'apr',
     'interest',
+    'bmi',
   ]
 
   // Static pages with absolute URLs
