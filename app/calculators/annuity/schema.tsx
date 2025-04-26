@@ -2,8 +2,19 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the annuity calculator
 export function generateAnnuitySchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/annuity', '');
+  // Properly parse the URL to get the origin (protocol + domain)
+  let baseUrl = '';
+  try {
+    const urlObj = new URL(url);
+    baseUrl = urlObj.origin; // Gets https://domain.com without trailing slash
+  } catch (e) {
+    // Fallback if URL parsing fails
+    baseUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
+    // Remove any trailing path if it exists in the environment variable
+    if (baseUrl.includes('/calculators')) {
+      baseUrl = baseUrl.split('/calculators')[0];
+    }
+  }
   
   return {
     '@context': 'https://schema.org',
