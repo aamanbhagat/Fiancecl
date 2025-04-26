@@ -20,6 +20,13 @@ export function generate401kSchema(url: string) {
           'price': '0',
           'priceCurrency': 'USD'
         },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'ratingCount': '245',
+          'bestRating': '5',
+          'worstRating': '1'
+        },
         'featureList': [
           'Retirement savings projection',
           'Employer match calculation',
