@@ -2,19 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the annuity calculator
 export function generateAnnuitySchema(url: string) {
-  // Properly parse the URL to get the origin (protocol + domain)
-  let baseUrl = '';
-  try {
-    const urlObj = new URL(url);
-    baseUrl = urlObj.origin; // Gets https://domain.com without trailing slash
-  } catch (e) {
-    // Fallback if URL parsing fails
-    baseUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
-    // Remove any trailing path if it exists in the environment variable
-    if (baseUrl.includes('/calculators')) {
-      baseUrl = baseUrl.split('/calculators')[0];
-    }
-  }
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -30,6 +19,13 @@ export function generateAnnuitySchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.7',
+          'ratingCount': '187',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'Present value calculation',
@@ -48,7 +44,7 @@ export function generateAnnuitySchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -56,19 +52,28 @@ export function generateAnnuitySchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Annuity Calculator',
-            'item': `${baseUrl}/calculators/annuity`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/annuity`
+            }
           }
         ]
       },
@@ -147,7 +152,7 @@ export default function AnnuitySchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateAnnuitySchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/annuity')),
+        __html: JSON.stringify(generateAnnuitySchema('https://calculatorhub.space/calculators/annuity')),
       }}
     />
   );

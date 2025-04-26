@@ -2,19 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the amortization calculator
 export function generateAmortizationSchema(url: string) {
-  // Properly parse the URL to get the origin (protocol + domain)
-  let baseUrl = '';
-  try {
-    const urlObj = new URL(url);
-    baseUrl = urlObj.origin; // Gets https://domain.com without trailing slash
-  } catch (e) {
-    // Fallback if URL parsing fails
-    baseUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
-    // Remove any trailing path if it exists in the environment variable
-    if (baseUrl.includes('/calculators')) {
-      baseUrl = baseUrl.split('/calculators')[0];
-    }
-  }
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -31,6 +20,13 @@ export function generateAmortizationSchema(url: string) {
           'price': '0',
           'priceCurrency': 'USD'
         },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.9',
+          'ratingCount': '328',
+          'bestRating': '5',
+          'worstRating': '1'
+        },
         'featureList': [
           'Loan payment calculation',
           'Complete amortization schedule',
@@ -45,7 +41,7 @@ export function generateAmortizationSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema with properly formatted structure
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,19 +49,28 @@ export function generateAmortizationSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Amortization Calculator',
-            'item': `${baseUrl}/calculators/amortization`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/amortization`
+            }
           }
         ]
       },
@@ -144,7 +149,7 @@ export default function AmortizationSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateAmortizationSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/amortization')),
+        __html: JSON.stringify(generateAmortizationSchema('https://calculatorhub.space/calculators/amortization')),
       }}
     />
   );

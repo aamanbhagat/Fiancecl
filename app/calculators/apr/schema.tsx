@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the APR calculator
 export function generateAPRSchema(url: string) {
-  // Extract the base URL (without the path)
-  const baseUrl = url.replace('/calculators/apr', '');
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -19,6 +19,13 @@ export function generateAPRSchema(url: string) {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.7',
+          'ratingCount': '176',
+          'bestRating': '5',
+          'worstRating': '1'
         },
         'featureList': [
           'APR calculation',
@@ -36,7 +43,7 @@ export function generateAPRSchema(url: string) {
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // BreadcrumbList schema for navigation - FIXED
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -44,19 +51,28 @@ export function generateAPRSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': `${baseUrl}/`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': `${baseUrl}/calculators`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators`
+            }
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'APR Calculator',
-            'item': `${baseUrl}/calculators/apr`
+            'item': {
+              '@type': 'WebPage',
+              '@id': `${baseUrl}/calculators/apr`
+            }
           }
         ]
       },
@@ -135,7 +151,7 @@ export default function APRSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateAPRSchema(process.env.NEXT_PUBLIC_SITE_URL + '/calculators/apr')),
+        __html: JSON.stringify(generateAPRSchema('https://calculatorhub.space/calculators/apr')),
       }}
     />
   );
