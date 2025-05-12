@@ -28,13 +28,21 @@ export function generate401kSchema(url: string) {
           'Interactive charts and visualizations',
           'Inflation adjustment', 
           'Contribution strategy analysis',
-          'Export to PDF'
+          'Tax savings estimation',
+          'Catch-up contribution planning',
+          'PDF export functionality',
+          'Multiple scenario comparison'
         ],
         'potentialAction': {
           '@type': 'CalculateAction',
           'target': {
             '@type': 'EntryPoint',
-            'urlTemplate': `${baseUrl}/calculators/401k`
+            'urlTemplate': `${baseUrl}/calculators/401k`,
+            'description': 'Calculate 401(k) retirement savings and employer match benefits'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': '401(k) Retirement Analysis'
           }
         }
       },
@@ -112,4 +120,34 @@ export function generate401kSchema(url: string) {
       }
     ]
   };
+}
+
+// Export metadata for the page
+export const metadata: Metadata = {
+  title: '401(k) Calculator | Retirement Savings Estimator',
+  description: 'Project your retirement savings with our comprehensive 401(k) calculator, including employer matching contributions and investment growth projections.',
+  keywords: [
+    '401k calculator',
+    'retirement savings calculator',
+    'employer match calculator',
+    'retirement planning tool',
+    '401k contribution calculator',
+    'retirement investment calculator',
+    'tax-advantaged savings calculator',
+    'retirement growth calculator',
+    '401k fees calculator',
+    'catch-up contribution calculator'
+  ]
+};
+
+// Main component to include the JSON-LD schema in the page
+export default function Schema401k() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(generate401kSchema('https://calculatorhub.space/calculators/401k')),
+      }}
+    />
+  );
 }
