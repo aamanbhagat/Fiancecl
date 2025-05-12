@@ -8,24 +8,18 @@ export function generateVaMortgageSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'VA Mortgage Calculator',
         'description': 'Calculate VA loan payments, estimate funding fees, and analyze VA mortgage benefits with our comprehensive VA home loan calculator.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.8',
-          'ratingCount': '168',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'VA loan payment calculation',
@@ -39,13 +33,21 @@ export function generateVaMortgageSchema(url: string) {
           'PDF export functionality',
           'Multiple scenario comparison'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/va-mortgage-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/va-mortgage`,
+            'description': 'Calculate VA loan payments and estimate funding fees'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'VA Mortgage Analysis'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateVaMortgageSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'VA Mortgage Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/va-mortgage`
-            }
+            'item': `${baseUrl}/calculators/va-mortgage`
           }
         ]
       },

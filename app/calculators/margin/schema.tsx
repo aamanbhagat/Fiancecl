@@ -8,24 +8,18 @@ export function generateMarginSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Margin Calculator',
         'description': 'Calculate profit margins, markups, selling prices, and break-even points for your business with our comprehensive margin calculator.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.7',
-          'ratingCount': '162',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Gross margin calculation',
@@ -39,13 +33,21 @@ export function generateMarginSchema(url: string) {
           'PDF export functionality',
           'Industry margin benchmarking'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/margin-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/margin`,
+            'description': 'Calculate profit margins and markups'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Profit Margin Analysis'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateMarginSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Margin Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/margin`
-            }
+            'item': `${baseUrl}/calculators/margin`
           }
         ]
       },

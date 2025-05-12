@@ -8,24 +8,18 @@ export function generateBudgetSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Budget Calculator',
         'description': 'Track your income, expenses, and savings to create a balanced budget that helps you achieve your financial goals.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.8',
-          'ratingCount': '215',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Income and expense tracking',
@@ -39,13 +33,21 @@ export function generateBudgetSchema(url: string) {
           'PDF export functionality',
           'Custom category creation'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/budget-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/budget`,
+            'description': 'Create and analyze your personal budget'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Personal Budget'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateBudgetSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Budget Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/budget`
-            }
+            'item': `${baseUrl}/calculators/budget`
           }
         ]
       },

@@ -8,24 +8,18 @@ export function generateMortgagePayoffSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Mortgage Payoff Calculator',
         'description': 'Calculate how extra payments can help you pay off your mortgage early and save thousands in interest with our mortgage payoff calculator.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.8',
-          'ratingCount': '185',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Early payoff date calculation',
@@ -39,13 +33,21 @@ export function generateMortgagePayoffSchema(url: string) {
           'PDF export functionality',
           'Multiple payoff strategy comparison'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/mortgage-payoff-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/mortgage-payoff`,
+            'description': 'Calculate how extra payments can help you pay off your mortgage early'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Mortgage Payoff Analysis'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateMortgagePayoffSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Mortgage Payoff Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/mortgage-payoff`
-            }
+            'item': `${baseUrl}/calculators/mortgage-payoff`
           }
         ]
       },

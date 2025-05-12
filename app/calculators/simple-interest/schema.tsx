@@ -8,24 +8,18 @@ export function generateSimpleInterestSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Simple Interest Calculator',
         'description': 'Calculate simple interest on loans, investments, and savings with our easy-to-use calculator that shows principal, rate, time, and total interest.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.7',
-          'ratingCount': '160',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Simple interest calculation',
@@ -39,13 +33,21 @@ export function generateSimpleInterestSchema(url: string) {
           'PDF export functionality',
           'Simple vs compound interest comparison'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/simple-interest-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/simple-interest`,
+            'description': 'Calculate simple interest on loans, investments, and savings'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Simple Interest Analysis'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateSimpleInterestSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Simple Interest Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/simple-interest`
-            }
+            'item': `${baseUrl}/calculators/simple-interest`
           }
         ]
       },

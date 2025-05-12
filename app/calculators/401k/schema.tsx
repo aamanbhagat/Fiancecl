@@ -8,24 +8,18 @@ export function generate401kSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Calculator tool schema
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': '401(k) Calculator',
         'description': 'Project your retirement savings with our comprehensive 401(k) calculator, including employer matching contributions and investment growth projections.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.8',
-          'ratingCount': '245',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Retirement savings projection',
@@ -36,9 +30,12 @@ export function generate401kSchema(url: string) {
           'Contribution strategy analysis',
           'Export to PDF'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/401k-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/401k`
+          }
         }
       },
       
@@ -50,33 +47,24 @@ export function generate401kSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': '401(k) Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/401k`
-            }
+            'item': `${baseUrl}/calculators/401k`
           }
         ]
       },
       
-      // FAQPage schema for the informational content
+      // FAQPage schema for the informational content - this is valuable for SEO
       {
         '@type': 'FAQPage',
         'mainEntity': [
@@ -124,34 +112,4 @@ export function generate401kSchema(url: string) {
       }
     ]
   };
-}
-
-// Export metadata for the page
-export const metadata: Metadata = {
-  title: '401(k) Calculator | Project Your Retirement Savings',
-  description: 'Use our free 401(k) calculator to estimate your retirement savings growth, including employer matching and investment returns over time.',
-  keywords: [
-    '401k calculator',
-    'retirement calculator',
-    'retirement planning',
-    'employer match calculator',
-    '401k projections',
-    'retirement savings calculator',
-    'compound interest calculator',
-    'investment growth calculator',
-    'catch up contributions',
-    'retirement planning tool'
-  ]
-};
-
-// Main component to include the JSON-LD schema in the page
-export default function FourZeroOneKSchema() {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generate401kSchema('https://calculatorhub.space/calculators/401k')),
-      }}
-    />
-  );
 }

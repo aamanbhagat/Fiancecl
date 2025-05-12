@@ -8,24 +8,18 @@ export function generateAmortizationSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Calculator tool schema
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Amortization Calculator',
         'description': 'Calculate loan payments, view amortization schedules, and analyze different loan scenarios with our advanced calculator.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.9',
-          'ratingCount': '328',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Loan payment calculation',
@@ -35,9 +29,17 @@ export function generateAmortizationSchema(url: string) {
           'Adjustable rate modeling',
           'Export to CSV and PDF'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/amortization-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/amortization`,
+            'description': 'Calculate loan payments and generate amortization schedules'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Loan Amortization'
+          }
         }
       },
       
@@ -49,28 +51,19 @@ export function generateAmortizationSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Amortization Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/amortization`
-            }
+            'item': `${baseUrl}/calculators/amortization`
           }
         ]
       },

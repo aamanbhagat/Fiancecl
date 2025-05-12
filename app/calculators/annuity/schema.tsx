@@ -8,24 +8,18 @@ export function generateAnnuitySchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Calculator tool schema
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Annuity Calculator',
         'description': 'Calculate the present and future values of your annuity payments, and understand how your money grows over time with different payment and interest scenarios.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.7',
-          'ratingCount': '187',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Present value calculation',
@@ -38,13 +32,21 @@ export function generateAnnuitySchema(url: string) {
           'Payment schedule breakdown',
           'PDF export functionality'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/annuity-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/annuity`,
+            'description': 'Calculate annuity present and future values'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Annuity'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // BreadcrumbList schema with simplified structure
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -52,28 +54,19 @@ export function generateAnnuitySchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Annuity Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/annuity`
-            }
+            'item': `${baseUrl}/calculators/annuity`
           }
         ]
       },

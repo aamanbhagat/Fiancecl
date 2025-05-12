@@ -8,24 +8,18 @@ export function generateBmiSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'BMI Calculator',
         'description': 'Calculate your Body Mass Index (BMI) to assess if your weight is healthy for your height, and understand what your BMI results mean.',
         'applicationCategory': 'HealthApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.7',
-          'ratingCount': '210',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'BMI calculation in metric and imperial units',
@@ -39,13 +33,21 @@ export function generateBmiSchema(url: string) {
           'Mobile-friendly interface',
           'PDF report generation'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/bmi-calculator-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/bmi`,
+            'description': 'Calculate your Body Mass Index (BMI)'
+          },
+          'object': {
+            '@type': 'HealthTopic',
+            'name': 'Body Mass Index'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateBmiSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'BMI Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/bmi`
-            }
+            'item': `${baseUrl}/calculators/bmi`
           }
         ]
       },

@@ -8,24 +8,18 @@ export function generateCurrencyConverterSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Currency Converter Calculator',
         'description': 'Convert between different currencies with real-time exchange rates, historical data, and customizable amount options.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.8',
-          'ratingCount': '190',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Real-time currency conversion',
@@ -39,13 +33,21 @@ export function generateCurrencyConverterSchema(url: string) {
           'PDF export functionality',
           'Currency exchange notifications'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/currency-converter-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/currency-converter`,
+            'description': 'Convert between different currencies with live rates'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Currency Exchange'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateCurrencyConverterSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Currency Converter',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/currency-converter`
-            }
+            'item': `${baseUrl}/calculators/currency-converter`
           }
         ]
       },

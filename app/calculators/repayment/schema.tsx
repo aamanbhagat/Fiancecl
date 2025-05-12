@@ -8,24 +8,18 @@ export function generateRepaymentSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Loan Repayment Calculator',
         'description': 'Calculate loan payoff timelines, compare different repayment strategies, and analyze the impact of extra payments with our comprehensive repayment calculator.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.7',
-          'ratingCount': '162',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Loan payoff timeline calculation',
@@ -39,13 +33,21 @@ export function generateRepaymentSchema(url: string) {
           'PDF export functionality',
           'Payment frequency optimization'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/repayment-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/repayment`,
+            'description': 'Calculate loan payoff timelines and repayment strategies'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Loan Repayment Analysis'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateRepaymentSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Repayment Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/repayment`
-            }
+            'item': `${baseUrl}/calculators/repayment`
           }
         ]
       },
@@ -131,19 +124,19 @@ export function generateRepaymentSchema(url: string) {
 
 // Export metadata for the page
 export const metadata: Metadata = {
-  title: 'Loan Repayment Calculator | Debt Payoff & Strategy Comparison',
+  title: 'Loan Repayment Calculator | Debt Payoff Strategy Tool',
   description: 'Calculate loan payoff timelines, compare different repayment strategies, and analyze the impact of extra payments with our comprehensive repayment calculator.',
   keywords: [
     'loan repayment calculator',
     'debt payoff calculator',
     'debt snowball calculator',
     'debt avalanche calculator',
-    'loan payoff timeline',
     'extra payment calculator',
+    'early loan payoff calculator',
     'debt consolidation calculator',
     'interest savings calculator',
-    'multiple loan comparison',
-    'early payoff strategies'
+    'loan comparison tool',
+    'amortization calculator'
   ]
 };
 

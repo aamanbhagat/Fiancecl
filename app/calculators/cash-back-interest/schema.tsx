@@ -8,24 +8,18 @@ export function generateCashBackInterestSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Cash Back vs. Low Interest Calculator',
         'description': 'Compare dealer incentives to find whether taking a cash rebate or opting for low APR financing will save you more money when purchasing a vehicle.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.8',
-          'ratingCount': '194',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Cash rebate vs. low APR comparison',
@@ -39,13 +33,21 @@ export function generateCashBackInterestSchema(url: string) {
           'PDF export functionality',
           'Customizable term scenarios'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/cash-back-interest-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/cash-back-interest`,
+            'description': 'Compare cash rebate and low interest financing options'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Auto Financing Options'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateCashBackInterestSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Cash Back vs. Low Interest Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/cash-back-interest`
-            }
+            'item': `${baseUrl}/calculators/cash-back-interest`
           }
         ]
       },

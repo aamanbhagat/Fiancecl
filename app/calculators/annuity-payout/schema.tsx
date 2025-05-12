@@ -8,24 +8,18 @@ export function generateAnnuityPayoutSchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Annuity Payout Calculator',
         'description': 'Calculate how much regular income you can receive from your retirement savings or investment portfolio using our comprehensive annuity payout calculator.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.8',
-          'ratingCount': '205',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Lump sum to income conversion',
@@ -38,13 +32,21 @@ export function generateAnnuityPayoutSchema(url: string) {
           'Balance projection over time',
           'PDF export functionality'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/annuity-payout-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/annuity-payout`,
+            'description': 'Calculate how much income you can receive from your annuity'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Annuity Payout'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -52,33 +54,24 @@ export function generateAnnuityPayoutSchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Annuity Payout Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/annuity-payout`
-            }
+            'item': `${baseUrl}/calculators/annuity-payout`
           }
         ]
       },
       
-      // FAQPage schema for the informational content
+      // FAQPage schema for the informational content (keeping this as it's valuable)
       {
         '@type': 'FAQPage',
         'mainEntity': [

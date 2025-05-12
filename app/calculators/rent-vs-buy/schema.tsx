@@ -8,24 +8,18 @@ export function generateRentVsBuySchema(url: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // WebApplication schema for the calculator itself
+      // Changed to SoftwareApplication with appropriate subcategory
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         'name': 'Rent vs. Buy Calculator',
         'description': 'Compare the financial implications of renting versus buying a home with our comprehensive calculator that analyzes costs, tax benefits, and long-term financial outcomes.',
         'applicationCategory': 'FinanceApplication',
+        'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
         'offers': {
           '@type': 'Offer',
           'price': '0',
           'priceCurrency': 'USD'
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': '4.8',
-          'ratingCount': '175',
-          'bestRating': '5',
-          'worstRating': '1'
         },
         'featureList': [
           'Breakeven point calculation',
@@ -39,13 +33,21 @@ export function generateRentVsBuySchema(url: string) {
           'PDF export functionality',
           'Multiple scenario modeling'
         ],
-        'screenshot': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}/images/calculators/rent-vs-buy-screenshot.jpg`
+        'potentialAction': {
+          '@type': 'CalculateAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${baseUrl}/calculators/rent-vs-buy`,
+            'description': 'Compare the financial implications of renting versus buying a home'
+          },
+          'object': {
+            '@type': 'FinancialProduct',
+            'name': 'Rent vs. Buy Analysis'
+          }
         }
       },
       
-      // BreadcrumbList schema for navigation - FIXED
+      // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -53,28 +55,19 @@ export function generateRentVsBuySchema(url: string) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/`
-            }
+            'item': `${baseUrl}/`
           },
           {
             '@type': 'ListItem',
             'position': 2,
             'name': 'Calculators',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators`
-            }
+            'item': `${baseUrl}/calculators`
           },
           {
             '@type': 'ListItem',
             'position': 3,
             'name': 'Rent vs. Buy Calculator',
-            'item': {
-              '@type': 'WebPage',
-              '@id': `${baseUrl}/calculators/rent-vs-buy`
-            }
+            'item': `${baseUrl}/calculators/rent-vs-buy`
           }
         ]
       },
