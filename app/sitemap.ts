@@ -67,6 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'apr',
     'interest',
     'bmi',
+    'temperature',
   ]
 
   // Static pages with absolute URLs
