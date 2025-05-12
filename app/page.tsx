@@ -6,7 +6,7 @@ import {
   TrendingUp, BarChart3, BarChart4, BarChart, Wallet, Clock, Calendar, 
   BadgeDollarSign, Briefcase, ShieldCheck, CircleDollarSign, CreditCard, 
   Divide, Minus, Plus, Repeat, GraduationCap, School, Receipt, Trash2, 
-  ShoppingCart, Tag, Store, FileSpreadsheet, Users, Activity, Weight
+  ShoppingCart, Tag, Store, FileSpreadsheet, Users, Activity, Weight, Thermometer
 } from "lucide-react";
 
 import { SiteHeader } from "@/components/site-header";
@@ -462,6 +462,12 @@ export default function HomePage() {
           description: "Calculate your Body Mass Index to assess if your weight is healthy for your height.",
           icon: Weight,
           href: "/calculators/bmi",
+        },
+        {
+          title: "Temperature Converter",
+          description: "Convert between Fahrenheit, Celsius, and Kelvin temperature scales.",
+          icon: Thermometer,
+          href: "/calculators/temperature",
         },
       ],
     },
