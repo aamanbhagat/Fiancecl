@@ -94,8 +94,12 @@ export default function RootLayout({
             gtag('config', 'G-E225715SKV');
           `}
         </Script>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1720101320139769"
-     crossorigin="anonymous"></script>
+        <Script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1720101320139769"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
       </head>
       <body className={inter.className}>
         <ThemeProvider
