@@ -81,6 +81,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://calculatorhub.space" />
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="theme-color" content="#ffffff" />
+        <meta name="google-adsense-account" content="ca-pub-1720101320139769" />
         <Script 
           src="https://www.googletagmanager.com/gtag/js?id=G-E225715SKV"
           strategy="afterInteractive"
@@ -94,12 +95,6 @@ export default function RootLayout({
             gtag('config', 'G-E225715SKV');
           `}
         </Script>
-        <Script 
-          async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1720101320139769"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
       </head>
       <body className={inter.className}>
         <ThemeProvider
