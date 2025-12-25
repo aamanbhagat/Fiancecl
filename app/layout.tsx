@@ -84,6 +84,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="monetag" content="a92aeaf891a963f53dcaba9ad84c9977" />
+        <script src="https://quge5.com/88/tag.min.js" data-zone="196151" async data-cfasync="false"></script>
         <link rel="canonical" href={seoConfig.baseUrl} />
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="theme-color" content="#ffffff" />
