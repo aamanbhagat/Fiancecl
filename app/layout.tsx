@@ -83,8 +83,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="monetag" content="a92aeaf891a963f53dcaba9ad84c9977" />
-        <script src="https://quge5.com/88/tag.min.js" data-zone="196151" async data-cfasync="false"></script>
+        <script type="text/javascript" data-cfasync="false" dangerouslySetInnerHTML={{__html: `(function(){var j=window,h="df08ea6233e6da4532080e50f7149600",l=[["siteId",640+756-270+937*542+4755029],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],g=["d3d3LmNkbjRhZHMuY29tL0RSL2ZKRUhTL3FqcXVlcnkuZ3JheS5taW4uanM=","ZDNnNW92Zm5nanc5YncuY2xvdWRmcm9udC5uZXQveGpxdWVyeS5tYXBhZWwubWluLmpz"],a=-1,w,c,z=function(){clearTimeout(c);a++;if(g[a]&&!(1792703340000<(new Date).getTime()&&1<a)){w=j.document.createElement("script");w.type="text/javascript";w.async=!0;var n=j.document.getElementsByTagName("script")[0];w.src="https://"+atob(g[a]);w.crossOrigin="anonymous";w.onerror=z;w.onload=function(){clearTimeout(c);j[h.slice(0,16)+h.slice(0,16)]||z()};c=setTimeout(z,5E3);n.parentNode.insertBefore(w,n)}};if(!j[h]){try{Object.freeze(j[h]=l)}catch(e){}z()}})();`}} />
         <link rel="canonical" href={seoConfig.baseUrl} />
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="theme-color" content="#ffffff" />
