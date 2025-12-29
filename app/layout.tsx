@@ -2,23 +2,17 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
-import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { seoConfig } from '@/lib/seo-config';
 
-// Lazy load MouseTail - it's not critical for initial render
-const MouseTail = dynamic(() => import('@/components/mouse-tail').then(mod => ({ default: mod.MouseTail })), {
-  ssr: false
-});
-
 const inter = Inter({ 
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional',
   variable: '--font-inter',
   preload: true,
-  fallback: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+  fallback: ['system-ui', 'sans-serif'],
   adjustFontFallback: true
 });
 
@@ -108,15 +102,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         
-        {/* Preload critical fonts */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        
         {/* Critical CSS - Inline above-the-fold styles */}
         <style dangerouslySetInnerHTML={{
           __html: `
@@ -173,7 +158,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MouseTail />
           {children}
           <Analytics />
           <SpeedInsights />

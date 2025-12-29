@@ -18,6 +18,14 @@ const nextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
+  // Optimize production builds
+  productionBrowserSourceMaps: false,
+  // Enable modern JavaScript output for smaller bundles
+  modularizeImports: {
+    'lucide-react': {
+      transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
+    },
+  },
   images: { 
     unoptimized: true, // Required for static export
     formats: ['image/webp'], // Use WebP for better compression
