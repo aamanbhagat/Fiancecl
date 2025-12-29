@@ -7,20 +7,22 @@ const crypto = require('crypto')
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  trailingSlash: true, // Add trailing slashes to all routes
+  trailingSlash: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // Modern build output for better performance
-  swcMinify: true,
+  
+  // Next.js 15 Performance Optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],
     } : false,
   },
-  // Optimize production builds
+  
+  // Production optimizations
   productionBrowserSourceMaps: false,
-  // Enable modern JavaScript output for smaller bundles
+  
+  // Next.js 15: Modular imports for tree-shaking
   modularizeImports: {
     'lucide-react': {
       transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
@@ -39,10 +41,13 @@ const nextConfig = {
       },
     ],
   },
-  // Enable React Server Components
+  
+  // Next.js 15: Enable experimental optimizations
   experimental: {
-    // This helps prevent circular references in server components
-    serverComponentsExternalPackages: [],
+    // Optimize package imports for better performance
+    optimizePackageImports: ['lucide-react', 'recharts', 'chart.js', 'react-chartjs-2'],
+    // Faster memory management
+    webpackMemoryOptimizations: true,
   },
   // Enable module/nomodule build output
   webpack: (config, { dev, isServer }) => {
