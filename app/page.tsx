@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useMemo, useEffect, useState, memo } from "react";
 import { 
   Home, Calculator, Landmark, Coins, Building, DollarSign, PiggyBank, RefreshCw, 
   Percent, Award, Medal, ArrowDown, Scale, Car, Banknote, Truck, LineChart, 
@@ -15,7 +16,6 @@ import { HeroSection } from "@/components/hero-section";
 import { CalculatorCard } from "@/components/calculator-card";
 import { SiteFooter } from "@/components/site-footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 // Lazy load heavy components

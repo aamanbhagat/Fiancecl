@@ -1,6 +1,26 @@
 import Image from "next/image"
+import { memo } from "react"
 
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+
+// Memoize star rating component to prevent re-renders
+const StarRating = memo(function StarRating() {
+  return (
+    <div className="flex" aria-label="5 out of 5 stars">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <svg
+          key={i}
+          className="h-5 w-5 fill-primary"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+        </svg>
+      ))}
+    </div>
+  )
+})
 
 export function TestimonialsSection() {
   return (
@@ -16,21 +36,7 @@ export function TestimonialsSection() {
           <Card className="border-0 bg-background shadow-md">
             <CardHeader className="pb-2">
               <div className="flex items-center gap-2">
-                <div className="flex">
-                  {Array(5)
-                    .fill(null)
-                    .map((_, i) => (
-                      <svg
-                        key={i}
-                        className="h-5 w-5 fill-primary"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                </div>
+                <StarRating />
               </div>
             </CardHeader>
             <CardContent>
@@ -40,11 +46,13 @@ export function TestimonialsSection() {
             </CardContent>
             <CardFooter>
               <div className="flex items-center gap-4">
-                <div className="relative h-10 w-10 overflow-hidden rounded-full">
+                <div className="relative h-10 w-10 overflow-hidden rounded-full bg-muted">
                   <Image
                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
                     alt="Sarah J."
                     fill
+                    sizes="40px"
+                    loading="lazy"
                     className="object-cover"
                   />
                 </div>
@@ -58,21 +66,7 @@ export function TestimonialsSection() {
           <Card className="border-0 bg-background shadow-md">
             <CardHeader className="pb-2">
               <div className="flex items-center gap-2">
-                <div className="flex">
-                  {Array(5)
-                    .fill(null)
-                    .map((_, i) => (
-                      <svg
-                        key={i}
-                        className="h-5 w-5 fill-primary"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                </div>
+                <StarRating />
               </div>
             </CardHeader>
             <CardContent>
@@ -82,11 +76,13 @@ export function TestimonialsSection() {
             </CardContent>
             <CardFooter>
               <div className="flex items-center gap-4">
-                <div className="relative h-10 w-10 overflow-hidden rounded-full">
+                <div className="relative h-10 w-10 overflow-hidden rounded-full bg-muted">
                   <Image
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
                     alt="Michael T."
                     fill
+                    sizes="40px"
+                    loading="lazy"
                     className="object-cover"
                   />
                 </div>
@@ -100,21 +96,7 @@ export function TestimonialsSection() {
           <Card className="border-0 bg-background shadow-md">
             <CardHeader className="pb-2">
               <div className="flex items-center gap-2">
-                <div className="flex">
-                  {Array(5)
-                    .fill(null)
-                    .map((_, i) => (
-                      <svg
-                        key={i}
-                        className="h-5 w-5 fill-primary"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                </div>
+                <StarRating />
               </div>
             </CardHeader>
             <CardContent>
@@ -124,11 +106,13 @@ export function TestimonialsSection() {
             </CardContent>
             <CardFooter>
               <div className="flex items-center gap-4">
-                <div className="relative h-10 w-10 overflow-hidden rounded-full">
+                <div className="relative h-10 w-10 overflow-hidden rounded-full bg-muted">
                   <Image
                     src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
                     alt="Jennifer R."
                     fill
+                    sizes="40px"
+                    loading="lazy"
                     className="object-cover"
                   />
                 </div>

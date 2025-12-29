@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { memo } from "react"
 import { DivideIcon as LucideIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -15,7 +16,7 @@ interface CalculatorCardProps {
   className?: string
 }
 
-export function CalculatorCard({ title, description, icon: Icon, href, className }: CalculatorCardProps) {
+export const CalculatorCard = memo(function CalculatorCard({ title, description, icon: Icon, href, className }: CalculatorCardProps) {
   return (
     <Link href={href} className="block h-full">
       <Card 
@@ -52,4 +53,4 @@ export function CalculatorCard({ title, description, icon: Icon, href, className
       </Card>
     </Link>
   )
-}
+})

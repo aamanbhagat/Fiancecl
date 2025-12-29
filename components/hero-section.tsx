@@ -1,9 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, memo } from "react"
 import { Search } from "@/components/search"
 import { cn } from "@/lib/utils"
-import { Skeleton } from "@/components/ui/skeleton"
+
+// Memoized search placeholder to prevent layout shift
+const SearchPlaceholder = memo(function SearchPlaceholder() {
+  return (
+    <div className="relative w-full">
+      <div className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 bg-muted rounded-full" />
+      <div className="h-9 xl:h-10 w-full rounded-md bg-muted animate-pulse" />
+    </div>
+  )
+})
 
 export function HeroSection() {
   const [isMounted, setIsMounted] = useState(false)
@@ -36,15 +45,7 @@ export function HeroSection() {
             {isMounted ? (
               <Search expandOnFocus={true} />
             ) : (
-              <div className="relative w-full">
-                <div className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2">
-                  <Skeleton className="h-4 w-4 rounded-full" />
-                </div>
-                <Skeleton className="h-9 xl:h-10 w-full rounded-md" />
-                <div className="absolute right-1.5 top-1.5 hidden h-6 xl:flex">
-                  <Skeleton className="h-6 w-10 rounded-md" />
-                </div>
-              </div>
+              <SearchPlaceholder />
             )}
           </div>
         </div>
