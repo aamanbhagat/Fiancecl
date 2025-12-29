@@ -2,18 +2,24 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
-import { MouseTail } from '@/components/mouse-tail';
+import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { seoConfig } from '@/lib/seo-config';
+
+// Lazy load MouseTail - it's not critical for initial render
+const MouseTail = dynamic(() => import('@/components/mouse-tail').then(mod => ({ default: mod.MouseTail })), {
+  ssr: false
+});
 
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
   preload: true,
-  fallback: ['system-ui', 'arial']
+  fallback: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+  adjustFontFallback: true
 });
 
 export const metadata: Metadata = {
@@ -88,16 +94,32 @@ export default function RootLayout({
         <meta name="monetag" content="a92aeaf891a963f53dcaba9ad84c9977" />
         <link rel="canonical" href={seoConfig.baseUrl} />
         <meta name="msapplication-TileColor" content="#2d89ef" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
         <meta name="google-adsense-account" content="ca-pub-1720101320139769" />
+        <meta name="color-scheme" content="dark light" />
         
-        {/* Performance Optimizations */}
+        {/* Performance Optimizations - Preconnect to critical origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        
+        {/* DNS Prefetch for third-party resources */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="https://quge5.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        
+        {/* Critical CSS - Inline above-the-fold styles */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            :root{--background:0 0% 100%;--foreground:0 0% 3.9%}
+            .dark{--background:0 0% 3.9%;--foreground:0 0% 98%}
+            *,::after,::before{box-sizing:border-box;border:0 solid}
+            html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:var(--font-inter),system-ui,sans-serif}
+            body{margin:0;line-height:inherit;background-color:hsl(var(--background));color:hsl(var(--foreground))}
+            .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+          `
+        }} />
         
         {/* Structured Data for Website */}
         <script
@@ -131,32 +153,6 @@ export default function RootLayout({
             })
           }}
         />
-        
-        <Script 
-          src="https://www.googletagmanager.com/gtag/js?id=G-E225715SKV"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-E225715SKV');
-          `}
-        </Script>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1720101320139769"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
-        <Script 
-          src="https://quge5.com/88/tag.min.js" 
-          data-zone="196151" 
-          strategy="lazyOnload"
-          data-cfasync="false"
-        />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider
@@ -170,6 +166,31 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>
+        
+        {/* Defer all third-party scripts to after page load */}
+        <Script 
+          src="https://www.googletagmanager.com/gtag/js?id=G-E225715SKV"
+          strategy="lazyOnload"
+        />
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-E225715SKV', { send_page_view: false });
+            gtag('event', 'page_view', { send_to: 'G-E225715SKV' });
+          `}
+        </Script>
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1720101320139769"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
+        <Script 
+          src="https://quge5.com/88/tag.min.js" 
+          data-zone="196151" 
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
