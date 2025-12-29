@@ -107,7 +107,6 @@ export default function RootLayout({
         {/* DNS Prefetch for third-party resources */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-        <link rel="dns-prefetch" href="https://quge5.com" />
         
         {/* Critical CSS - Inline above-the-fold styles */}
         <style dangerouslySetInnerHTML={{
@@ -184,11 +183,6 @@ export default function RootLayout({
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1720101320139769"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
-        <Script 
-          src="https://quge5.com/88/tag.min.js" 
-          data-zone="196151" 
           strategy="lazyOnload"
         />
       </body>

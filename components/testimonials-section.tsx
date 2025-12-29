@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 // Memoize star rating component to prevent re-renders
 const StarRating = memo(function StarRating() {
   return (
-    <div className="flex" aria-label="5 out of 5 stars">
+    <div className="flex" role="img" aria-label="5 out of 5 stars">
       {[1, 2, 3, 4, 5].map((i) => (
         <svg
           key={i}
