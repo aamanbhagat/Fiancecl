@@ -93,7 +93,7 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/calculators" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+                <Link href="/#calculators" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
                   <Calculator className="h-4 w-4" aria-hidden="true" />
                   <span>View All Calculators</span>
                 </Link>

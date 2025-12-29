@@ -88,7 +88,7 @@ export function SiteHeader() {
               Home
             </Link>
             <Link
-              href="/calculators"
+              href="/#calculators"
               className="transition-colors hover:text-foreground/80 px-2 py-1 rounded-md hover:bg-primary/10 text-sm"
             >
               Calculators
