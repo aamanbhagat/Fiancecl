@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the payment calculator
 export function generatePaymentSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function PaymentSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generatePaymentSchema('https://calculatorshub.store/calculators/payment')),
+        __html: JSON.stringify(generatePaymentSchema('https://calculatorhub.space/calculators/payment')),
       }}
     />
   );

@@ -1,6 +1,6 @@
 // SEO Configuration for CalculatorHub
 export const seoConfig = {
-  baseUrl: 'https://calculatorshub.store',
+  baseUrl: 'https://calculatorhub.space',
   siteName: 'CalculatorHub',
   defaultTitle: 'CalculatorHub - Free Online Financial Calculators',
   defaultDescription: 'Access 60+ free online financial calculators for mortgage, amortization, investment, loans, taxes, and more. Make informed financial decisions with our easy-to-use tools.',

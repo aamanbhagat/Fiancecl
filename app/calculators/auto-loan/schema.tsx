@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the auto loan calculator
 export function generateAutoLoanSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function AutoLoanSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateAutoLoanSchema('https://calculatorshub.store/calculators/auto-loan')),
+        __html: JSON.stringify(generateAutoLoanSchema('https://calculatorhub.space/calculators/auto-loan')),
       }}
     />
   );

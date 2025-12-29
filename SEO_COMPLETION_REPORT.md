@@ -2,14 +2,14 @@
 
 ## 🎯 Mission Accomplished
 
-All domain references have been successfully changed from `calculatorhub.space` to `calculatorshub.store` and comprehensive SEO best practices have been implemented across the CalculatorHub website.
+All domain references have been successfully changed from `calculatorhub.space` to `calculatorhub.space` and comprehensive SEO best practices have been implemented across the CalculatorHub website.
 
 ## 📊 Changes Summary
 
 ### Domain Migration
 - **Files Updated**: 132+ files
 - **Old Domain**: calculatorhub.space
-- **New Domain**: calculatorshub.store
+- **New Domain**: calculatorhub.space
 - **Status**: ✅ 100% Complete
 
 ### SEO Infrastructure Created
@@ -162,7 +162,7 @@ export const metadata = generateCalculatorMetadata({
 
 The CalculatorHub website is now equipped with enterprise-level SEO optimization:
 
-- **Complete domain migration** from calculatorhub.space to calculatorshub.store
+- **Complete domain migration** from calculatorhub.space to calculatorhub.space
 - **Comprehensive SEO infrastructure** with modern best practices
 - **Scalable metadata system** for easy maintenance
 - **Rich structured data** for enhanced search results

@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the mortgage payoff calculator
 export function generateMortgagePayoffSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function MortgagePayoffSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateMortgagePayoffSchema('https://calculatorshub.store/calculators/mortgage-payoff')),
+        __html: JSON.stringify(generateMortgagePayoffSchema('https://calculatorhub.space/calculators/mortgage-payoff')),
       }}
     />
   );

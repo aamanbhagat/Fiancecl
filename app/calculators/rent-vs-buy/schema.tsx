@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the rent vs. buy calculator
 export function generateRentVsBuySchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function RentVsBuySchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateRentVsBuySchema('https://calculatorshub.store/calculators/rent-vs-buy')),
+        __html: JSON.stringify(generateRentVsBuySchema('https://calculatorhub.space/calculators/rent-vs-buy')),
       }}
     />
   );

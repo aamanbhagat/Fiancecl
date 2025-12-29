@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the 401k calculator
 export function generate401kSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function Schema401k() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generate401kSchema('https://calculatorshub.store/calculators/401k')),
+        __html: JSON.stringify(generate401kSchema('https://calculatorhub.space/calculators/401k')),
       }}
     />
   );

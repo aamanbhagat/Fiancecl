@@ -1,17 +1,17 @@
 # CalculatorHub SEO Optimization Documentation
 
 ## Overview
-This document outlines the comprehensive SEO improvements implemented for CalculatorHub, a financial calculator website now hosted at `calculatorshub.store`.
+This document outlines the comprehensive SEO improvements implemented for CalculatorHub, a financial calculator website now hosted at `calculatorhub.space`.
 
 ## Domain Migration
 - **Old Domain**: `calculatorhub.space`
-- **New Domain**: `calculatorshub.store`
+- **New Domain**: `calculatorhub.space`
 - **Status**: ✅ Complete - All references updated across 132 files
 
 ## SEO Improvements Implemented
 
 ### 1. Domain Migration
-- [x] Updated all domain references from `calculatorhub.space` to `calculatorshub.store`
+- [x] Updated all domain references from `calculatorhub.space` to `calculatorhub.space`
 - [x] Updated robots.txt sitemap URL
 - [x] Updated all canonical URLs
 - [x] Updated Open Graph URLs

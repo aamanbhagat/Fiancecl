@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the student loan calculator
 export function generateStudentLoanSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function StudentLoanSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateStudentLoanSchema('https://calculatorshub.store/calculators/student-loan')),
+        __html: JSON.stringify(generateStudentLoanSchema('https://calculatorhub.space/calculators/student-loan')),
       }}
     />
   );

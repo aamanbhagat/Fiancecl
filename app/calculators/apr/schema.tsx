@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the APR calculator
 export function generateAPRSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -144,7 +144,7 @@ export default function APRSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateAPRSchema('https://calculatorshub.store/calculators/apr')),
+        __html: JSON.stringify(generateAPRSchema('https://calculatorhub.space/calculators/apr')),
       }}
     />
   );

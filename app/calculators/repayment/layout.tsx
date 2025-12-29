@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Repayment Calculator | CalculateHub",
     description: "Calculate loan repayment schedules and find the best strategy to pay off your debt.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/repayment",
+    url: "https://calculatorhub.space/calculators/repayment",
     images: [
       {
         url: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   }
   // Remove this problematic property entirely
   // alternates: {
-  //   canonical: "https://calculatorshub.store/calculators/repayment"
+  //   canonical: "https://calculatorhub.space/calculators/repayment"
   // }
 }
 
@@ -55,7 +55,7 @@ export default function RepaymentCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/repayment" 
+        href="https://calculatorhub.space/calculators/repayment" 
       />
       {children}
     </>

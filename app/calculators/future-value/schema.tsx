@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the future value calculator
 export function generateFutureValueSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function FutureValueSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateFutureValueSchema('https://calculatorshub.store/calculators/future-value')),
+        __html: JSON.stringify(generateFutureValueSchema('https://calculatorhub.space/calculators/future-value')),
       }}
     />
   );

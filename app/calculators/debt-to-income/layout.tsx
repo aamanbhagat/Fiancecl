@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Debt to Income Calculator | CalculateHub",
     description: "Calculate your debt-to-income ratio and understand how lenders view your financial health.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/debt-to-income",
+    url: "https://calculatorhub.space/calculators/debt-to-income",
     images: [
       {
         url: "https://images.unsplash.com/photo-1563237023-b1e970526dcb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -52,7 +52,7 @@ export default function DebtToIncomeCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/debt-to-income" 
+        href="https://calculatorhub.space/calculators/debt-to-income" 
       />
       {children}
     </>

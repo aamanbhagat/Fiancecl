@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Rent vs Buy Calculator | CalculateHub",
     description: "Compare the financial implications of renting versus buying a home to make the best housing decision.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/rent-vs-buy",
+    url: "https://calculatorhub.space/calculators/rent-vs-buy",
     images: [
       {
         url: "https://images.unsplash.com/photo-1560518883-b414192d367e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   }
   // Remove this problematic property
   // alternates: {
-  //   canonical: "https://calculatorshub.store/calculators/rent-vs-buy"
+  //   canonical: "https://calculatorhub.space/calculators/rent-vs-buy"
   // }
 }
 
@@ -55,7 +55,7 @@ export default function RentVsBuyCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/rent-vs-buy" 
+        href="https://calculatorhub.space/calculators/rent-vs-buy" 
       />
       {children}
     </>

@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the credit card calculator
 export function generateCreditCardSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function CreditCardSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateCreditCardSchema('https://calculatorshub.store/calculators/credit-card')),
+        __html: JSON.stringify(generateCreditCardSchema('https://calculatorhub.space/calculators/credit-card')),
       }}
     />
   );

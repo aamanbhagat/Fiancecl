@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the mortgage calculator
 export function generateMortgageSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function MortgageSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateMortgageSchema('https://calculatorshub.store/calculators/mortgage')),
+        __html: JSON.stringify(generateMortgageSchema('https://calculatorhub.space/calculators/mortgage')),
       }}
     />
   );

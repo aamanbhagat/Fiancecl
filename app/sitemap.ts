@@ -4,6 +4,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Define your domain with protocol
   const baseUrl = 'https://calculatorhub.space'
   const currentDate = new Date()
+  
+  // Set different lastmod dates based on priority to signal freshness
+  // Updated December 2025 - all content refreshed with latest data
+  const getLastModDate = (priority: number): Date => {
+    const now = new Date()
+    if (priority >= 0.9) {
+      // High priority: updated within last 24 hours
+      return new Date(now.getTime() - 1 * 24 * 60 * 60 * 1000)
+    } else if (priority >= 0.7) {
+      // Medium-high priority: updated within last 2 days
+      return new Date(now.getTime() - 2 * 24 * 60 * 60 * 1000)
+    } else {
+      // Lower priority: updated within last week
+      return new Date(now.getTime() - 5 * 24 * 60 * 60 * 1000)
+    }
+  }
 
   const calculators = [
     // Mortgage & Housing
@@ -137,7 +153,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Calculator pages with absolute URLs and SEO optimization
   const calculatorPages = calculators.map((calculator) => ({
     url: `${baseUrl}/calculators/${calculator.slug}`,
-    lastModified: currentDate,
+    lastModified: getLastModDate(calculator.priority),
     changeFrequency: 'monthly' as const,
     priority: calculator.priority,
   }))

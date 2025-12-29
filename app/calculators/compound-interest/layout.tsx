@@ -23,7 +23,7 @@ export default function CompoundInterestCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/compound-interest" 
+        href="https://calculatorhub.space/calculators/compound-interest" 
       />
       
       {/* Compound Interest Calculator Structured Data */}
@@ -35,7 +35,7 @@ export default function CompoundInterestCalculatorLayout({
             "@type": "WebApplication",
             "name": "Compound Interest Calculator",
             "description": "Calculate how your investments grow over time with compound interest",
-            "url": "https://calculatorshub.store/calculators/compound-interest",
+            "url": "https://calculatorhub.space/calculators/compound-interest",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "All",
             "offers": {
@@ -54,7 +54,7 @@ export default function CompoundInterestCalculatorLayout({
             "provider": {
               "@type": "Organization",
               "name": "CalculatorHub",
-              "url": "https://calculatorshub.store"
+              "url": "https://calculatorhub.space"
             }
           })
         }}

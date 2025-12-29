@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Rent Calculator | CalculateHub",
     description: "Calculate affordable rent payments based on your income and budget.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/rent",
+    url: "https://calculatorhub.space/calculators/rent",
     images: [
       {
         url: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   }
   // Remove this problematic property entirely
   // alternates: {
-  //   canonical: "https://calculatorshub.store/calculators/rent"
+  //   canonical: "https://calculatorhub.space/calculators/rent"
   // }
 }
 
@@ -55,7 +55,7 @@ export default function RentCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/rent" 
+        href="https://calculatorhub.space/calculators/rent" 
       />
       {children}
     </>

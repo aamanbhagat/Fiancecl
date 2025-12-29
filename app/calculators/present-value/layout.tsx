@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Present Value Calculator | CalculateHub",
     description: "Calculate the present value of future cash flows and analyze investment opportunities.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/present-value",
+    url: "https://calculatorhub.space/calculators/present-value",
     images: [
       {
         url: "https://images.unsplash.com/photo-1563237023-b1e970526dcb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   }
   // Remove this problematic property entirely
   // alternates: {
-  //   canonical: "https://calculatorshub.store/calculators/present-value"
+  //   canonical: "https://calculatorhub.space/calculators/present-value"
   // }
 }
 
@@ -55,7 +55,7 @@ export default function PresentValueCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/present-value" 
+        href="https://calculatorhub.space/calculators/present-value" 
       />
       {children}
     </>

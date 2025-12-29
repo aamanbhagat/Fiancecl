@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the currency converter calculator
 export function generateCurrencyConverterSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function CurrencyConverterSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateCurrencyConverterSchema('https://calculatorshub.store/calculators/currency-converter')),
+        __html: JSON.stringify(generateCurrencyConverterSchema('https://calculatorhub.space/calculators/currency-converter')),
       }}
     />
   );

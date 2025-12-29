@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the payback period calculator
 export function generatePaybackPeriodSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function PaybackPeriodSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generatePaybackPeriodSchema('https://calculatorshub.store/calculators/payback-period')),
+        __html: JSON.stringify(generatePaybackPeriodSchema('https://calculatorhub.space/calculators/payback-period')),
       }}
     />
   );

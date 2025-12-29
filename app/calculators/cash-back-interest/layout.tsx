@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Cash Back Interest Calculator | CalculateHub",
     description: "Calculate the true value of your credit card cash back rewards and maximize your returns.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/cash-back-interest",
+    url: "https://calculatorhub.space/calculators/cash-back-interest",
     images: [
       {
         url: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -52,7 +52,7 @@ export default function CashBackInterestCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/cash-back-interest" 
+        href="https://calculatorhub.space/calculators/cash-back-interest" 
       />
       {children}
     </>

@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the present value calculator
 export function generatePresentValueSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function PresentValueSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generatePresentValueSchema('https://calculatorshub.store/calculators/present-value')),
+        __html: JSON.stringify(generatePresentValueSchema('https://calculatorhub.space/calculators/present-value')),
       }}
     />
   );

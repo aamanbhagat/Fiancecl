@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the Social Security calculator
 export function generateSocialSecuritySchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function SocialSecuritySchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateSocialSecuritySchema('https://calculatorshub.store/calculators/social-security')),
+        __html: JSON.stringify(generateSocialSecuritySchema('https://calculatorhub.space/calculators/social-security')),
       }}
     />
   );

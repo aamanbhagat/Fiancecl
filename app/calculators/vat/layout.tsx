@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "VAT Calculator | CalculateHub",
     description: "Calculate Value Added Tax amounts and determine prices with and without VAT included.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/vat",
+    url: "https://calculatorhub.space/calculators/vat",
     images: [
       {
         url: "https://images.unsplash.com/photo-1554224155-1696413565d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   }
   // Remove this problematic property entirely - this is the main issue!
   // alternates: {
-  //   canonical: "https://calculatorshub.store/calculators/vat"
+  //   canonical: "https://calculatorhub.space/calculators/vat"
   // }
 }
 
@@ -55,7 +55,7 @@ export default function VATCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/vat" 
+        href="https://calculatorhub.space/calculators/vat" 
       />
       {children}
     </>

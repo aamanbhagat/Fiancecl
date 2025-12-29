@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the amortization calculator
 export function generateAmortizationSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -142,7 +142,7 @@ export default function AmortizationSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateAmortizationSchema('https://calculatorshub.store/calculators/amortization')),
+        __html: JSON.stringify(generateAmortizationSchema('https://calculatorhub.space/calculators/amortization')),
       }}
     />
   );

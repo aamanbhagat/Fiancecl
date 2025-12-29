@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the simple interest calculator
 export function generateSimpleInterestSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function SimpleInterestSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateSimpleInterestSchema('https://calculatorshub.store/calculators/simple-interest')),
+        __html: JSON.stringify(generateSimpleInterestSchema('https://calculatorhub.space/calculators/simple-interest')),
       }}
     />
   );

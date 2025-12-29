@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Amortization Calculator | CalculateHub",
     description: "Create detailed loan amortization schedules and visualize how your payments reduce principal over time.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/amortization",
+    url: "https://calculatorhub.space/calculators/amortization",
     images: [
       {
         url: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -51,7 +51,7 @@ export default function AmortizationCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/amortization" 
+        href="https://calculatorhub.space/calculators/amortization" 
       />
       {children}
     </>

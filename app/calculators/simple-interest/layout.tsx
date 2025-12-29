@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Simple Interest Calculator | CalculateHub",
     description: "Calculate simple interest on loans and investments and understand your interest earnings or costs.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/simple-interest",
+    url: "https://calculatorhub.space/calculators/simple-interest",
     images: [
       {
         url: "https://images.unsplash.com/photo-1611324806569-3a977d9e1c76?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   }
   // Remove this problematic property entirely
   // alternates: {
-  //   canonical: "https://calculatorshub.store/calculators/simple-interest"
+  //   canonical: "https://calculatorhub.space/calculators/simple-interest"
   // }
 }
 
@@ -55,7 +55,7 @@ export default function SimpleInterestCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/simple-interest" 
+        href="https://calculatorhub.space/calculators/simple-interest" 
       />
       {children}
     </>

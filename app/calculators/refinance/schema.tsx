@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the refinance calculator
 export function generateRefinanceSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function RefinanceSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateRefinanceSchema('https://calculatorshub.store/calculators/refinance')),
+        __html: JSON.stringify(generateRefinanceSchema('https://calculatorhub.space/calculators/refinance')),
       }}
     />
   );

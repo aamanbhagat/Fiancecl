@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the repayment calculator
 export function generateRepaymentSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function RepaymentSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateRepaymentSchema('https://calculatorshub.store/calculators/repayment')),
+        __html: JSON.stringify(generateRepaymentSchema('https://calculatorhub.space/calculators/repayment')),
       }}
     />
   );

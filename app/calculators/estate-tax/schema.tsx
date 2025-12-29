@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the estate tax calculator
 export function generateEstateTaxSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function EstateTaxSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateEstateTaxSchema('https://calculatorshub.store/calculators/estate-tax')),
+        __html: JSON.stringify(generateEstateTaxSchema('https://calculatorhub.space/calculators/estate-tax')),
       }}
     />
   );

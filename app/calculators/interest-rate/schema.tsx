@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the interest rate calculator
 export function generateInterestRateSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function InterestRateSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateInterestRateSchema('https://calculatorshub.store/calculators/interest-rate')),
+        __html: JSON.stringify(generateInterestRateSchema('https://calculatorhub.space/calculators/interest-rate')),
       }}
     />
   );

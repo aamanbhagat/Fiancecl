@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Payment Calculator | CalculateHub",
     description: "Calculate monthly payments for loans and installment plans to help with financial planning.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/payment",
+    url: "https://calculatorhub.space/calculators/payment",
     images: [
       {
         url: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   }
   // Remove this problematic property
   // alternates: {
-  //   canonical: "https://calculatorshub.store/calculators/payment"
+  //   canonical: "https://calculatorhub.space/calculators/payment"
   // }
 }
 
@@ -55,7 +55,7 @@ export default function PaymentCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/payment" 
+        href="https://calculatorhub.space/calculators/payment" 
       />
       {children}
     </>

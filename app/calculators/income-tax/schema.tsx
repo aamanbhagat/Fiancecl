@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the income tax calculator
 export function generateIncomeTaxSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function IncomeTaxSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateIncomeTaxSchema('https://calculatorshub.store/calculators/income-tax')),
+        __html: JSON.stringify(generateIncomeTaxSchema('https://calculatorhub.space/calculators/income-tax')),
       }}
     />
   );

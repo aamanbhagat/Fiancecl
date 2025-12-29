@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Temperature Converter Calculator | CalculateHub",
     description: "Convert between different temperature units quickly and accurately with our easy-to-use calculator.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/temperature",
+    url: "https://calculatorhub.space/calculators/temperature",
     images: [
       {
         url: "https://images.unsplash.com/photo-1594761051613-8093ab52e2a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -51,7 +51,7 @@ export default function TemperatureCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/temperature" 
+        href="https://calculatorhub.space/calculators/temperature" 
       />
       {children}
     </>

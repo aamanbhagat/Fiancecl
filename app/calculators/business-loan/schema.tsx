@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the business loan calculator
 export function generateBusinessLoanSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function BusinessLoanSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateBusinessLoanSchema('https://calculatorshub.store/calculators/business-loan')),
+        __html: JSON.stringify(generateBusinessLoanSchema('https://calculatorhub.space/calculators/business-loan')),
       }}
     />
   );

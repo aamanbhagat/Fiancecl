@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Finance Calculator | CalculateHub",
     description: "Access comprehensive financial planning tools to make smarter money decisions.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/finance",
+    url: "https://calculatorhub.space/calculators/finance",
     images: [
       {
         url: "https://images.unsplash.com/photo-1565514020179-026b92b2d95b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -52,7 +52,7 @@ export default function FinanceCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/finance" 
+        href="https://calculatorhub.space/calculators/finance" 
       />
       {children}
     </>

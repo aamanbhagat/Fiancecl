@@ -23,7 +23,7 @@ export default function MortgageCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/mortgage" 
+        href="https://calculatorhub.space/calculators/mortgage" 
       />
       
       {/* Mortgage Calculator Structured Data */}
@@ -35,7 +35,7 @@ export default function MortgageCalculatorLayout({
             "@type": "WebApplication",
             "name": "Mortgage Calculator",
             "description": "Calculate monthly mortgage payments and view amortization schedules",
-            "url": "https://calculatorshub.store/calculators/mortgage",
+            "url": "https://calculatorhub.space/calculators/mortgage",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "All",
             "offers": {
@@ -53,7 +53,7 @@ export default function MortgageCalculatorLayout({
             "provider": {
               "@type": "Organization",
               "name": "CalculatorHub",
-              "url": "https://calculatorshub.store"
+              "url": "https://calculatorhub.space"
             }
           })
         }}

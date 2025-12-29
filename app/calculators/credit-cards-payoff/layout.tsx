@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Credit Cards Payoff Calculator | CalculateHub",
     description: "Create an effective strategy to pay off multiple credit cards and become debt-free faster.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/credit-cards-payoff",
+    url: "https://calculatorhub.space/calculators/credit-cards-payoff",
     images: [
       {
         url: "https://images.unsplash.com/photo-1554224155-8d04cb21ed6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -52,7 +52,7 @@ export default function CreditCardsPayoffCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/credit-cards-payoff" 
+        href="https://calculatorhub.space/calculators/credit-cards-payoff" 
       />
       {children}
     </>

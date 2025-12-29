@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the sales tax calculator
 export function generateSalesTaxSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function SalesTaxSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateSalesTaxSchema('https://calculatorshub.store/calculators/sales-tax')),
+        __html: JSON.stringify(generateSalesTaxSchema('https://calculatorhub.space/calculators/sales-tax')),
       }}
     />
   );

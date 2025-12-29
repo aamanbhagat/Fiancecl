@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "House Affordability Calculator | CalculateHub",
     description: "Calculate how much house you can afford based on your income and financial situation.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/house-affordability",
+    url: "https://calculatorhub.space/calculators/house-affordability",
     images: [
       {
         url: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   }
   // Remove this problematic property
   // alternates: {
-  //   canonical: "https://calculatorshub.store/calculators/house-affordability"
+  //   canonical: "https://calculatorhub.space/calculators/house-affordability"
   // }
 }
 
@@ -55,7 +55,7 @@ export default function HouseAffordabilityCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/house-affordability" 
+        href="https://calculatorhub.space/calculators/house-affordability" 
       />
       {children}
     </>

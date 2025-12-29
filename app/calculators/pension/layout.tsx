@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Pension Calculator | CalculateHub",
     description: "Estimate your future retirement income and plan for financial security during retirement.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/pension",
+    url: "https://calculatorhub.space/calculators/pension",
     images: [
       {
         url: "https://images.unsplash.com/photo-1573497019236-61f684a5ef01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     }
   },
   alternates: {
-    canonical: "https://calculatorshub.store/calculators/pension"
+    canonical: "https://calculatorhub.space/calculators/pension"
   }
 }
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Debt Consolidation Calculator | CalculateHub",
     description: "Calculate how much you can save by consolidating your debts into a single loan with a lower interest rate.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/debt-consolidation",
+    url: "https://calculatorhub.space/calculators/debt-consolidation",
     images: [
       {
         url: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -52,7 +52,7 @@ export default function DebtConsolidationCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/debt-consolidation" 
+        href="https://calculatorhub.space/calculators/debt-consolidation" 
       />
       {children}
     </>

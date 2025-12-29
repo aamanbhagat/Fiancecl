@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the VA mortgage calculator
 export function generateVaMortgageSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function VaMortgageSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateVaMortgageSchema('https://calculatorshub.store/calculators/va-mortgage')),
+        __html: JSON.stringify(generateVaMortgageSchema('https://calculatorhub.space/calculators/va-mortgage')),
       }}
     />
   );

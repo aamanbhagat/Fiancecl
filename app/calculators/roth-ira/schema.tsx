@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the Roth IRA calculator
 export function generateRothIraSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function RothIraSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateRothIraSchema('https://calculatorshub.store/calculators/roth-ira')),
+        __html: JSON.stringify(generateRothIraSchema('https://calculatorhub.space/calculators/roth-ira')),
       }}
     />
   );

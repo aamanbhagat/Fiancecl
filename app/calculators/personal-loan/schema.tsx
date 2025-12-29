@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the personal loan calculator
 export function generatePersonalLoanSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function PersonalLoanSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generatePersonalLoanSchema('https://calculatorshub.store/calculators/personal-loan')),
+        __html: JSON.stringify(generatePersonalLoanSchema('https://calculatorhub.space/calculators/personal-loan')),
       }}
     />
   );

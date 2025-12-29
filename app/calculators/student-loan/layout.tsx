@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Student Loan Calculator | CalculateHub",
     description: "Calculate your student loan payments and understand repayment options to manage your education debt.",
     type: "website",
-    url: "https://calculatorshub.store/calculators/student-loan",
+    url: "https://calculatorhub.space/calculators/student-loan",
     images: [
       {
         url: "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   }
   // Remove this problematic property entirely
   // alternates: {
-  //   canonical: "https://calculatorshub.store/calculators/student-loan"
+  //   canonical: "https://calculatorhub.space/calculators/student-loan"
   // }
 }
 
@@ -55,7 +55,7 @@ export default function StudentLoanCalculatorLayout({
     <>
       <link 
         rel="canonical" 
-        href="https://calculatorshub.store/calculators/student-loan" 
+        href="https://calculatorhub.space/calculators/student-loan" 
       />
       {children}
     </>

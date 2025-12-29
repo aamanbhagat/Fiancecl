@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the debt-to-income calculator
 export function generateDebtToIncomeSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function DebtToIncomeSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateDebtToIncomeSchema('https://calculatorshub.store/calculators/debt-to-income')),
+        __html: JSON.stringify(generateDebtToIncomeSchema('https://calculatorhub.space/calculators/debt-to-income')),
       }}
     />
   );

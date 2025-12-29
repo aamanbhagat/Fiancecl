@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 // Define the JSON-LD schema for the temperature calculator
 export function generateTemperatureSchema(url: string) {
-  // Use calculatorshub.store as the base URL
-  const baseUrl = 'https://calculatorshub.store';
+  // Use calculatorhub.space as the base URL
+  const baseUrl = 'https://calculatorhub.space';
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +146,7 @@ export default function TemperatureSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateTemperatureSchema('https://calculatorshub.store/calculators/temperature')),
+        __html: JSON.stringify(generateTemperatureSchema('https://calculatorhub.space/calculators/temperature')),
       }}
     />
   );
