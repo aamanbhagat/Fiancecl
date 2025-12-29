@@ -1,0 +1,16 @@
+# Modern browsers that don't need polyfills
+# This reduces bundle size by not transpiling for older browsers
+
+# Production
+> 0.5%
+last 2 versions
+Firefox ESR
+not dead
+not IE 11
+not op_mini all
+
+# Development
+chrome >= 90
+firefox >= 88
+safari >= 14
+edge >= 90

@@ -108,15 +108,28 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        
         {/* Critical CSS - Inline above-the-fold styles */}
         <style dangerouslySetInnerHTML={{
           __html: `
-            :root{--background:0 0% 100%;--foreground:0 0% 3.9%}
-            .dark{--background:0 0% 3.9%;--foreground:0 0% 98%}
-            *,::after,::before{box-sizing:border-box;border:0 solid}
-            html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:var(--font-inter),system-ui,sans-serif}
+            :root{--background:0 0% 100%;--foreground:0 0% 3.9%;--card:0 0% 100%;--card-foreground:0 0% 3.9%;--popover:0 0% 100%;--popover-foreground:0 0% 3.9%;--primary:0 0% 9%;--primary-foreground:0 0% 98%;--secondary:0 0% 96.1%;--secondary-foreground:0 0% 9%;--muted:0 0% 96.1%;--muted-foreground:0 0% 45.1%;--accent:0 0% 96.1%;--accent-foreground:0 0% 9%;--border:0 0% 89.8%;--input:0 0% 89.8%;--ring:0 0% 3.9%;--radius:0.5rem}
+            .dark{--background:0 0% 3.9%;--foreground:0 0% 98%;--card:0 0% 3.9%;--card-foreground:0 0% 98%;--popover:0 0% 3.9%;--popover-foreground:0 0% 98%;--primary:0 0% 98%;--primary-foreground:0 0% 9%;--secondary:0 0% 14.9%;--secondary-foreground:0 0% 98%;--muted:0 0% 14.9%;--muted-foreground:0 0% 63.9%;--accent:0 0% 14.9%;--accent-foreground:0 0% 98%;--border:0 0% 14.9%;--input:0 0% 14.9%;--ring:0 0% 83.1%}
+            *,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:hsl(var(--border))}
+            html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:var(--font-inter),ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif}
             body{margin:0;line-height:inherit;background-color:hsl(var(--background));color:hsl(var(--foreground))}
             .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+            h1,h2,h3{font-size:inherit;font-weight:inherit;margin:0}
+            .container{width:100%;max-width:80rem;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
+            @media(min-width:640px){.container{padding-left:1.5rem;padding-right:1.5rem}}
+            @media(min-width:768px){.container{padding-left:2rem;padding-right:2rem}}
           `
         }} />
         

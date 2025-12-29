@@ -11,6 +11,13 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Modern build output for better performance
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
   images: { 
     unoptimized: true, // Required for static export
     formats: ['image/webp'], // Use WebP for better compression
