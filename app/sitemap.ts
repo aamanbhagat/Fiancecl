@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Define your domain with protocol
-  const baseUrl = 'https://calculatorshub.store'
+  const baseUrl = 'https://calculatorhub.space'
   const currentDate = new Date()
 
   const calculators = [
