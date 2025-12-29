@@ -59,43 +59,6 @@ export default function CompoundInterestCalculatorLayout({
           })
         }}
       />
-
-      {/* FAQ Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How does compound interest work?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Compound interest is interest earned on both your principal investment and previously earned interest. This creates a snowball effect where your money grows exponentially over time, making it one of the most powerful concepts in investing."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What's a good annual return rate for investments?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Historical stock market averages suggest 7-10% annually over long periods, but returns vary significantly based on investment type, time horizon, and market conditions. Conservative investments like bonds typically yield 3-5%, while stocks can vary widely."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How often should interest be compounded for best results?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "More frequent compounding (daily vs. annually) results in slightly higher returns. However, the difference is usually small. Daily compounding is common in savings accounts, while investment returns are typically calculated annually."
-                }
-              }
-            ]
-          })
-        }}
-      />
       
       {children}
     </>

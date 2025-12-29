@@ -58,43 +58,6 @@ export default function MortgageCalculatorLayout({
           })
         }}
       />
-
-      {/* FAQ Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How accurate is this mortgage calculator?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Our mortgage calculator provides highly accurate estimates based on the information you enter. However, actual loan terms may vary based on your credit score, down payment amount, debt-to-income ratio, and specific lender requirements."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What factors affect my monthly mortgage payment?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Your monthly mortgage payment is determined by the loan amount (home price minus down payment), interest rate, loan term (15 or 30 years typically), property taxes, homeowners insurance, and private mortgage insurance (PMI) if your down payment is less than 20%."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Should I choose a 15-year or 30-year mortgage?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A 15-year mortgage typically has lower interest rates and you'll pay less total interest, but monthly payments are higher. A 30-year mortgage has lower monthly payments but higher total interest costs. Choose based on your monthly budget and long-term financial goals."
-                }
-              }
-            ]
-          })
-        }}
-      />
       
       {children}
     </>
