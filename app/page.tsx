@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { 
   Home, Calculator, Landmark, Coins, Building, DollarSign, PiggyBank, RefreshCw, 
   Percent, Award, Medal, ArrowDown, Scale, Car, Banknote, Truck, LineChart, 
@@ -12,13 +13,21 @@ import {
 import { SiteHeader } from "@/components/site-header";
 import { HeroSection } from "@/components/hero-section";
 import { CalculatorCard } from "@/components/calculator-card";
-import { FeaturesSection } from "@/components/features-section";
-import { TestimonialsSection } from "@/components/testimonials-section";
-import { CTASection } from "@/components/cta-section";
 import { SiteFooter } from "@/components/site-footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+
+// Lazy load heavy components
+const FeaturesSection = dynamic(() => import("@/components/features-section").then(mod => ({ default: mod.FeaturesSection })), {
+  loading: () => <div className="h-96 animate-pulse bg-muted" />
+});
+const TestimonialsSection = dynamic(() => import("@/components/testimonials-section").then(mod => ({ default: mod.TestimonialsSection })), {
+  loading: () => <div className="h-96 animate-pulse bg-muted" />
+});
+const CTASection = dynamic(() => import("@/components/cta-section").then(mod => ({ default: mod.CTASection })), {
+  loading: () => <div className="h-64 animate-pulse bg-muted" />
+});
 
 export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);

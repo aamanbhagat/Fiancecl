@@ -11,7 +11,9 @@ import { seoConfig } from '@/lib/seo-config';
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter'
+  variable: '--font-inter',
+  preload: true,
+  fallback: ['system-ui', 'arial']
 });
 
 export const metadata: Metadata = {
@@ -84,15 +86,18 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="monetag" content="a92aeaf891a963f53dcaba9ad84c9977" />
-        <script src="https://quge5.com/88/tag.min.js" data-zone="196151" async data-cfasync="false"></script>
         <link rel="canonical" href={seoConfig.baseUrl} />
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="google-adsense-account" content="ca-pub-1720101320139769" />
+        
+        {/* Performance Optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://quge5.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         
         {/* Structured Data for Website */}
         <script
@@ -144,7 +149,13 @@ export default function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1720101320139769"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
+        />
+        <Script 
+          src="https://quge5.com/88/tag.min.js" 
+          data-zone="196151" 
+          strategy="lazyOnload"
+          data-cfasync="false"
         />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>

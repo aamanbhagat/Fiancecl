@@ -16,96 +16,138 @@ export default function BlogPage() {
   const featuredPosts = [
     {
       id: 1,
-      title: "How to Calculate Your Mortgage Payment: A Step-by-Step Guide",
-      excerpt: "Understanding your mortgage payment is crucial when buying a home. Learn how to calculate it accurately with our comprehensive guide.",
+      title: "2025 Mortgage Rate Outlook: What Homebuyers Need to Know",
+      excerpt: "With mortgage rates averaging 6.62% in December 2025, learn what this means for your home buying power and how to secure the best rates in today's market.",
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-      date: "June 15, 2025",
+      date: "December 28, 2025",
       author: "Sarah Johnson",
       category: "Mortgage",
-      readTime: "8 min read"
+      readTime: "8 min read",
+      slug: "2025-mortgage-rate-outlook"
     },
     {
       id: 2,
-      title: "5 Investment Strategies to Grow Your Wealth in 2025",
-      excerpt: "Discover the most effective investment strategies that can help you build and grow your wealth in the current economic climate.",
+      title: "Maximize Your 401(k) in 2025: New $23,500 Contribution Limits",
+      excerpt: "The IRS increased 401(k) contribution limits to $23,500 for 2025. Discover strategies to maximize your retirement savings with these new limits.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-      date: "May 28, 2025",
+      date: "December 25, 2025",
       author: "Michael Rodriguez",
-      category: "Investment",
-      readTime: "10 min read"
+      category: "Retirement",
+      readTime: "10 min read",
+      slug: "maximize-401k-2025"
     },
     {
       id: 3,
-      title: "The Ultimate Guide to Paying Off Credit Card Debt",
-      excerpt: "Learn effective strategies to tackle credit card debt and regain financial freedom with our comprehensive guide.",
+      title: "Credit Card Debt at 21.5% APR: Smart Payoff Strategies for 2025",
+      excerpt: "With average credit card rates at 21.5%, learn the most effective strategies to eliminate high-interest debt and save thousands in interest.",
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-      date: "May 10, 2025",
+      date: "December 22, 2025",
       author: "David Chen",
       category: "Debt",
-      readTime: "12 min read"
+      readTime: "12 min read",
+      slug: "credit-card-debt-strategies-2025"
     }
   ]
 
   const recentPosts = [
     {
       id: 4,
-      title: "Understanding Amortization: How Your Loan Balance Changes Over Time",
-      excerpt: "Dive deep into the concept of amortization and understand how your loan payments affect your balance throughout the life of the loan.",
+      title: "Home Prices Hit $436,800: Affordability Strategies for 2025 Buyers",
+      excerpt: "With median home prices at $436,800, discover practical strategies to afford your dream home in today's competitive market.",
       image: "https://images.unsplash.com/photo-1589666564459-93cdd3ab856a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      date: "April 22, 2025",
+      date: "December 20, 2025",
       author: "Sarah Johnson",
-      category: "Loans",
-      readTime: "7 min read"
+      category: "Housing",
+      readTime: "7 min read",
+      slug: "home-affordability-2025"
     },
     {
       id: 5,
-      title: "How to Calculate Your Debt-to-Income Ratio and Why It Matters",
-      excerpt: "Learn how to calculate your debt-to-income ratio and understand why this metric is crucial for your financial health and loan applications.",
+      title: "Understanding Your Debt-to-Income Ratio in 2025's Lending Market",
+      excerpt: "Lenders are scrutinizing DTI ratios more than ever. Learn how to calculate yours and improve your chances of loan approval.",
       image: "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      date: "April 15, 2025",
+      date: "December 18, 2025",
       author: "Michael Rodriguez",
       category: "Personal Finance",
-      readTime: "6 min read"
+      readTime: "6 min read",
+      slug: "debt-to-income-ratio-2025"
     },
     {
       id: 6,
-      title: "Rent vs. Buy: Making the Right Housing Decision",
-      excerpt: "Explore the financial implications of renting versus buying a home and learn how to make the decision that's right for your situation.",
+      title: "Rent vs. Buy Calculator: Which Makes Sense in Today's Market?",
+      excerpt: "With rising home prices and high mortgage rates, use our calculator to determine whether renting or buying is right for you.",
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      date: "April 8, 2025",
+      date: "December 15, 2025",
       author: "David Chen",
       category: "Housing",
-      readTime: "9 min read"
+      readTime: "9 min read",
+      slug: "rent-vs-buy-2025"
     },
     {
       id: 7,
-      title: "Retirement Planning: How Much Do You Really Need to Save?",
-      excerpt: "Calculate how much you need to save for retirement and develop a strategy to reach your financial goals for your golden years.",
+      title: "IRA Contribution Limits 2025: Maximize Your Retirement Savings",
+      excerpt: "Roth IRA limits increased to $7,000 in 2025. Learn how to maximize tax-advantaged retirement savings with updated contribution strategies.",
       image: "https://images.unsplash.com/photo-1469571486292-b53601010b89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      date: "March 30, 2025",
+      date: "December 12, 2025",
       author: "Sarah Johnson",
       category: "Retirement",
-      readTime: "11 min read"
+      readTime: "11 min read",
+      slug: "ira-limits-2025"
     },
     {
       id: 8,
-      title: "Understanding APR vs. Interest Rate: What's the Difference?",
-      excerpt: "Learn the crucial differences between APR and interest rate and how they affect the total cost of your loans and credit cards.",
+      title: "Auto Loan Rates in 2025: How to Get the Best Deal",
+      excerpt: "Auto loan rates remain elevated in 2025. Learn negotiation tactics and financing strategies to secure the best possible rate.",
       image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      date: "March 22, 2025",
+      date: "December 10, 2025",
       author: "Michael Rodriguez",
-      category: "Credit",
-      readTime: "8 min read"
+      category: "Auto Loans",
+      readTime: "8 min read",
+      slug: "auto-loan-rates-2025"
     },
     {
       id: 9,
-      title: "How to Create a Personal Budget That Actually Works",
-      excerpt: "Discover practical tips for creating a personal budget that you can stick to and that helps you achieve your financial goals.",
+      title: "The 50/30/20 Budget Rule: Still Effective in 2025?",
+      excerpt: "With inflation and rising costs, discover how to adapt the classic 50/30/20 budgeting rule for today's economic reality.",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      date: "March 15, 2025",
+      date: "December 8, 2025",
       author: "David Chen",
       category: "Budgeting",
-      readTime: "10 min read"
+      readTime: "10 min read",
+      slug: "50-30-20-budget-2025"
+    },
+    {
+      id: 10,
+      title: "Student Loan Forgiveness Updates: What Changed in 2025",
+      excerpt: "Stay current on the latest student loan forgiveness programs and repayment options available in 2025.",
+      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      date: "December 5, 2025",
+      author: "Sarah Johnson",
+      category: "Student Loans",
+      readTime: "9 min read",
+      slug: "student-loan-forgiveness-2025"
+    },
+    {
+      id: 11,
+      title: "Investment Portfolio Rebalancing for Year-End 2025",
+      excerpt: "As 2025 closes, learn why and how to rebalance your investment portfolio to maintain your target asset allocation.",
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      date: "December 2, 2025",
+      author: "Michael Rodriguez",
+      category: "Investment",
+      readTime: "10 min read",
+      slug: "portfolio-rebalancing-2025"
+    },
+    {
+      id: 12,
+      title: "Social Security COLA 2025: How Much Will Benefits Increase?",
+      excerpt: "Social Security benefits received a cost-of-living adjustment in 2025. Learn how this impacts your retirement planning.",
+      image: "https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      date: "November 28, 2025",
+      author: "David Chen",
+      category: "Retirement",
+      readTime: "7 min read",
+      slug: "social-security-cola-2025"
     }
   ]
 
@@ -163,6 +205,9 @@ export default function BlogPage() {
                       alt={post.title}
                       fill
                       className="object-cover"
+                      priority={post.id <= 3}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      loading={post.id <= 3 ? 'eager' : 'lazy'}
                     />
                   </div>
                   <CardHeader className="p-4">
@@ -219,6 +264,8 @@ export default function BlogPage() {
                                 alt={post.title}
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                loading="lazy"
                               />
                             </div>
                             <div className="md:col-span-2 p-6">
