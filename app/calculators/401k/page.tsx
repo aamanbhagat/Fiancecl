@@ -1043,7 +1043,7 @@ export default function FourZeroOneKCalculator() {
                     </CardContent>
                     <CardFooter>
                       <Button asChild>
-                        <Link href="/calculators/retirement">Try Now</Link>
+                        <Link href="/calculators/401k">Try Now</Link>
                       </Button>
                     </CardFooter>
                   </Card>

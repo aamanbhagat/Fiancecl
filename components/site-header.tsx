@@ -59,7 +59,7 @@ export function SiteHeader() {
       items: [
         { name: "Auto Loan Calculator", icon: Car, href: "/calculators/auto-loan" },
         { name: "Budget Calculator", icon: Wallet, href: "/calculators/budget" },
-        { name: "Retirement Calculator", icon: Briefcase, href: "/calculators/retirement" },
+        { name: "401k Calculator", icon: Briefcase, href: "/calculators/401k" },
         { name: "Rent vs. Buy Calculator", icon: Scale, href: "/calculators/rent-vs-buy" },
         { name: "Payback Period Calculator", icon: Clock, href: "/calculators/payback-period" },
       ]

@@ -1353,7 +1353,7 @@ export default function SocialSecurityCalculator() {
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     <Button asChild size="sm" variant="outline" className="bg-white dark:bg-gray-800">
-                      <Link href="/calculators/retirement">
+                      <Link href="/calculators/401k">
                         <Clock className="h-4 w-4 mr-1" />
                         Retirement Calculator
                       </Link>

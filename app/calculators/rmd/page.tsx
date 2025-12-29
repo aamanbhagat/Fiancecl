@@ -1654,7 +1654,7 @@ export default function RMDCalculator() {
                               variant="outline"
                               className="bg-white dark:bg-gray-800"
                             >
-                              <Link href="/calculators/retirement">
+                              <Link href="/calculators/401k">
                                 <Clock className="h-4 w-4 mr-1" />
                                 Retirement Calculator
                               </Link>

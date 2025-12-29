@@ -1949,7 +1949,7 @@ export default function InflationCalculator() {
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     <Button asChild size="sm" variant="outline" className="bg-white dark:bg-gray-800">
-                      <Link href="/calculators/retirement">
+                      <Link href="/calculators/401k">
                         <Clock className="h-4 w-4 mr-1" />
                         Retirement Calculator
                       </Link>
@@ -2025,7 +2025,7 @@ export default function InflationCalculator() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full calculator-card-button">
-                    <Link href="/calculators/retirement">Try Calculator</Link>
+                    <Link href="/calculators/401k">Try Calculator</Link>
                   </Button>
                 </CardFooter>
               </Card>
