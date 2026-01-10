@@ -223,8 +223,7 @@ export function SiteHeader() {
                   </Link>
                 </Button>
               </>
-            )}ign Up</span>
-            </Button>
+            )}
           </div>
           
           <Button
