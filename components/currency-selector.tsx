@@ -1,8 +1,9 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { Check, Globe } from 'lucide-react';
 import { useCurrency } from '@/contexts/currency-context';
-import { getAllCurrencies, getPopularCurrencies } from '@/lib/currency';
+import { getAllCurrencies, getPopularCurrencies, CURRENCIES } from '@/lib/currency';
 import {
   Select,
   SelectContent,
@@ -26,9 +27,33 @@ interface CurrencySelectorProps {
 }
 
 export function CurrencySelector({ variant = 'select', className = '' }: CurrencySelectorProps) {
-  const { currency, setCurrency, currencyData } = useCurrency();
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Use try-catch to handle SSR safely
+  let currency = 'USD';
+  let setCurrency = (_: string) => {};
+  let currencyData = CURRENCIES.USD;
+
+  try {
+    const context = useCurrency();
+    currency = context.currency;
+    setCurrency = context.setCurrency;
+    currencyData = context.currencyData;
+  } catch (error) {
+    // Context not available during SSR, use defaults
+  }
+
   const popularCurrencies = getPopularCurrencies();
   const allCurrencies = getAllCurrencies();
+
+  // Don't render until mounted to avoid hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   if (variant === 'dropdown') {
     return (
