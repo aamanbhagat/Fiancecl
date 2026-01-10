@@ -334,36 +334,6 @@ export function SiteHeader() {
                 </Button>
               </>
             )}
-              href="/contact"
-              className="flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <div className="border-t border-border/40 mt-2 pt-2">
-              <Link
-                href="/#calculators"
-                className="flex w-full items-center rounded-md p-2 text-sm font-medium text-primary hover:underline"
-                onClick={() => setIsMenuOpen(false)}
-                aria-label="View all calculators"
-              >
-                <Calculator className="h-3 w-3 mr-2" aria-hidden="true" />
-                View All Calculators
-              </Link>
-            </div>
-          </nav>
-          <div className="flex flex-col space-y-2">
-            <div className="flex items-center justify-between">
-              <ThemeToggle />
-            </div>
-            <Button variant="outline" className="flex items-center justify-center gap-1 h-8 text-xs">
-              <LogIn className="h-3 w-3" aria-hidden="true" />
-              <span>Login</span>
-            </Button>
-            <Button variant="default" className="flex items-center justify-center gap-1 h-8 text-xs">
-              <UserPlus className="h-3 w-3" aria-hidden="true" />
-              <span>Sign Up</span>
-            </Button>
           </div>
         </div>
       </div>
