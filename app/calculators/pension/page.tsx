@@ -334,8 +334,7 @@ export default function PensionCalculator() {
                               id="current-salary"
                               type="number"
                               className="pl-9"
-                              value={currentSalary}
-                              onChange={(e) => setCurrentSalary(Number(e.target.value))}
+                              value={currentSalary || ''} onChange={(e) => setCurrentSalary(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -344,8 +343,7 @@ export default function PensionCalculator() {
                           <Input
                             id="years-service"
                             type="number"
-                            value={yearsOfService}
-                            onChange={(e) => setYearsOfService(Number(e.target.value))}
+                            value={yearsOfService || ''} onChange={(e) => setYearsOfService(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -353,8 +351,7 @@ export default function PensionCalculator() {
                           <Input
                             id="current-age"
                             type="number"
-                            value={currentAge}
-                            onChange={(e) => setCurrentAge(Number(e.target.value))}
+                            value={currentAge || ''} onChange={(e) => setCurrentAge(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -362,8 +359,7 @@ export default function PensionCalculator() {
                           <Input
                             id="retirement-age"
                             type="number"
-                            value={retirementAge}
-                            onChange={(e) => setRetirementAge(Number(e.target.value))}
+                            value={retirementAge || ''} onChange={(e) => setRetirementAge(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -479,8 +475,7 @@ export default function PensionCalculator() {
                           <Input
                             id="life-expectancy"
                             type="number"
-                            value={lifeExpectancy}
-                            onChange={(e) => setLifeExpectancy(Number(e.target.value))}
+                            value={lifeExpectancy || ''} onChange={(e) => setLifeExpectancy(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">

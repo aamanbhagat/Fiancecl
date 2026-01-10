@@ -283,8 +283,7 @@ export default function CurrencyConverterPage() {
                               id="amount"
                               type="number"
                               className="pl-9"
-                              value={amount}
-                              onChange={(e) => setAmount(Number(e.target.value))}
+                              value={amount || ''} onChange={(e) => setAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                               min={0}
                               step="0.01"
                             />

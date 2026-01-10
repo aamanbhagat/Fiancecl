@@ -341,8 +341,7 @@ function AmortizationCalculator() {
                     <Input
                       id="loanAmount"
                       type="number"
-                      value={loanAmount}
-                      onChange={(e) => setLoanAmount(Number(e.target.value))}
+                      value={loanAmount || ''} onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                       min={0}
                       className="flex-1"
                     />
@@ -363,8 +362,7 @@ function AmortizationCalculator() {
                     <Input
                       id="annualInterestRate"
                       type="number"
-                      value={annualInterestRate}
-                      onChange={(e) => setAnnualInterestRate(Number(e.target.value))}
+                      value={annualInterestRate || ''} onChange={(e) => setAnnualInterestRate(e.target.value === '' ? 0 : Number(e.target.value))}
                       step={0.1}
                       min={0}
                       max={100}
@@ -387,8 +385,7 @@ function AmortizationCalculator() {
                     <Input
                       id="loanTermYears"
                       type="number"
-                      value={loanTermYears}
-                      onChange={(e) => setLoanTermYears(Number(e.target.value))}
+                      value={loanTermYears || ''} onChange={(e) => setLoanTermYears(e.target.value === '' ? 0 : Number(e.target.value))}
                       min={1}
                       className="flex-1"
                     />
@@ -724,8 +721,7 @@ function AmortizationCalculator() {
                         <Label>Monthly Extra Payment</Label>
                         <Input
                           type="number"
-                          value={extraMonthly}
-                          onChange={(e) => setExtraMonthly(Number(e.target.value))}
+                          value={extraMonthly || ''} onChange={(e) => setExtraMonthly(e.target.value === '' ? 0 : Number(e.target.value))}
                           min={0}
                         />
                       </div>
@@ -733,8 +729,7 @@ function AmortizationCalculator() {
                         <Label>Yearly Extra Payment</Label>
                         <Input
                           type="number"
-                          value={extraYearly}
-                          onChange={(e) => setExtraYearly(Number(e.target.value))}
+                          value={extraYearly || ''} onChange={(e) => setExtraYearly(e.target.value === '' ? 0 : Number(e.target.value))}
                           min={0}
                         />
                       </div>
@@ -834,8 +829,7 @@ function AmortizationCalculator() {
                       <Label>Interest-Only Payments</Label>
                       <Input
                         type="number"
-                        value={interestOnlyPayments}
-                        onChange={(e) => setInterestOnlyPayments(Number(e.target.value))}
+                        value={interestOnlyPayments || ''} onChange={(e) => setInterestOnlyPayments(e.target.value === '' ? 0 : Number(e.target.value))}
                         min={0}
                         placeholder="Number of payments (0 for none)"
                       />

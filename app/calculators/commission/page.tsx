@@ -357,8 +357,7 @@ export default function CommissionCalculator() {
                               id="total-sales"
                               type="number"
                               className="pl-9"
-                              value={totalSales}
-                              onChange={(e) => setTotalSales(Number(e.target.value))}
+                              value={totalSales || ''} onChange={(e) => setTotalSales(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -398,8 +397,7 @@ export default function CommissionCalculator() {
                           <Input
                             id="transactions"
                             type="number"
-                            value={numberOfTransactions}
-                            onChange={(e) => setNumberOfTransactions(Number(e.target.value))}
+                            value={numberOfTransactions || ''} onChange={(e) => setNumberOfTransactions(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                       </div>
@@ -423,8 +421,7 @@ export default function CommissionCalculator() {
                               id="base-salary"
                               type="number"
                               className="pl-9"
-                              value={baseSalary}
-                              onChange={(e) => setBaseSalary(Number(e.target.value))}
+                              value={baseSalary || ''} onChange={(e) => setBaseSalary(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -450,8 +447,7 @@ export default function CommissionCalculator() {
                                 id="bonus-threshold"
                                 type="number"
                                 className="pl-9"
-                                value={bonusThreshold}
-                                onChange={(e) => setBonusThreshold(Number(e.target.value))}
+                                value={bonusThreshold || ''} onChange={(e) => setBonusThreshold(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -463,8 +459,7 @@ export default function CommissionCalculator() {
                                 id="bonus-amount"
                                 type="number"
                                 className="pl-9"
-                                value={bonusAmount}
-                                onChange={(e) => setBonusAmount(Number(e.target.value))}
+                                value={bonusAmount || ''} onChange={(e) => setBonusAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -525,8 +520,7 @@ export default function CommissionCalculator() {
                               id="other-deductions"
                               type="number"
                               className="pl-9"
-                              value={otherDeductions}
-                              onChange={(e) => setOtherDeductions(Number(e.target.value))}
+                              value={otherDeductions || ''} onChange={(e) => setOtherDeductions(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

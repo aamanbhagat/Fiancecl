@@ -688,8 +688,7 @@ export default function DebtPayoffCalculator() {
                               id="extra-payment"
                               type="number"
                               className="pl-9"
-                              value={extraPayment}
-                              onChange={(e) => setExtraPayment(Number(e.target.value))}
+                              value={extraPayment || ''} onChange={(e) => setExtraPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

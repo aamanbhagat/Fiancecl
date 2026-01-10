@@ -421,8 +421,7 @@ export default function DepreciationCalculator() {
                               id="asset-cost"
                               type="number"
                               className="pl-9"
-                              value={assetCost}
-                              onChange={(e) => setAssetCost(Number(e.target.value))}
+                              value={assetCost || ''} onChange={(e) => setAssetCost(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -434,8 +433,7 @@ export default function DepreciationCalculator() {
                               id="salvage-value"
                               type="number"
                               className="pl-9"
-                              value={salvageValue}
-                              onChange={(e) => setSalvageValue(Number(e.target.value))}
+                              value={salvageValue || ''} onChange={(e) => setSalvageValue(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -444,8 +442,7 @@ export default function DepreciationCalculator() {
                           <Input
                             id="useful-life"
                             type="number"
-                            value={usefulLife}
-                            onChange={(e) => setUsefulLife(Number(e.target.value))}
+                            value={usefulLife || ''} onChange={(e) => setUsefulLife(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -513,8 +510,7 @@ export default function DepreciationCalculator() {
                               <Input
                                 id="tax-rate"
                                 type="number"
-                                value={taxRate}
-                                onChange={(e) => setTaxRate(Number(e.target.value))}
+                                value={taxRate || ''} onChange={(e) => setTaxRate(e.target.value === '' ? 0 : Number(e.target.value))}
                                 className="pr-8"
                               />
                               <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
@@ -535,8 +531,7 @@ export default function DepreciationCalculator() {
                             <Input
                               id="units-produced"
                               type="number"
-                              value={unitsProduced}
-                              onChange={(e) => setUnitsProduced(Number(e.target.value))}
+                              value={unitsProduced || ''} onChange={(e) => setUnitsProduced(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                           <div className="space-y-2">
@@ -544,8 +539,7 @@ export default function DepreciationCalculator() {
                             <Input
                               id="estimated-total-units"
                               type="number"
-                              value={estimatedTotalUnits}
-                              onChange={(e) => setEstimatedTotalUnits(Number(e.target.value))}
+                              value={estimatedTotalUnits || ''} onChange={(e) => setEstimatedTotalUnits(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -569,8 +563,7 @@ export default function DepreciationCalculator() {
                               <Input
                                 id="bonus-percentage"
                                 type="number"
-                                value={bonusPercentage}
-                                onChange={(e) => setBonusPercentage(Number(e.target.value))}
+                                value={bonusPercentage || ''} onChange={(e) => setBonusPercentage(e.target.value === '' ? 0 : Number(e.target.value))}
                                 className="pr-8"
                               />
                               <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">

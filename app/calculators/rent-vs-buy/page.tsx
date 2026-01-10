@@ -404,8 +404,7 @@ export default function RentVsBuyCalculator() {
                               id="home-price"
                               type="number"
                               className="pl-9"
-                              value={homePrice}
-                              onChange={(e) => setHomePrice(Number(e.target.value))}
+                              value={homePrice || ''} onChange={(e) => setHomePrice(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -511,8 +510,7 @@ export default function RentVsBuyCalculator() {
                               id="hoa-fees"
                               type="number"
                               className="pl-9"
-                              value={hoaFees}
-                              onChange={(e) => setHoaFees(Number(e.target.value))}
+                              value={hoaFees || ''} onChange={(e) => setHoaFees(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -559,8 +557,7 @@ export default function RentVsBuyCalculator() {
                               id="monthly-rent"
                               type="number"
                               className="pl-9"
-                              value={monthlyRent}
-                              onChange={(e) => setMonthlyRent(Number(e.target.value))}
+                              value={monthlyRent || ''} onChange={(e) => setMonthlyRent(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -586,8 +583,7 @@ export default function RentVsBuyCalculator() {
                               id="renters-insurance"
                               type="number"
                               className="pl-9"
-                              value={rentersInsurance}
-                              onChange={(e) => setRentersInsurance(Number(e.target.value))}
+                              value={rentersInsurance || ''} onChange={(e) => setRentersInsurance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -599,8 +595,7 @@ export default function RentVsBuyCalculator() {
                               id="security-deposit"
                               type="number"
                               className="pl-9"
-                              value={securityDeposit}
-                              onChange={(e) => setSecurityDeposit(Number(e.target.value))}
+                              value={securityDeposit || ''} onChange={(e) => setSecurityDeposit(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

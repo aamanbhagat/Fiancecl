@@ -393,8 +393,7 @@ export default function EstateCalculator() {
                               id="life-insurance"
                               type="number"
                               className="pl-9"
-                              value={lifeInsuranceValue}
-                              onChange={(e) => setLifeInsuranceValue(Number(e.target.value))}
+                              value={lifeInsuranceValue || ''} onChange={(e) => setLifeInsuranceValue(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -452,8 +451,7 @@ export default function EstateCalculator() {
                               id="exemption-amount"
                               type="number"
                               className="pl-9"
-                              value={exemptionAmount}
-                              onChange={(e) => setExemptionAmount(Number(e.target.value))}
+                              value={exemptionAmount || ''} onChange={(e) => setExemptionAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -465,8 +463,7 @@ export default function EstateCalculator() {
                               id="charitable-giving"
                               type="number"
                               className="pl-9"
-                              value={charitableGiving}
-                              onChange={(e) => setCharitableGiving(Number(e.target.value))}
+                              value={charitableGiving || ''} onChange={(e) => setCharitableGiving(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

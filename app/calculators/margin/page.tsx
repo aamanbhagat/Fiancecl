@@ -342,8 +342,7 @@ export default function MarginCalculator() {
                               id="cost-price"
                               type="number"
                               className="pl-9"
-                              value={costPrice}
-                              onChange={(e) => setCostPrice(Number(e.target.value))}
+                              value={costPrice || ''} onChange={(e) => setCostPrice(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -355,8 +354,7 @@ export default function MarginCalculator() {
                               id="selling-price"
                               type="number"
                               className="pl-9"
-                              value={sellingPrice}
-                              onChange={(e) => setSellingPrice(Number(e.target.value))}
+                              value={sellingPrice || ''} onChange={(e) => setSellingPrice(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -410,8 +408,7 @@ export default function MarginCalculator() {
                                 id="fixed-costs"
                                 type="number"
                                 className="pl-9"
-                                value={fixedCosts}
-                                onChange={(e) => setFixedCosts(Number(e.target.value))}
+                                value={fixedCosts || ''} onChange={(e) => setFixedCosts(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -423,8 +420,7 @@ export default function MarginCalculator() {
                                 id="variable-costs"
                                 type="number"
                                 className="pl-9"
-                                value={variableCosts}
-                                onChange={(e) => setVariableCosts(Number(e.target.value))}
+                                value={variableCosts || ''} onChange={(e) => setVariableCosts(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -433,8 +429,7 @@ export default function MarginCalculator() {
                             <Input
                               id="units"
                               type="number"
-                              value={unitsPerMonth}
-                              onChange={(e) => setUnitsPerMonth(Number(e.target.value))}
+                              value={unitsPerMonth || ''} onChange={(e) => setUnitsPerMonth(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

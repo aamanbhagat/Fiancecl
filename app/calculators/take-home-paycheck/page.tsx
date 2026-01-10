@@ -351,8 +351,7 @@ export default function TakeHomePaycheckPage() {
                                 id="annual-salary"
                                 type="number"
                                 className="pl-9"
-                                value={annualSalary}
-                                onChange={(e) => setAnnualSalary(Number(e.target.value))}
+                                value={annualSalary || ''} onChange={(e) => setAnnualSalary(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -366,8 +365,7 @@ export default function TakeHomePaycheckPage() {
                                   id="hourly-rate"
                                   type="number"
                                   className="pl-9"
-                                  value={hourlyRate}
-                                  onChange={(e) => setHourlyRate(Number(e.target.value))}
+                                  value={hourlyRate || ''} onChange={(e) => setHourlyRate(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                             </div>
@@ -376,8 +374,7 @@ export default function TakeHomePaycheckPage() {
                               <Input
                                 id="hours-per-week"
                                 type="number"
-                                value={hoursPerWeek}
-                                onChange={(e) => setHoursPerWeek(Number(e.target.value))}
+                                value={hoursPerWeek || ''} onChange={(e) => setHoursPerWeek(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -416,8 +413,7 @@ export default function TakeHomePaycheckPage() {
                                   <Input
                                     id="overtime-hours"
                                     type="number"
-                                    value={overtimeHours}
-                                    onChange={(e) => setOvertimeHours(Number(e.target.value))}
+                                    value={overtimeHours || ''} onChange={(e) => setOvertimeHours(e.target.value === '' ? 0 : Number(e.target.value))}
                                   />
                                 </div>
                                 <div className="space-y-2">
@@ -428,8 +424,7 @@ export default function TakeHomePaycheckPage() {
                                       id="overtime-rate"
                                       type="number"
                                       className="pl-9"
-                                      value={overtimeRate}
-                                      onChange={(e) => setOvertimeRate(Number(e.target.value))}
+                                      value={overtimeRate || ''} onChange={(e) => setOvertimeRate(e.target.value === '' ? 0 : Number(e.target.value))}
                                     />
                                   </div>
                                 </div>
@@ -503,8 +498,7 @@ export default function TakeHomePaycheckPage() {
                               id="health-insurance"
                               type="number"
                               className="pl-9"
-                              value={healthInsurance}
-                              onChange={(e) => setHealthInsurance(Number(e.target.value))}
+                              value={healthInsurance || ''} onChange={(e) => setHealthInsurance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -516,8 +510,7 @@ export default function TakeHomePaycheckPage() {
                               id="dental-insurance"
                               type="number"
                               className="pl-9"
-                              value={dentalInsurance}
-                              onChange={(e) => setDentalInsurance(Number(e.target.value))}
+                              value={dentalInsurance || ''} onChange={(e) => setDentalInsurance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -529,8 +522,7 @@ export default function TakeHomePaycheckPage() {
                               id="vision-insurance"
                               type="number"
                               className="pl-9"
-                              value={visionInsurance}
-                              onChange={(e) => setVisionInsurance(Number(e.target.value))}
+                              value={visionInsurance || ''} onChange={(e) => setVisionInsurance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -542,8 +534,7 @@ export default function TakeHomePaycheckPage() {
                               id="fsa"
                               type="number"
                               className="pl-9"
-                              value={fsa}
-                              onChange={(e) => setFsa(Number(e.target.value))}
+                              value={fsa || ''} onChange={(e) => setFsa(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -555,8 +546,7 @@ export default function TakeHomePaycheckPage() {
                               id="hsa"
                               type="number"
                               className="pl-9"
-                              value={hsa}
-                              onChange={(e) => setHsa(Number(e.target.value))}
+                              value={hsa || ''} onChange={(e) => setHsa(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -578,8 +568,7 @@ export default function TakeHomePaycheckPage() {
                               id="life-insurance"
                               type="number"
                               className="pl-9"
-                              value={lifeInsurance}
-                              onChange={(e) => setLifeInsurance(Number(e.target.value))}
+                              value={lifeInsurance || ''} onChange={(e) => setLifeInsurance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -591,8 +580,7 @@ export default function TakeHomePaycheckPage() {
                               id="disability-insurance"
                               type="number"
                               className="pl-9"
-                              value={disabilityInsurance}
-                              onChange={(e) => setDisabilityInsurance(Number(e.target.value))}
+                              value={disabilityInsurance || ''} onChange={(e) => setDisabilityInsurance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -604,8 +592,7 @@ export default function TakeHomePaycheckPage() {
                               id="garnishments"
                               type="number"
                               className="pl-9"
-                              value={garnishments}
-                              onChange={(e) => setGarnishments(Number(e.target.value))}
+                              value={garnishments || ''} onChange={(e) => setGarnishments(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -617,8 +604,7 @@ export default function TakeHomePaycheckPage() {
                               id="union-dues"
                               type="number"
                               className="pl-9"
-                              value={unionDues}
-                              onChange={(e) => setUnionDues(Number(e.target.value))}
+                              value={unionDues || ''} onChange={(e) => setUnionDues(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -630,8 +616,7 @@ export default function TakeHomePaycheckPage() {
                               id="other-deductions"
                               type="number"
                               className="pl-9"
-                              value={otherDeductions}
-                              onChange={(e) => setOtherDeductions(Number(e.target.value))}
+                              value={otherDeductions || ''} onChange={(e) => setOtherDeductions(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

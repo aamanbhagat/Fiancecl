@@ -427,8 +427,7 @@ export default function RealEstateCalculator() {
                               id="property-value"
                               type="number"
                               className="pl-9"
-                              value={propertyValue}
-                              onChange={(e) => setPropertyValue(Number(e.target.value))}
+                              value={propertyValue || ''} onChange={(e) => setPropertyValue(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -459,8 +458,7 @@ export default function RealEstateCalculator() {
                               id="down-payment"
                               type="number"
                               className="pl-9"
-                              value={downPayment}
-                              onChange={(e) => setDownPayment(Number(e.target.value))}
+                              value={downPayment || ''} onChange={(e) => setDownPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -507,8 +505,7 @@ export default function RealEstateCalculator() {
                               id="monthly-rent"
                               type="number"
                               className="pl-9"
-                              value={monthlyRent}
-                              onChange={(e) => setMonthlyRent(Number(e.target.value))}
+                              value={monthlyRent || ''} onChange={(e) => setMonthlyRent(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -590,8 +587,7 @@ export default function RealEstateCalculator() {
                               id="hoa-fees"
                               type="number"
                               className="pl-9"
-                              value={hoaFees}
-                              onChange={(e) => setHoaFees(Number(e.target.value))}
+                              value={hoaFees || ''} onChange={(e) => setHoaFees(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -603,8 +599,7 @@ export default function RealEstateCalculator() {
                               id="utilities"
                               type="number"
                               className="pl-9"
-                              value={utilities}
-                              onChange={(e) => setUtilities(Number(e.target.value))}
+                              value={utilities || ''} onChange={(e) => setUtilities(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -637,8 +632,7 @@ export default function RealEstateCalculator() {
                               id="repair-costs"
                               type="number"
                               className="pl-9"
-                              value={repairCosts}
-                              onChange={(e) => setRepairCosts(Number(e.target.value))}
+                              value={repairCosts || ''} onChange={(e) => setRepairCosts(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -650,8 +644,7 @@ export default function RealEstateCalculator() {
                               id="furnishing-costs"
                               type="number"
                               className="pl-9"
-                              value={furnishingCosts}
-                              onChange={(e) => setFurnishingCosts(Number(e.target.value))}
+                              value={furnishingCosts || ''} onChange={(e) => setFurnishingCosts(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

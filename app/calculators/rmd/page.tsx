@@ -381,8 +381,7 @@ export default function RMDCalculator() {
                             type="number"
                             min={72}
                             max={120}
-                            value={currentAge}
-                            onChange={(e) => setCurrentAge(Number(e.target.value))}
+                            value={currentAge || ''} onChange={(e) => setCurrentAge(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -409,8 +408,7 @@ export default function RMDCalculator() {
                               id="account-balance"
                               type="number"
                               className="pl-9"
-                              value={accountBalance}
-                              onChange={(e) => setAccountBalance(Number(e.target.value))}
+                              value={accountBalance || ''} onChange={(e) => setAccountBalance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

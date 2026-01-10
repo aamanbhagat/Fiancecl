@@ -425,8 +425,7 @@ export default function BusinessLoanCalculator() {
                               id="loan-amount"
                               type="number"
                               className="pl-9"
-                              value={loanAmount}
-                              onChange={(e) => setLoanAmount(Number(e.target.value))}
+                              value={loanAmount || ''} onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -438,8 +437,7 @@ export default function BusinessLoanCalculator() {
                               id="down-payment"
                               type="number"
                               className="pl-9"
-                              value={downPayment}
-                              onChange={(e) => setDownPayment(Number(e.target.value))}
+                              value={downPayment || ''} onChange={(e) => setDownPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -503,8 +501,7 @@ export default function BusinessLoanCalculator() {
                               id="prepayment"
                               type="number"
                               className="pl-9"
-                              value={prepaymentAmount}
-                              onChange={(e) => setPrepaymentAmount(Number(e.target.value))}
+                              value={prepaymentAmount || ''} onChange={(e) => setPrepaymentAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -523,8 +520,7 @@ export default function BusinessLoanCalculator() {
                               <Input
                                 type="number"
                                 className="pl-9"
-                                value={balloonAmount}
-                                onChange={(e) => setBalloonAmount(Number(e.target.value))}
+                                value={balloonAmount || ''} onChange={(e) => setBalloonAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                                 placeholder="Balloon payment amount"
                               />
                             </div>

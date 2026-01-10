@@ -395,8 +395,7 @@ export default function FourZeroOneKCalculator() {
                           <Input
                             id="current-age"
                             type="number"
-                            value={currentAge}
-                            onChange={(e) => setCurrentAge(Number(e.target.value))}
+                            value={currentAge || ''} onChange={(e) => setCurrentAge(e.target.value === '' ? 0 : Number(e.target.value))}
                             min={18}
                             max={100}
                             aria-describedby="current-age-desc"
@@ -408,8 +407,7 @@ export default function FourZeroOneKCalculator() {
                           <Input
                             id="retirement-age"
                             type="number"
-                            value={retirementAge}
-                            onChange={(e) => setRetirementAge(Number(e.target.value))}
+                            value={retirementAge || ''} onChange={(e) => setRetirementAge(e.target.value === '' ? 0 : Number(e.target.value))}
                             min={currentAge + 1}
                             max={100}
                             aria-describedby="retirement-age-error"

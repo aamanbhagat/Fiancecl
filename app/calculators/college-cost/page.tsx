@@ -370,8 +370,7 @@ export default function CollegeCostCalculator() {
                               id="tuition"
                               type="number"
                               className="pl-9"
-                              value={tuition}
-                              onChange={(e) => setTuition(Number(e.target.value))}
+                              value={tuition || ''} onChange={(e) => setTuition(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -383,8 +382,7 @@ export default function CollegeCostCalculator() {
                               id="fees"
                               type="number"
                               className="pl-9"
-                              value={fees}
-                              onChange={(e) => setFees(Number(e.target.value))}
+                              value={fees || ''} onChange={(e) => setFees(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -396,8 +394,7 @@ export default function CollegeCostCalculator() {
                               id="room-board"
                               type="number"
                               className="pl-9"
-                              value={roomAndBoard}
-                              onChange={(e) => setRoomAndBoard(Number(e.target.value))}
+                              value={roomAndBoard || ''} onChange={(e) => setRoomAndBoard(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -409,8 +406,7 @@ export default function CollegeCostCalculator() {
                               id="books-supplies"
                               type="number"
                               className="pl-9"
-                              value={booksAndSupplies}
-                              onChange={(e) => setBooksAndSupplies(Number(e.target.value))}
+                              value={booksAndSupplies || ''} onChange={(e) => setBooksAndSupplies(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -422,8 +418,7 @@ export default function CollegeCostCalculator() {
                               id="personal"
                               type="number"
                               className="pl-9"
-                              value={personalExpenses}
-                              onChange={(e) => setPersonalExpenses(Number(e.target.value))}
+                              value={personalExpenses || ''} onChange={(e) => setPersonalExpenses(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -435,8 +430,7 @@ export default function CollegeCostCalculator() {
                               id="transportation"
                               type="number"
                               className="pl-9"
-                              value={transportation}
-                              onChange={(e) => setTransportation(Number(e.target.value))}
+                              value={transportation || ''} onChange={(e) => setTransportation(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -455,8 +449,7 @@ export default function CollegeCostCalculator() {
                               id="scholarships"
                               type="number"
                               className="pl-9"
-                              value={scholarships}
-                              onChange={(e) => setScholarships(Number(e.target.value))}
+                              value={scholarships || ''} onChange={(e) => setScholarships(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -468,8 +461,7 @@ export default function CollegeCostCalculator() {
                               id="grants"
                               type="number"
                               className="pl-9"
-                              value={grants}
-                              onChange={(e) => setGrants(Number(e.target.value))}
+                              value={grants || ''} onChange={(e) => setGrants(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -481,8 +473,7 @@ export default function CollegeCostCalculator() {
                               id="family"
                               type="number"
                               className="pl-9"
-                              value={familyContributions}
-                              onChange={(e) => setFamilyContributions(Number(e.target.value))}
+                              value={familyContributions || ''} onChange={(e) => setFamilyContributions(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -494,8 +485,7 @@ export default function CollegeCostCalculator() {
                               id="work-study"
                               type="number"
                               className="pl-9"
-                              value={workStudy}
-                              onChange={(e) => setWorkStudy(Number(e.target.value))}
+                              value={workStudy || ''} onChange={(e) => setWorkStudy(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -507,8 +497,7 @@ export default function CollegeCostCalculator() {
                               id="loans"
                               type="number"
                               className="pl-9"
-                              value={loans}
-                              onChange={(e) => setLoans(Number(e.target.value))}
+                              value={loans || ''} onChange={(e) => setLoans(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

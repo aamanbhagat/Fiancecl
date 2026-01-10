@@ -346,8 +346,7 @@ export default function RothIRACalculator() {
                           <Input
                             id="current-age"
                             type="number"
-                            value={currentAge}
-                            onChange={(e) => setCurrentAge(Number(e.target.value))}
+                            value={currentAge || ''} onChange={(e) => setCurrentAge(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -355,8 +354,7 @@ export default function RothIRACalculator() {
                           <Input
                             id="retirement-age"
                             type="number"
-                            value={retirementAge}
-                            onChange={(e) => setRetirementAge(Number(e.target.value))}
+                            value={retirementAge || ''} onChange={(e) => setRetirementAge(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -367,8 +365,7 @@ export default function RothIRACalculator() {
                               id="current-balance"
                               type="number"
                               className="pl-9"
-                              value={currentBalance}
-                              onChange={(e) => setCurrentBalance(Number(e.target.value))}
+                              value={currentBalance || ''} onChange={(e) => setCurrentBalance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -380,8 +377,7 @@ export default function RothIRACalculator() {
                               id="annual-contribution"
                               type="number"
                               className="pl-9"
-                              value={annualContribution}
-                              onChange={(e) => setAnnualContribution(Number(e.target.value))}
+                              value={annualContribution || ''} onChange={(e) => setAnnualContribution(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

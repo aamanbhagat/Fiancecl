@@ -537,8 +537,7 @@ export default function InterestRateCalculator() {
                                 id="loan-amount"
                                 type="number"
                                 className="pl-9"
-                                value={loanAmount}
-                                onChange={(e) => setLoanAmount(Number(e.target.value))}
+                                value={loanAmount || ''} onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -550,8 +549,7 @@ export default function InterestRateCalculator() {
                                 id="total-repayment"
                                 type="number"
                                 className="pl-9"
-                                value={totalRepayment}
-                                onChange={(e) => setTotalRepayment(Number(e.target.value))}
+                                value={totalRepayment || ''} onChange={(e) => setTotalRepayment(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -560,8 +558,7 @@ export default function InterestRateCalculator() {
                             <Input
                               id="loan-term"
                               type="number"
-                              value={loanTerm}
-                              onChange={(e) => setLoanTerm(Number(e.target.value))}
+                              value={loanTerm || ''} onChange={(e) => setLoanTerm(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                           <div className="space-y-2">
@@ -595,8 +592,7 @@ export default function InterestRateCalculator() {
                                 id="initial-investment"
                                 type="number"
                                 className="pl-9"
-                                value={initialInvestment}
-                                onChange={(e) => setInitialInvestment(Number(e.target.value))}
+                                value={initialInvestment || ''} onChange={(e) => setInitialInvestment(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -608,8 +604,7 @@ export default function InterestRateCalculator() {
                                 id="target-amount"
                                 type="number"
                                 className="pl-9"
-                                value={targetAmount}
-                                onChange={(e) => setTargetAmount(Number(e.target.value))}
+                                value={targetAmount || ''} onChange={(e) => setTargetAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -618,8 +613,7 @@ export default function InterestRateCalculator() {
                             <Input
                               id="investment-term"
                               type="number"
-                              value={investmentTerm}
-                              onChange={(e) => setInvestmentTerm(Number(e.target.value))}
+                              value={investmentTerm || ''} onChange={(e) => setInvestmentTerm(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                           <div className="space-y-2">
@@ -655,8 +649,7 @@ export default function InterestRateCalculator() {
                                   type="number"
                                   className="pl-9"
                                   placeholder="Monthly contribution amount"
-                                  value={monthlyContribution}
-                                  onChange={(e) => setMonthlyContribution(Number(e.target.value))}
+                                  value={monthlyContribution || ''} onChange={(e) => setMonthlyContribution(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                             )}

@@ -358,8 +358,7 @@ export default function RentCalculator() {
                               id="monthly-income"
                               type="number"
                               className="pl-9"
-                              value={monthlyIncome}
-                              onChange={(e) => setMonthlyIncome(Number(e.target.value))}
+                              value={monthlyIncome || ''} onChange={(e) => setMonthlyIncome(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -371,8 +370,7 @@ export default function RentCalculator() {
                               id="monthly-debts"
                               type="number"
                               className="pl-9"
-                              value={monthlyDebts}
-                              onChange={(e) => setMonthlyDebts(Number(e.target.value))}
+                              value={monthlyDebts || ''} onChange={(e) => setMonthlyDebts(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -562,8 +560,7 @@ export default function RentCalculator() {
                                 id="insurance-cost"
                                 type="number"
                                 className="pl-9"
-                                value={rentersInsuranceCost}
-                                onChange={(e) => setRentersInsuranceCost(Number(e.target.value))}
+                                value={rentersInsuranceCost || ''} onChange={(e) => setRentersInsuranceCost(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           )}

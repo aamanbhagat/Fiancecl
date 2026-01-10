@@ -370,8 +370,7 @@ export default function AnnuityPayoutCalculator() {
                               id="lump-sum"
                               type="number"
                               className="pl-9"
-                              value={lumpSum}
-                              onChange={(e) => setLumpSum(Number(e.target.value))}
+                              value={lumpSum || ''} onChange={(e) => setLumpSum(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -394,8 +393,7 @@ export default function AnnuityPayoutCalculator() {
                           <Input
                             id="payout-period"
                             type="number"
-                            value={payoutPeriod}
-                            onChange={(e) => setPayoutPeriod(Number(e.target.value))}
+                            value={payoutPeriod || ''} onChange={(e) => setPayoutPeriod(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">

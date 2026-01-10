@@ -221,8 +221,7 @@ export default function SimpleInterestCalculator() {
                           id="principal"
                           type="number"
                           className="pl-9"
-                          value={principal}
-                          onChange={(e) => setPrincipal(Number(e.target.value))}
+                          value={principal || ''} onChange={(e) => setPrincipal(e.target.value === '' ? 0 : Number(e.target.value))}
                           min={0}
                         />
                       </div>

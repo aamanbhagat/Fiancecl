@@ -417,8 +417,7 @@ export default function IncomeTaxCalculator() {
                           <Input
                             id="age"
                             type="number"
-                            value={age}
-                            onChange={(e) => setAge(Number(e.target.value))}
+                            value={age || ''} onChange={(e) => setAge(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                       </div>
@@ -436,8 +435,7 @@ export default function IncomeTaxCalculator() {
                               id="wages"
                               type="number"
                               className="pl-9"
-                              value={wagesIncome}
-                              onChange={(e) => setWagesIncome(Number(e.target.value))}
+                              value={wagesIncome || ''} onChange={(e) => setWagesIncome(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -449,8 +447,7 @@ export default function IncomeTaxCalculator() {
                               id="business"
                               type="number"
                               className="pl-9"
-                              value={businessIncome}
-                              onChange={(e) => setBusinessIncome(Number(e.target.value))}
+                              value={businessIncome || ''} onChange={(e) => setBusinessIncome(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -462,8 +459,7 @@ export default function IncomeTaxCalculator() {
                               id="investment"
                               type="number"
                               className="pl-9"
-                              value={investmentIncome}
-                              onChange={(e) => setInvestmentIncome(Number(e.target.value))}
+                              value={investmentIncome || ''} onChange={(e) => setInvestmentIncome(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -475,8 +471,7 @@ export default function IncomeTaxCalculator() {
                               id="other"
                               type="number"
                               className="pl-9"
-                              value={otherIncome}
-                              onChange={(e) => setOtherIncome(Number(e.target.value))}
+                              value={otherIncome || ''} onChange={(e) => setOtherIncome(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -508,8 +503,7 @@ export default function IncomeTaxCalculator() {
                               id="ira"
                               type="number"
                               className="pl-9"
-                              value={ira}
-                              onChange={(e) => setIra(Number(e.target.value))}
+                              value={ira || ''} onChange={(e) => setIra(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -521,8 +515,7 @@ export default function IncomeTaxCalculator() {
                               id="student-loan"
                               type="number"
                               className="pl-9"
-                              value={studentLoanInterest}
-                              onChange={(e) => setStudentLoanInterest(Number(e.target.value))}
+                              value={studentLoanInterest || ''} onChange={(e) => setStudentLoanInterest(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -534,8 +527,7 @@ export default function IncomeTaxCalculator() {
                               id="hsa"
                               type="number"
                               className="pl-9"
-                              value={hsa}
-                              onChange={(e) => setHsa(Number(e.target.value))}
+                              value={hsa || ''} onChange={(e) => setHsa(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -565,8 +557,7 @@ export default function IncomeTaxCalculator() {
                                 id="mortgage"
                                 type="number"
                                 className="pl-9"
-                                value={mortgageInterest}
-                                onChange={(e) => setMortgageInterest(Number(e.target.value))}
+                                value={mortgageInterest || ''} onChange={(e) => setMortgageInterest(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -578,8 +569,7 @@ export default function IncomeTaxCalculator() {
                                 id="property-tax"
                                 type="number"
                                 className="pl-9"
-                                value={propertyTax}
-                                onChange={(e) => setPropertyTax(Number(e.target.value))}
+                                value={propertyTax || ''} onChange={(e) => setPropertyTax(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -591,8 +581,7 @@ export default function IncomeTaxCalculator() {
                                 id="charitable"
                                 type="number"
                                 className="pl-9"
-                                value={charitableDonations}
-                                onChange={(e) => setCharitableDonations(Number(e.target.value))}
+                                value={charitableDonations || ''} onChange={(e) => setCharitableDonations(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -604,8 +593,7 @@ export default function IncomeTaxCalculator() {
                                 id="medical"
                                 type="number"
                                 className="pl-9"
-                                value={medicalExpenses}
-                                onChange={(e) => setMedicalExpenses(Number(e.target.value))}
+                                value={medicalExpenses || ''} onChange={(e) => setMedicalExpenses(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -625,8 +613,7 @@ export default function IncomeTaxCalculator() {
                               id="child-tax"
                               type="number"
                               className="pl-9"
-                              value={childTaxCredit}
-                              onChange={(e) => setChildTaxCredit(Number(e.target.value))}
+                              value={childTaxCredit || ''} onChange={(e) => setChildTaxCredit(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -638,8 +625,7 @@ export default function IncomeTaxCalculator() {
                               id="child-care"
                               type="number"
                               className="pl-9"
-                              value={childCareCredit}
-                              onChange={(e) => setChildCareCredit(Number(e.target.value))}
+                              value={childCareCredit || ''} onChange={(e) => setChildCareCredit(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -651,8 +637,7 @@ export default function IncomeTaxCalculator() {
                               id="education"
                               type="number"
                               className="pl-9"
-                              value={educationCredit}
-                              onChange={(e) => setEducationCredit(Number(e.target.value))}
+                              value={educationCredit || ''} onChange={(e) => setEducationCredit(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -664,8 +649,7 @@ export default function IncomeTaxCalculator() {
                               id="other-credits"
                               type="number"
                               className="pl-9"
-                              value={otherCredits}
-                              onChange={(e) => setOtherCredits(Number(e.target.value))}
+                              value={otherCredits || ''} onChange={(e) => setOtherCredits(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

@@ -293,8 +293,7 @@ export default function APRCalculatorPage() {
                           <Input
                             id="loan-amount"
                             type="number"
-                            value={loanAmount}
-                            onChange={(e) => setLoanAmount(Number(e.target.value))}
+                            value={loanAmount || ''} onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             min={0}
                             className="text-lg"
                           />
@@ -319,8 +318,7 @@ export default function APRCalculatorPage() {
                           <Input
                             id="loan-term"
                             type="number"
-                            value={loanTerm}
-                            onChange={(e) => setLoanTerm(Number(e.target.value))}
+                            value={loanTerm || ''} onChange={(e) => setLoanTerm(e.target.value === '' ? 0 : Number(e.target.value))}
                             min={1}
                             className="text-lg"
                           />
@@ -337,8 +335,7 @@ export default function APRCalculatorPage() {
                           <Input
                             id="origination-fee"
                             type="number"
-                            value={originationFee}
-                            onChange={(e) => setOriginationFee(Number(e.target.value))}
+                            value={originationFee || ''} onChange={(e) => setOriginationFee(e.target.value === '' ? 0 : Number(e.target.value))}
                             min={0}
                             className="text-lg"
                           />
@@ -348,8 +345,7 @@ export default function APRCalculatorPage() {
                           <Input
                             id="application-fee"
                             type="number"
-                            value={applicationFee}
-                            onChange={(e) => setApplicationFee(Number(e.target.value))}
+                            value={applicationFee || ''} onChange={(e) => setApplicationFee(e.target.value === '' ? 0 : Number(e.target.value))}
                             min={0}
                             className="text-lg"
                           />
@@ -359,8 +355,7 @@ export default function APRCalculatorPage() {
                           <Input
                             id="insurance-fee"
                             type="number"
-                            value={insuranceFee}
-                            onChange={(e) => setInsuranceFee(Number(e.target.value))}
+                            value={insuranceFee || ''} onChange={(e) => setInsuranceFee(e.target.value === '' ? 0 : Number(e.target.value))}
                             min={0}
                             className="text-lg"
                           />
@@ -370,8 +365,7 @@ export default function APRCalculatorPage() {
                           <Input
                             id="other-fees"
                             type="number"
-                            value={otherFees}
-                            onChange={(e) => setOtherFees(Number(e.target.value))}
+                            value={otherFees || ''} onChange={(e) => setOtherFees(e.target.value === '' ? 0 : Number(e.target.value))}
                             min={0}
                             className="text-lg"
                           />
@@ -391,8 +385,7 @@ export default function APRCalculatorPage() {
                               <Input
                                 id="monthly-service-fee"
                                 type="number"
-                                value={monthlyServiceFee}
-                                onChange={(e) => setMonthlyServiceFee(Number(e.target.value))}
+                                value={monthlyServiceFee || ''} onChange={(e) => setMonthlyServiceFee(e.target.value === '' ? 0 : Number(e.target.value))}
                                 min={0}
                                 className="text-lg"
                               />

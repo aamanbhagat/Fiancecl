@@ -350,8 +350,7 @@ export default function SavingsCalculator() {
                               id="initial-amount"
                               type="number"
                               className="pl-9"
-                              value={initialAmount}
-                              onChange={(e) => setInitialAmount(Number(e.target.value))}
+                              value={initialAmount || ''} onChange={(e) => setInitialAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -363,8 +362,7 @@ export default function SavingsCalculator() {
                               id="monthly-contribution"
                               type="number"
                               className="pl-9"
-                              value={monthlyContribution}
-                              onChange={(e) => setMonthlyContribution(Number(e.target.value))}
+                              value={monthlyContribution || ''} onChange={(e) => setMonthlyContribution(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

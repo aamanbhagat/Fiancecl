@@ -583,8 +583,8 @@ export default function MortgageCalculator() {
                               id="loan-amount"
                               type="number"
                               className="pl-9"
-                              value={loanAmount}
-                              onChange={(e) => setLoanAmount(Number(e.target.value))}
+                              value={loanAmount || ''}
+                              onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -676,8 +676,8 @@ export default function MortgageCalculator() {
                                 id="hoa-fees"
                                 type="number"
                                 className="pl-9"
-                                value={hoaFees}
-                                onChange={(e) => setHoaFees(Number(e.target.value))}
+                                value={hoaFees || ''}
+                                onChange={(e) => setHoaFees(e.target.value === '' ? 0 : Number(e.target.value))}
                                 placeholder="Monthly HOA fees"
                               />
                             </div>
@@ -721,8 +721,8 @@ export default function MortgageCalculator() {
                               id="extra-payment"
                               type="number"
                               className="pl-9"
-                              value={extraPayment}
-                              onChange={(e) => setExtraPayment(Number(e.target.value))}
+                              value={extraPayment || ''}
+                              onChange={(e) => setExtraPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

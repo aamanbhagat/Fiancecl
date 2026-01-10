@@ -397,8 +397,7 @@ export default function SalaryCalculator() {
                               id="gross-salary"
                               type="number"
                               className="pl-9"
-                              value={grossSalary}
-                              onChange={(e) => setGrossSalary(Number(e.target.value))}
+                              value={grossSalary || ''} onChange={(e) => setGrossSalary(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -470,8 +469,7 @@ export default function SalaryCalculator() {
                               id="health-insurance"
                               type="number"
                               className="pl-9"
-                              value={healthInsurance}
-                              onChange={(e) => setHealthInsurance(Number(e.target.value))}
+                              value={healthInsurance || ''} onChange={(e) => setHealthInsurance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -483,8 +481,7 @@ export default function SalaryCalculator() {
                               id="fsa"
                               type="number"
                               className="pl-9"
-                              value={fsa}
-                              onChange={(e) => setFsa(Number(e.target.value))}
+                              value={fsa || ''} onChange={(e) => setFsa(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -512,8 +509,7 @@ export default function SalaryCalculator() {
                               id="union-dues"
                               type="number"
                               className="pl-9"
-                              value={unionDues}
-                              onChange={(e) => setUnionDues(Number(e.target.value))}
+                              value={unionDues || ''} onChange={(e) => setUnionDues(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -525,8 +521,7 @@ export default function SalaryCalculator() {
                               id="other-deductions"
                               type="number"
                               className="pl-9"
-                              value={otherDeductions}
-                              onChange={(e) => setOtherDeductions(Number(e.target.value))}
+                              value={otherDeductions || ''} onChange={(e) => setOtherDeductions(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -545,8 +540,7 @@ export default function SalaryCalculator() {
                               id="bonus"
                               type="number"
                               className="pl-9"
-                              value={bonus}
-                              onChange={(e) => setBonus(Number(e.target.value))}
+                              value={bonus || ''} onChange={(e) => setBonus(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -558,8 +552,7 @@ export default function SalaryCalculator() {
                               id="overtime"
                               type="number"
                               className="pl-9"
-                              value={overtime}
-                              onChange={(e) => setOvertime(Number(e.target.value))}
+                              value={overtime || ''} onChange={(e) => setOvertime(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -571,8 +564,7 @@ export default function SalaryCalculator() {
                               id="commission"
                               type="number"
                               className="pl-9"
-                              value={commission}
-                              onChange={(e) => setCommission(Number(e.target.value))}
+                              value={commission || ''} onChange={(e) => setCommission(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

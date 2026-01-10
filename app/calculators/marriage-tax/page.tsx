@@ -424,8 +424,7 @@ export default function MarriageTaxCalculator() {
                                     <Input
                                       type="number"
                                       className="pl-9"
-                                      value={mortgageInterest}
-                                      onChange={(e) => setMortgageInterest(Number(e.target.value))}
+                                      value={mortgageInterest || ''} onChange={(e) => setMortgageInterest(e.target.value === '' ? 0 : Number(e.target.value))}
                                     />
                                   </div>
                                 )}
@@ -445,8 +444,7 @@ export default function MarriageTaxCalculator() {
                                     <Input
                                       type="number"
                                       className="pl-9"
-                                      value={charitableDonations}
-                                      onChange={(e) => setCharitableDonations(Number(e.target.value))}
+                                      value={charitableDonations || ''} onChange={(e) => setCharitableDonations(e.target.value === '' ? 0 : Number(e.target.value))}
                                     />
                                   </div>
                                 )}
@@ -486,8 +484,7 @@ export default function MarriageTaxCalculator() {
                                 <Input
                                   type="number"
                                   className="pl-9"
-                                  value={childCareExpenses}
-                                  onChange={(e) => setChildCareExpenses(Number(e.target.value))}
+                                  value={childCareExpenses || ''} onChange={(e) => setChildCareExpenses(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                             )}

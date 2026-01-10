@@ -435,8 +435,7 @@ export default function InvestmentCalculator() {
                               id="initial-investment"
                               type="number"
                               className="pl-9"
-                              value={initialInvestment}
-                              onChange={(e) => setInitialInvestment(Number(e.target.value))}
+                              value={initialInvestment || ''} onChange={(e) => setInitialInvestment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -448,8 +447,7 @@ export default function InvestmentCalculator() {
                               id="monthly-contribution"
                               type="number"
                               className="pl-9"
-                              value={monthlyContribution}
-                              onChange={(e) => setMonthlyContribution(Number(e.target.value))}
+                              value={monthlyContribution || ''} onChange={(e) => setMonthlyContribution(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

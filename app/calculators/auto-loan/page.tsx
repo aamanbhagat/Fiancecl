@@ -406,8 +406,7 @@ export default function AutoLoanCalculator() {
                               id="vehicle-price"
                               type="number"
                               className="pl-9"
-                              value={vehiclePrice}
-                              onChange={(e) => setVehiclePrice(Number(e.target.value))}
+                              value={vehiclePrice || ''} onChange={(e) => setVehiclePrice(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -435,8 +434,7 @@ export default function AutoLoanCalculator() {
                                 id="down-payment-amount"
                                 type="number"
                                 className="pl-9"
-                                value={downPaymentAmount}
-                                onChange={(e) => setDownPaymentAmount(Number(e.target.value))}
+                                value={downPaymentAmount || ''} onChange={(e) => setDownPaymentAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                             <p className="text-xs text-muted-foreground">
@@ -480,8 +478,7 @@ export default function AutoLoanCalculator() {
                                   type="number"
                                   className="pl-9"
                                   placeholder="Trade-in value"
-                                  value={tradeInValue}
-                                  onChange={(e) => setTradeInValue(Number(e.target.value))}
+                                  value={tradeInValue || ''} onChange={(e) => setTradeInValue(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                               <div className="relative">
@@ -491,8 +488,7 @@ export default function AutoLoanCalculator() {
                                   type="number"
                                   className="pl-9"
                                   placeholder="Amount owed on trade-in"
-                                  value={tradeInOwed}
-                                  onChange={(e) => setTradeInOwed(Number(e.target.value))}
+                                  value={tradeInOwed || ''} onChange={(e) => setTradeInOwed(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                             </div>
@@ -564,8 +560,7 @@ export default function AutoLoanCalculator() {
                                   type="number"
                                   className="pl-9"
                                   placeholder="Additional fees"
-                                  value={fees}
-                                  onChange={(e) => setFees(Number(e.target.value))}
+                                  value={fees || ''} onChange={(e) => setFees(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                             </div>
@@ -579,8 +574,7 @@ export default function AutoLoanCalculator() {
                               id="extra-payment"
                               type="number"
                               className="pl-9"
-                              value={extraPayment}
-                              onChange={(e) => setExtraPayment(Number(e.target.value))}
+                              value={extraPayment || ''} onChange={(e) => setExtraPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                           <p className="text-xs text-muted-foreground">

@@ -318,8 +318,7 @@ export default function PaymentCalculatorPage() {
                         <Input
                           id="loan-amount"
                           type="number"
-                          value={loanAmount}
-                          onChange={(e) => setLoanAmount(Number(e.target.value))}
+                          value={loanAmount || ''} onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                           className="pl-9"
                         />
                       </div>
@@ -404,8 +403,7 @@ export default function PaymentCalculatorPage() {
                               <Input
                                 id="extra-payment-amount"
                                 type="number"
-                                value={extraPaymentAmount}
-                                onChange={(e) => setExtraPaymentAmount(Number(e.target.value))}
+                                value={extraPaymentAmount || ''} onChange={(e) => setExtraPaymentAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                                 className="pl-9"
                               />
                             </div>

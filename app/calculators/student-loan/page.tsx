@@ -455,8 +455,7 @@ export default function StudentLoanCalculator() {
                               id="loan-amount"
                               type="number"
                               className="pl-9"
-                              value={loanAmount}
-                              onChange={(e) => setLoanAmount(Number(e.target.value))}
+                              value={loanAmount || ''} onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -536,8 +535,7 @@ export default function StudentLoanCalculator() {
                               <Input
                                 id="grace-months"
                                 type="number"
-                                value={gracePeriodMonths}
-                                onChange={(e) => setGracePeriodMonths(Number(e.target.value))}
+                                value={gracePeriodMonths || ''} onChange={(e) => setGracePeriodMonths(e.target.value === '' ? 0 : Number(e.target.value))}
                                 min={1}
                                 max={6}
                               />
@@ -552,8 +550,7 @@ export default function StudentLoanCalculator() {
                               id="loan-fees"
                               type="number"
                               className="pl-9"
-                              value={loanFees}
-                              onChange={(e) => setLoanFees(Number(e.target.value))}
+                              value={loanFees || ''} onChange={(e) => setLoanFees(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -573,8 +570,7 @@ export default function StudentLoanCalculator() {
                                 id="annual-income"
                                 type="number"
                                 className="pl-9"
-                                value={annualIncome}
-                                onChange={(e) => setAnnualIncome(Number(e.target.value))}
+                                value={annualIncome || ''} onChange={(e) => setAnnualIncome(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -583,8 +579,7 @@ export default function StudentLoanCalculator() {
                             <Input
                               id="family-size"
                               type="number"
-                              value={familySize}
-                              onChange={(e) => setFamilySize(Number(e.target.value))}
+                              value={familySize || ''} onChange={(e) => setFamilySize(e.target.value === '' ? 0 : Number(e.target.value))}
                               min={1}
                             />
                           </div>
@@ -618,8 +613,7 @@ export default function StudentLoanCalculator() {
                               id="extra-payment"
                               type="number"
                               className="pl-9"
-                              value={extraMonthlyPayment}
-                              onChange={(e) => setExtraMonthlyPayment(Number(e.target.value))}
+                              value={extraMonthlyPayment || ''} onChange={(e) => setExtraMonthlyPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                           <p className="text-xs text-muted-foreground">

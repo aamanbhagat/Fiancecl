@@ -330,8 +330,7 @@ export default function DiscountCalculator() {
                                 id="final-price"
                                 type="number"
                                 className="pl-9"
-                                value={finalPrice}
-                                onChange={(e) => setFinalPrice(Number(e.target.value))}
+                                value={finalPrice || ''} onChange={(e) => setFinalPrice(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -349,8 +348,7 @@ export default function DiscountCalculator() {
                                   id="reverse-discount"
                                   type="number"
                                   className="pl-9"
-                                  value={flatDiscount}
-                                  onChange={(e) => setFlatDiscount(Number(e.target.value))}
+                                  value={flatDiscount || ''} onChange={(e) => setFlatDiscount(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                             ) : (
@@ -379,8 +377,7 @@ export default function DiscountCalculator() {
                                     id="original-price"
                                     type="number"
                                     className="pl-9"
-                                    value={originalPrice}
-                                    onChange={(e) => setOriginalPrice(Number(e.target.value))}
+                                    value={originalPrice || ''} onChange={(e) => setOriginalPrice(e.target.value === '' ? 0 : Number(e.target.value))}
                                   />
                                 </div>
                               </div>
@@ -390,8 +387,7 @@ export default function DiscountCalculator() {
                                   id="quantity"
                                   type="number"
                                   min="1"
-                                  value={quantity}
-                                  onChange={(e) => setQuantity(Number(e.target.value))}
+                                  value={quantity || ''} onChange={(e) => setQuantity(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                             </div>
@@ -417,8 +413,7 @@ export default function DiscountCalculator() {
                                       id="flat-discount"
                                       type="number"
                                       className="pl-9"
-                                      value={flatDiscount}
-                                      onChange={(e) => setFlatDiscount(Number(e.target.value))}
+                                      value={flatDiscount || ''} onChange={(e) => setFlatDiscount(e.target.value === '' ? 0 : Number(e.target.value))}
                                     />
                                   </div>
                                 ) : (
@@ -532,8 +527,7 @@ export default function DiscountCalculator() {
                                         id="comparison-flat"
                                         type="number"
                                         className="pl-9"
-                                        value={comparisonFlatDiscount}
-                                        onChange={(e) => setComparisonFlatDiscount(Number(e.target.value))}
+                                        value={comparisonFlatDiscount || ''} onChange={(e) => setComparisonFlatDiscount(e.target.value === '' ? 0 : Number(e.target.value))}
                                       />
                                     </div>
                                   ) : (

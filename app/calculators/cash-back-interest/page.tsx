@@ -430,8 +430,7 @@ export default function CashBackInterestCalculator() {
                               id="vehicle-price"
                               type="number"
                               className="pl-9"
-                              value={vehiclePrice}
-                              onChange={(e) => setVehiclePrice(Number(e.target.value))}
+                              value={vehiclePrice || ''} onChange={(e) => setVehiclePrice(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -443,8 +442,7 @@ export default function CashBackInterestCalculator() {
                               id="cash-rebate"
                               type="number"
                               className="pl-9"
-                              value={cashRebate}
-                              onChange={(e) => setCashRebate(Number(e.target.value))}
+                              value={cashRebate || ''} onChange={(e) => setCashRebate(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -499,8 +497,7 @@ export default function CashBackInterestCalculator() {
                               id="down-payment"
                               type="number"
                               className="pl-9"
-                              value={downPayment}
-                              onChange={(e) => setDownPayment(Number(e.target.value))}
+                              value={downPayment || ''} onChange={(e) => setDownPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -525,8 +522,7 @@ export default function CashBackInterestCalculator() {
                               id="trade-in-value"
                               type="number"
                               className="pl-9"
-                              value={tradeInValue}
-                              onChange={(e) => setTradeInValue(Number(e.target.value))}
+                              value={tradeInValue || ''} onChange={(e) => setTradeInValue(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -581,8 +577,7 @@ export default function CashBackInterestCalculator() {
                                   type="number"
                                   className="pl-9"
                                   placeholder="Dealer Fees"
-                                  value={dealerFees}
-                                  onChange={(e) => setDealerFees(Number(e.target.value))}
+                                  value={dealerFees || ''} onChange={(e) => setDealerFees(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                               <div className="relative">
@@ -592,8 +587,7 @@ export default function CashBackInterestCalculator() {
                                   type="number"
                                   className="pl-9"
                                   placeholder="Title Fees"
-                                  value={titleFees}
-                                  onChange={(e) => setTitleFees(Number(e.target.value))}
+                                  value={titleFees || ''} onChange={(e) => setTitleFees(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                               <div className="relative">
@@ -603,8 +597,7 @@ export default function CashBackInterestCalculator() {
                                   type="number"
                                   className="pl-9"
                                   placeholder="Registration Fees"
-                                  value={registrationFees}
-                                  onChange={(e) => setRegistrationFees(Number(e.target.value))}
+                                  value={registrationFees || ''} onChange={(e) => setRegistrationFees(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                             </div>

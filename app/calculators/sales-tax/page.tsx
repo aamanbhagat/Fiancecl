@@ -562,8 +562,7 @@ export default function SalesTaxCalculator() {
                           <Input
                             type="number"
                             className="pl-9"
-                            value={total}
-                            onChange={(e) => setTotal(Number(e.target.value))}
+                            value={total || ''} onChange={(e) => setTotal(e.target.value === '' ? 0 : Number(e.target.value))}
                             placeholder="Enter total amount including tax"
                           />
                         </div>

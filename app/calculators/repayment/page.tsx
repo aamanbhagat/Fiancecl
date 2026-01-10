@@ -391,8 +391,7 @@ export default function RepaymentCalculator() {
                               id="loan-amount"
                               type="number"
                               className="pl-9"
-                              value={loanAmount}
-                              onChange={(e) => setLoanAmount(Number(e.target.value))}
+                              value={loanAmount || ''} onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -470,8 +469,7 @@ export default function RepaymentCalculator() {
                                 id="origination-fee"
                                 type="number"
                                 className="pl-9"
-                                value={originationFee}
-                                onChange={(e) => setOriginationFee(Number(e.target.value))}
+                                value={originationFee || ''} onChange={(e) => setOriginationFee(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           )}
@@ -484,8 +482,7 @@ export default function RepaymentCalculator() {
                               id="extra-payment"
                               type="number"
                               className="pl-9"
-                              value={extraPayment}
-                              onChange={(e) => setExtraPayment(Number(e.target.value))}
+                              value={extraPayment || ''} onChange={(e) => setExtraPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                           <Select 
@@ -517,8 +514,7 @@ export default function RepaymentCalculator() {
                                 id="balloon-payment"
                                 type="number"
                                 className="pl-9"
-                                value={balloonPayment}
-                                onChange={(e) => setBalloonPayment(Number(e.target.value))}
+                                value={balloonPayment || ''} onChange={(e) => setBalloonPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           )}

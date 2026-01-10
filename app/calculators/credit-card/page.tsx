@@ -369,8 +369,7 @@ export default function CreditCardCalculatorPage() {
                             <Input
                               id="balance"
                               type="number"
-                              value={balance}
-                              onChange={(e) => setBalance(Number(e.target.value))}
+                              value={balance || ''} onChange={(e) => setBalance(e.target.value === '' ? 0 : Number(e.target.value))}
                               className="pl-9"
                             />
                           </div>
@@ -382,8 +381,7 @@ export default function CreditCardCalculatorPage() {
                             <Input
                               id="apr"
                               type="number"
-                              value={apr}
-                              onChange={(e) => setApr(Number(e.target.value))}
+                              value={apr || ''} onChange={(e) => setApr(e.target.value === '' ? 0 : Number(e.target.value))}
                               className="pl-9"
                               step="0.1"
                             />
@@ -430,8 +428,7 @@ export default function CreditCardCalculatorPage() {
                             <Input
                               id="min-payment-fixed"
                               type="number"
-                              value={minPaymentFixed}
-                              onChange={(e) => setMinPaymentFixed(Number(e.target.value))}
+                              value={minPaymentFixed || ''} onChange={(e) => setMinPaymentFixed(e.target.value === '' ? 0 : Number(e.target.value))}
                               className="pl-9"
                             />
                           </div>
@@ -453,8 +450,7 @@ export default function CreditCardCalculatorPage() {
                             <Input
                               id="credit-limit"
                               type="number"
-                              value={creditLimit}
-                              onChange={(e) => setCreditLimit(Number(e.target.value))}
+                              value={creditLimit || ''} onChange={(e) => setCreditLimit(e.target.value === '' ? 0 : Number(e.target.value))}
                               className="pl-9"
                             />
                           </div>
@@ -466,8 +462,7 @@ export default function CreditCardCalculatorPage() {
                             <Input
                               id="annual-fee"
                               type="number"
-                              value={annualFee}
-                              onChange={(e) => setAnnualFee(Number(e.target.value))}
+                              value={annualFee || ''} onChange={(e) => setAnnualFee(e.target.value === '' ? 0 : Number(e.target.value))}
                               className="pl-9"
                             />
                           </div>
@@ -493,8 +488,7 @@ export default function CreditCardCalculatorPage() {
                                 <Input
                                   id="extra-payment-amount"
                                   type="number"
-                                  value={extraPaymentAmount}
-                                  onChange={(e) => setExtraPaymentAmount(Number(e.target.value))}
+                                  value={extraPaymentAmount || ''} onChange={(e) => setExtraPaymentAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                                   className="pl-9"
                                 />
                               </div>
@@ -536,8 +530,7 @@ export default function CreditCardCalculatorPage() {
                                 <Input
                                   id="promo-apr"
                                   type="number"
-                                  value={promoAPR}
-                                  onChange={(e) => setPromoAPR(Number(e.target.value))}
+                                  value={promoAPR || ''} onChange={(e) => setPromoAPR(e.target.value === '' ? 0 : Number(e.target.value))}
                                   className="pl-9"
                                   step="0.1"
                                 />
@@ -548,8 +541,7 @@ export default function CreditCardCalculatorPage() {
                               <Input
                                 id="promo-duration"
                                 type="number"
-                                value={promoDuration}
-                                onChange={(e) => setPromoDuration(Number(e.target.value))}
+                                value={promoDuration || ''} onChange={(e) => setPromoDuration(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>

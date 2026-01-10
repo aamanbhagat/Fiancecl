@@ -384,8 +384,7 @@ export default function SocialSecurityCalculator() {
                           <Input
                             id="birth-year"
                             type="number"
-                            value={birthYear}
-                            onChange={(e) => setBirthYear(Number(e.target.value))}
+                            value={birthYear || ''} onChange={(e) => setBirthYear(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -393,8 +392,7 @@ export default function SocialSecurityCalculator() {
                           <Input
                             id="current-age"
                             type="number"
-                            value={currentAge}
-                            onChange={(e) => setCurrentAge(Number(e.target.value))}
+                            value={currentAge || ''} onChange={(e) => setCurrentAge(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -429,8 +427,7 @@ export default function SocialSecurityCalculator() {
                               id="average-earnings"
                               type="number"
                               className="pl-9"
-                              value={averageEarnings}
-                              onChange={(e) => setAverageEarnings(Number(e.target.value))}
+                              value={averageEarnings || ''} onChange={(e) => setAverageEarnings(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -442,8 +439,7 @@ export default function SocialSecurityCalculator() {
                               id="future-earnings"
                               type="number"
                               className="pl-9"
-                              value={futureEarnings}
-                              onChange={(e) => setFutureEarnings(Number(e.target.value))}
+                              value={futureEarnings || ''} onChange={(e) => setFutureEarnings(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -452,8 +448,7 @@ export default function SocialSecurityCalculator() {
                           <Input
                             id="work-years"
                             type="number"
-                            value={workYears}
-                            onChange={(e) => setWorkYears(Number(e.target.value))}
+                            value={workYears || ''} onChange={(e) => setWorkYears(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                       </div>
@@ -478,8 +473,7 @@ export default function SocialSecurityCalculator() {
                                 id="spouse-earnings"
                                 type="number"
                                 className="pl-9"
-                                value={spouseEarnings}
-                                onChange={(e) => setSpouseEarnings(Number(e.target.value))}
+                                value={spouseEarnings || ''} onChange={(e) => setSpouseEarnings(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -488,8 +482,7 @@ export default function SocialSecurityCalculator() {
                             <Input
                               id="spouse-age"
                               type="number"
-                              value={spouseAge}
-                              onChange={(e) => setSpouseAge(Number(e.target.value))}
+                              value={spouseAge || ''} onChange={(e) => setSpouseAge(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                           <div className="space-y-2">

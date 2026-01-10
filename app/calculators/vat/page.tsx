@@ -385,8 +385,7 @@ export default function VATCalculator() {
                           <Input
                             id="vat-rate"
                             type="number"
-                            value={vatRate}
-                            onChange={(e) => setVatRate(Number(e.target.value))}
+                            value={vatRate || ''} onChange={(e) => setVatRate(e.target.value === '' ? 0 : Number(e.target.value))}
                             min={0}
                             max={100}
                             step={0.1}

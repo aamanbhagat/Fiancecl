@@ -383,8 +383,7 @@ export default function BudgetCalculator() {
                               id="monthly-income"
                               type="number"
                               className="pl-9"
-                              value={monthlyIncome}
-                              onChange={(e) => setMonthlyIncome(Number(e.target.value))}
+                              value={monthlyIncome || ''} onChange={(e) => setMonthlyIncome(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -396,8 +395,7 @@ export default function BudgetCalculator() {
                               id="additional-income"
                               type="number"
                               className="pl-9"
-                              value={additionalIncome}
-                              onChange={(e) => setAdditionalIncome(Number(e.target.value))}
+                              value={additionalIncome || ''} onChange={(e) => setAdditionalIncome(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

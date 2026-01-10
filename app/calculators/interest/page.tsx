@@ -405,8 +405,7 @@ export default function InterestCalculator() {
                               id="principal"
                               type="number"
                               className="pl-9"
-                              value={principal}
-                              onChange={(e) => setPrincipal(Number(e.target.value))}
+                              value={principal || ''} onChange={(e) => setPrincipal(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -430,8 +429,7 @@ export default function InterestCalculator() {
                             <Input
                               id="time-period"
                               type="number"
-                              value={timePeriod}
-                              onChange={(e) => setTimePeriod(Number(e.target.value))}
+                              value={timePeriod || ''} onChange={(e) => setTimePeriod(e.target.value === '' ? 0 : Number(e.target.value))}
                               className="flex-1"
                             />
                             <Select value={timeUnit} onValueChange={(value) => setTimeUnit(value as 'years' | 'months')}>
@@ -479,8 +477,7 @@ export default function InterestCalculator() {
                               id="contribution-amount"
                               type="number"
                               className="pl-9"
-                              value={additionalContribution}
-                              onChange={(e) => setAdditionalContribution(Number(e.target.value))}
+                              value={additionalContribution || ''} onChange={(e) => setAdditionalContribution(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -508,8 +505,7 @@ export default function InterestCalculator() {
                               id="withdrawal-amount"
                               type="number"
                               className="pl-9"
-                              value={withdrawalAmount}
-                              onChange={(e) => setWithdrawalAmount(Number(e.target.value))}
+                              value={withdrawalAmount || ''} onChange={(e) => setWithdrawalAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

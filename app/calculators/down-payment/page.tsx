@@ -401,8 +401,7 @@ export default function DownPaymentCalculator() {
                               id="home-price"
                               type="number"
                               className="pl-9"
-                              value={homePrice}
-                              onChange={(e) => setHomePrice(Number(e.target.value))}
+                              value={homePrice || ''} onChange={(e) => setHomePrice(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -427,8 +426,7 @@ export default function DownPaymentCalculator() {
                                 id="down-payment-amount"
                                 type="number"
                                 className="pl-9"
-                                value={downPaymentAmount}
-                                onChange={(e) => setDownPaymentAmount(Number(e.target.value))}
+                                value={downPaymentAmount || ''} onChange={(e) => setDownPaymentAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                             <p className="text-xs text-muted-foreground">
@@ -518,8 +516,7 @@ export default function DownPaymentCalculator() {
                               id="current-savings"
                               type="number"
                               className="pl-9"
-                              value={currentSavings}
-                              onChange={(e) => setCurrentSavings(Number(e.target.value))}
+                              value={currentSavings || ''} onChange={(e) => setCurrentSavings(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -531,8 +528,7 @@ export default function DownPaymentCalculator() {
                               id="monthly-savings"
                               type="number"
                               className="pl-9"
-                              value={monthlySavings}
-                              onChange={(e) => setMonthlySavings(Number(e.target.value))}
+                              value={monthlySavings || ''} onChange={(e) => setMonthlySavings(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

@@ -395,8 +395,7 @@ export default function RefinanceCalculator() {
                               id="current-loan-amount"
                               type="number"
                               className="pl-9"
-                              value={currentLoanAmount}
-                              onChange={(e) => setCurrentLoanAmount(Number(e.target.value))}
+                              value={currentLoanAmount || ''} onChange={(e) => setCurrentLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -408,8 +407,7 @@ export default function RefinanceCalculator() {
                               id="remaining-balance"
                               type="number"
                               className="pl-9"
-                              value={remainingBalance}
-                              onChange={(e) => setRemainingBalance(Number(e.target.value))}
+                              value={remainingBalance || ''} onChange={(e) => setRemainingBalance(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -432,8 +430,7 @@ export default function RefinanceCalculator() {
                           <Input
                             id="months-remaining"
                             type="number"
-                            value={monthsRemaining}
-                            onChange={(e) => setMonthsRemaining(Number(e.target.value))}
+                            value={monthsRemaining || ''} onChange={(e) => setMonthsRemaining(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                       </div>
@@ -494,8 +491,7 @@ export default function RefinanceCalculator() {
                                 id="cash-out"
                                 type="number"
                                 className="pl-9"
-                                value={cashOut}
-                                onChange={(e) => setCashOut(Number(e.target.value))}
+                                value={cashOut || ''} onChange={(e) => setCashOut(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           </div>
@@ -515,8 +511,7 @@ export default function RefinanceCalculator() {
                               id="closing-costs"
                               type="number"
                               className="pl-9"
-                              value={closingCosts}
-                              onChange={(e) => setClosingCosts(Number(e.target.value))}
+                              value={closingCosts || ''} onChange={(e) => setClosingCosts(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

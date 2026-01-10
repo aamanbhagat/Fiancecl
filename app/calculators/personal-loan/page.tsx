@@ -379,8 +379,7 @@ const frequencyMultiplier = {
                               id="loan-amount"
                               type="number"
                               className="pl-9"
-                              value={loanAmount}
-                              onChange={(e) => setLoanAmount(Number(e.target.value))}
+                              value={loanAmount || ''} onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -443,8 +442,7 @@ const frequencyMultiplier = {
                               id="down-payment"
                               type="number"
                               className="pl-9"
-                              value={downPayment}
-                              onChange={(e) => setDownPayment(Number(e.target.value))}
+                              value={downPayment || ''} onChange={(e) => setDownPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -470,8 +468,7 @@ const frequencyMultiplier = {
                               id="extra-payment"
                               type="number"
                               className="pl-9"
-                              value={extraPayment}
-                              onChange={(e) => setExtraPayment(Number(e.target.value))}
+                              value={extraPayment || ''} onChange={(e) => setExtraPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

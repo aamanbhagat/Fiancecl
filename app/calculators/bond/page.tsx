@@ -343,8 +343,7 @@ export default function BondCalculator() {
                               id="face-value"
                               type="number"
                               className="pl-9"
-                              value={faceValue}
-                              onChange={(e) => setFaceValue(Number(e.target.value))}
+                              value={faceValue || ''} onChange={(e) => setFaceValue(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -381,8 +380,7 @@ export default function BondCalculator() {
                           <Input
                             id="time-to-maturity"
                             type="number"
-                            value={timeToMaturity}
-                            onChange={(e) => setTimeToMaturity(Number(e.target.value))}
+                            value={timeToMaturity || ''} onChange={(e) => setTimeToMaturity(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
@@ -393,8 +391,7 @@ export default function BondCalculator() {
                               id="market-price"
                               type="number"
                               className="pl-9"
-                              value={marketPrice}
-                              onChange={(e) => setMarketPrice(Number(e.target.value))}
+                              value={marketPrice || ''} onChange={(e) => setMarketPrice(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -470,16 +467,14 @@ export default function BondCalculator() {
                                   type="number"
                                   className="pl-9"
                                   placeholder="Call Price"
-                                  value={callPrice}
-                                  onChange={(e) => setCallPrice(Number(e.target.value))}
+                                  value={callPrice || ''} onChange={(e) => setCallPrice(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                               <Input
                                 id="call-date"
                                 type="number"
                                 placeholder="Years to Call"
-                                value={callDate}
-                                onChange={(e) => setCallDate(Number(e.target.value))}
+                                value={callDate || ''} onChange={(e) => setCallDate(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           )}
@@ -499,8 +494,7 @@ export default function BondCalculator() {
                                 id="conversion-ratio"
                                 type="number"
                                 placeholder="Conversion Ratio"
-                                value={conversionRatio}
-                                onChange={(e) => setConversionRatio(Number(e.target.value))}
+                                value={conversionRatio || ''} onChange={(e) => setConversionRatio(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                               <div className="relative">
                                 <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -509,8 +503,7 @@ export default function BondCalculator() {
                                   type="number"
                                   className="pl-9"
                                   placeholder="Stock Price"
-                                  value={stockPrice}
-                                  onChange={(e) => setStockPrice(Number(e.target.value))}
+                                  value={stockPrice || ''} onChange={(e) => setStockPrice(e.target.value === '' ? 0 : Number(e.target.value))}
                                 />
                               </div>
                             </div>

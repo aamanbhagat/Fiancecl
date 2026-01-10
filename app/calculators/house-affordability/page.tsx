@@ -405,8 +405,7 @@ export default function HouseAffordabilityCalculator() {
                               id="monthly-income"
                               type="number"
                               className="pl-9"
-                              value={monthlyIncome}
-                              onChange={(e) => setMonthlyIncome(Number(e.target.value))}
+                              value={monthlyIncome || ''} onChange={(e) => setMonthlyIncome(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -418,8 +417,7 @@ export default function HouseAffordabilityCalculator() {
                               id="monthly-debts"
                               type="number"
                               className="pl-9"
-                              value={monthlyDebts}
-                              onChange={(e) => setMonthlyDebts(Number(e.target.value))}
+                              value={monthlyDebts || ''} onChange={(e) => setMonthlyDebts(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -662,8 +660,7 @@ export default function HouseAffordabilityCalculator() {
                                 type="number"
                                 className="pl-9"
                                 placeholder="Monthly HOA fees"
-                                value={hoaFees}
-                                onChange={(e) => setHoaFees(Number(e.target.value))}
+                                value={hoaFees || ''} onChange={(e) => setHoaFees(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           )}

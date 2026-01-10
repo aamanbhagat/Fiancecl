@@ -265,8 +265,7 @@ export default function CDCalculator() {
                           id="principal"
                           type="number"
                           className="pl-9"
-                          value={principal}
-                          onChange={(e) => setPrincipal(Number(e.target.value))}
+                          value={principal || ''} onChange={(e) => setPrincipal(e.target.value === '' ? 0 : Number(e.target.value))}
                           min={0}
                         />
                       </div>
@@ -350,8 +349,7 @@ export default function CDCalculator() {
                             <Input
                               id="withdrawal-month"
                               type="number"
-                              value={earlyWithdrawalMonth}
-                              onChange={(e) => setEarlyWithdrawalMonth(Number(e.target.value))}
+                              value={earlyWithdrawalMonth || ''} onChange={(e) => setEarlyWithdrawalMonth(e.target.value === '' ? 0 : Number(e.target.value))}
                               min={1}
                               max={term}
                             />
@@ -361,8 +359,7 @@ export default function CDCalculator() {
                             <Input
                               id="penalty"
                               type="number"
-                              value={earlyWithdrawalPenalty}
-                              onChange={(e) => setEarlyWithdrawalPenalty(Number(e.target.value))}
+                              value={earlyWithdrawalPenalty || ''} onChange={(e) => setEarlyWithdrawalPenalty(e.target.value === '' ? 0 : Number(e.target.value))}
                               min={0}
                               max={100}
                             />

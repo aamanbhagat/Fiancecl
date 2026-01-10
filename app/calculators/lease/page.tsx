@@ -386,8 +386,7 @@ export default function LeaseCalculator() {
                               id="vehicle-price"
                               type="number"
                               className="pl-9"
-                              value={vehiclePrice}
-                              onChange={(e) => setVehiclePrice(Number(e.target.value))}
+                              value={vehiclePrice || ''} onChange={(e) => setVehiclePrice(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -446,8 +445,7 @@ export default function LeaseCalculator() {
                               id="down-payment"
                               type="number"
                               className="pl-9"
-                              value={downPayment}
-                              onChange={(e) => setDownPayment(Number(e.target.value))}
+                              value={downPayment || ''} onChange={(e) => setDownPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -497,8 +495,7 @@ export default function LeaseCalculator() {
                               id="acquisition-fee"
                               type="number"
                               className="pl-9"
-                              value={acquisitionFee}
-                              onChange={(e) => setAcquisitionFee(Number(e.target.value))}
+                              value={acquisitionFee || ''} onChange={(e) => setAcquisitionFee(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -520,8 +517,7 @@ export default function LeaseCalculator() {
                               id="disposition-fee"
                               type="number"
                               className="pl-9"
-                              value={dispositionFee}
-                              onChange={(e) => setDispositionFee(Number(e.target.value))}
+                              value={dispositionFee || ''} onChange={(e) => setDispositionFee(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -533,8 +529,7 @@ export default function LeaseCalculator() {
                               id="documentation-fee"
                               type="number"
                               className="pl-9"
-                              value={documentationFee}
-                              onChange={(e) => setDocumentationFee(Number(e.target.value))}
+                              value={documentationFee || ''} onChange={(e) => setDocumentationFee(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -546,8 +541,7 @@ export default function LeaseCalculator() {
                               id="registration-fee"
                               type="number"
                               className="pl-9"
-                              value={registrationFee}
-                              onChange={(e) => setRegistrationFee(Number(e.target.value))}
+                              value={registrationFee || ''} onChange={(e) => setRegistrationFee(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>

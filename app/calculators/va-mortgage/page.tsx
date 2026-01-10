@@ -354,8 +354,7 @@ export default function VAMortgageCalculator() {
                               id="loan-amount"
                               type="number"
                               className="pl-9"
-                              value={loanAmount}
-                              onChange={(e) => setLoanAmount(Number(e.target.value))}
+                              value={loanAmount || ''} onChange={(e) => setLoanAmount(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -493,8 +492,7 @@ export default function VAMortgageCalculator() {
                                 type="number"
                                 className="pl-9"
                                 placeholder="Monthly HOA fees"
-                                value={hoaFees}
-                                onChange={(e) => setHoaFees(Number(e.target.value))}
+                                value={hoaFees || ''} onChange={(e) => setHoaFees(e.target.value === '' ? 0 : Number(e.target.value))}
                               />
                             </div>
                           )}

@@ -607,8 +607,7 @@ export default function PaybackPeriodCalculator() {
                                   id="operating-costs"
                                   type="number"
                                   className="pl-9"
-                                  value={operatingCosts}
-                                  onChange={(e) => setOperatingCosts(Number(e.target.value))}
+                                  value={operatingCosts || ''} onChange={(e) => setOperatingCosts(e.target.value === '' ? 0 : Number(e.target.value))}
                                   aria-label="Set annual operating costs"
                                 />
                               </div>

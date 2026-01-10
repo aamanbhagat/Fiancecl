@@ -297,8 +297,7 @@ export default function AnnuityCalculator() {
                               id="payment"
                               type="number"
                               className="pl-9"
-                              value={payment}
-                              onChange={(e) => setPayment(Number(e.target.value))}
+                              value={payment || ''} onChange={(e) => setPayment(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                           </div>
                         </div>
@@ -307,8 +306,7 @@ export default function AnnuityCalculator() {
                           <Input
                             id="periods"
                             type="number"
-                            value={periods}
-                            onChange={(e) => setPeriods(Number(e.target.value))}
+                            value={periods || ''} onChange={(e) => setPeriods(e.target.value === '' ? 0 : Number(e.target.value))}
                           />
                         </div>
                         <div className="space-y-2">
