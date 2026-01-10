@@ -294,6 +294,36 @@ export function SiteHeader() {
             >
               About
             </Link>
+            <Link
+              href="/blog"
+              className="flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Blog
+            </Link>
+            <Link
+              href="/contact"
+              className="flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
+            </Link>
+            <div className="border-t border-border/40 mt-2 pt-2">
+              <Link
+                href="/#calculators"
+                className="flex w-full items-center rounded-md p-2 text-sm font-medium text-primary hover:underline"
+                onClick={() => setIsMenuOpen(false)}
+                aria-label="View all calculators"
+              >
+                <Calculator className="h-3 w-3 mr-2" aria-hidden="true" />
+                View All Calculators
+              </Link>
+            </div>
+          </nav>
+          <div className="flex flex-col space-y-2">
+            <div className="flex items-center justify-between">
+              <ThemeToggle />
+            </div>
             {user ? (
               <>
                 <div className="p-2 border rounded-md text-xs">
@@ -339,4 +369,5 @@ export function SiteHeader() {
       </div>
     </header>
   )
+}
 }
