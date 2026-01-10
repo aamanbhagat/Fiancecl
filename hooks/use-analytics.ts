@@ -8,6 +8,12 @@ export type AnalyticsEvent =
   | 'calculator_reset'
   | 'calculator_toggle_advanced'
   | 'related_calculator_click'
+  | 'calculator_share'
+  | 'calculator_print'
+  | 'calculator_copy_link'
+  | 'calculator_view'
+  | 'calculator_engagement'
+  | 'conversion_goal'
 
 interface AnalyticsEventData {
   calculator_name: string
@@ -63,11 +69,59 @@ export function useAnalytics() {
     })
   }, [trackEvent])
 
+  const trackShare = useCallback((calculatorName: string, platform: string) => {
+    trackEvent('calculator_share', {
+      calculator_name: calculatorName,
+      share_platform: platform
+    })
+  }, [trackEvent])
+
+  const trackPrint = useCallback((calculatorName: string) => {
+    trackEvent('calculator_print', {
+      calculator_name: calculatorName
+    })
+  }, [trackEvent])
+
+  const trackCopyLink = useCallback((calculatorName: string) => {
+    trackEvent('calculator_copy_link', {
+      calculator_name: calculatorName
+    })
+  }, [trackEvent])
+
+  const trackView = useCallback((calculatorName: string) => {
+    trackEvent('calculator_view', {
+      calculator_name: calculatorName,
+      timestamp: Date.now()
+    })
+  }, [trackEvent])
+
+  const trackEngagement = useCallback((calculatorName: string, timeSpent: number) => {
+    trackEvent('calculator_engagement', {
+      calculator_name: calculatorName,
+      time_spent_seconds: Math.round(timeSpent / 1000),
+      engagement_level: timeSpent > 60000 ? 'high' : timeSpent > 30000 ? 'medium' : 'low'
+    })
+  }, [trackEvent])
+
+  const trackConversion = useCallback((goalName: string, value?: number) => {
+    trackEvent('conversion_goal', {
+      calculator_name: goalName,
+      conversion_type: goalName,
+      conversion_value: value || 0
+    })
+  }, [trackEvent])
+
   return {
     trackEvent,
     trackCalculation,
     trackExport,
     trackReset,
-    trackRelatedClick
+    trackRelatedClick,
+    trackShare,
+    trackPrint,
+    trackCopyLink,
+    trackView,
+    trackEngagement,
+    trackConversion
   }
 }

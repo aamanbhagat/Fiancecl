@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 export function generateMortgageSchema(url: string) {
   // Use calculatorhub.space as the base URL
   const baseUrl = 'https://calculatorhub.space';
-  
+
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -46,7 +46,7 @@ export function generateMortgageSchema(url: string) {
           }
         }
       },
-      
+
       // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
@@ -71,7 +71,7 @@ export function generateMortgageSchema(url: string) {
           }
         ]
       },
-      
+
       // FAQPage schema for the informational content
       {
         '@type': 'FAQPage',
@@ -117,6 +117,52 @@ export function generateMortgageSchema(url: string) {
             }
           }
         ]
+      },
+
+      // HowTo schema for educational SEO content
+      {
+        '@type': 'HowTo',
+        'name': 'How to Calculate Your Monthly Mortgage Payment',
+        'description': 'Step-by-step guide to calculating your monthly mortgage payment, including principal, interest, taxes, and insurance.',
+        'step': [
+          {
+            '@type': 'HowToStep',
+            'position': 1,
+            'name': 'Enter the home price or loan amount',
+            'text': 'Input the total price of the home you want to buy, or if you already know your loan amount, enter that directly.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 2,
+            'name': 'Set your down payment percentage',
+            'text': 'Enter your down payment as a percentage of the home price. A 20% down payment avoids PMI, but many loans allow as little as 3-5% down.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 3,
+            'name': 'Enter the interest rate',
+            'text': 'Input the annual interest rate offered by your lender. Rates vary based on credit score, loan type, and market conditions.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 4,
+            'name': 'Select your loan term',
+            'text': 'Choose your mortgage term, typically 15 or 30 years. Shorter terms have higher payments but save substantial interest over the life of the loan.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 5,
+            'name': 'Add property taxes and insurance',
+            'text': 'Enter your estimated annual property tax rate and homeowner\'s insurance cost to see your true monthly payment (PITI).'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 6,
+            'name': 'Review your results',
+            'text': 'Examine your monthly payment breakdown, total cost over the loan term, and amortization schedule showing how your balance decreases over time.'
+          }
+        ],
+        'totalTime': 'PT3M'
       }
     ]
   };

@@ -1,18 +1,18 @@
 import { Metadata } from 'next';
 
-// Define the JSON-LD schema for the commission calculator
-export function generateCommissionSchema(url: string) {
+// Define the JSON-LD schema for the compound interest calculator
+export function generateCompoundInterestSchema(url: string) {
   // Use calculatorhub.space as the base URL
   const baseUrl = 'https://calculatorhub.space';
-  
+
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // Changed to SoftwareApplication with appropriate subcategory
+      // SoftwareApplication schema
       {
         '@type': 'SoftwareApplication',
-        'name': 'Commission Calculator',
-        'description': 'Calculate commission earnings, rates, and total compensation based on various commission structures and sales performance metrics.',
+        'name': 'Compound Interest Calculator',
+        'description': 'Calculate compound interest growth, see how your savings and investments multiply over time with different compounding frequencies and contribution schedules.',
         'applicationCategory': 'FinanceApplication',
         'applicationSubCategory': 'Calculator',
         'operatingSystem': 'Web browser',
@@ -22,32 +22,32 @@ export function generateCommissionSchema(url: string) {
           'priceCurrency': 'USD'
         },
         'featureList': [
-          'Fixed rate commission calculation',
-          'Tiered commission structure support',
-          'Mixed base + commission calculation',
-          'Sales target performance analysis',
-          'Multi-period commission projections',
-          'Tax withholding estimation',
-          'Draw against commission modeling',
-          'Performance visualization charts',
+          'Compound interest calculation',
+          'Multiple compounding frequencies',
+          'Regular contribution support',
+          'Initial principal growth projection',
+          'Interest earned breakdown',
+          'Growth visualization charts',
+          'Year-by-year breakdown table',
+          'Comparison scenarios',
           'PDF export functionality',
-          'Income comparison scenarios'
+          'Investment timeline analysis'
         ],
         'potentialAction': {
           '@type': 'CalculateAction',
           'target': {
             '@type': 'EntryPoint',
-            'urlTemplate': `${baseUrl}/calculators/commission`,
-            'description': 'Calculate commission earnings and compensation structures'
+            'urlTemplate': `${baseUrl}/calculators/compound-interest`,
+            'description': 'Calculate compound interest growth and investment returns'
           },
           'object': {
             '@type': 'FinancialProduct',
-            'name': 'Sales Commission'
+            'name': 'Compound Interest Analysis'
           }
         }
       },
-      
-      // Simplified BreadcrumbList schema
+
+      // BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
@@ -66,54 +66,100 @@ export function generateCommissionSchema(url: string) {
           {
             '@type': 'ListItem',
             'position': 3,
-            'name': 'Commission Calculator',
-            'item': `${baseUrl}/calculators/commission`
+            'name': 'Compound Interest Calculator',
+            'item': `${baseUrl}/calculators/compound-interest`
           }
         ]
       },
-      
-      // FAQPage schema for the informational content
+
+      // HowTo schema for educational content
+      {
+        '@type': 'HowTo',
+        'name': 'How to Calculate Compound Interest',
+        'description': 'Learn how to calculate compound interest for your savings and investments using our step-by-step guide.',
+        'step': [
+          {
+            '@type': 'HowToStep',
+            'position': 1,
+            'name': 'Enter your initial investment',
+            'text': 'Start by entering your initial principal amount - the starting sum you want to invest or have already saved.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 2,
+            'name': 'Set the interest rate',
+            'text': 'Enter the annual interest rate (APY) you expect to earn. For savings accounts, this is typically 0.5-5%. For investments, historical stock market returns average 7-10%.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 3,
+            'name': 'Choose compounding frequency',
+            'text': 'Select how often interest compounds: daily, monthly, quarterly, or annually. More frequent compounding results in higher returns.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 4,
+            'name': 'Set the time period',
+            'text': 'Enter how many years you plan to let your investment grow. The longer the time period, the more dramatic the compound growth effect.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 5,
+            'name': 'Add regular contributions (optional)',
+            'text': 'If you plan to add money regularly, enter your contribution amount and frequency. Regular contributions significantly boost your final balance.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 6,
+            'name': 'Review your results',
+            'text': 'See your projected final balance, total interest earned, and year-by-year growth breakdown. Use the charts to visualize how your money grows over time.'
+          }
+        ],
+        'totalTime': 'PT2M'
+      },
+
+      // FAQPage schema for informational content
       {
         '@type': 'FAQPage',
         'mainEntity': [
           {
             '@type': 'Question',
-            'name': 'What are the different types of commission structures?',
+            'name': 'What is compound interest and how does it work?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Commission structures vary widely across industries and companies: 1) Straight Commission - payment is 100% based on sales performance with no base salary; 2) Base plus Commission - combines a fixed salary with performance-based earnings; 3) Tiered Commission - provides progressively higher rates as sales targets are achieved; 4) Draw Against Commission - offers an advance that\'s later deducted from earned commissions; 5) Residual Commission - continues paying for ongoing business from past customers; and 6) Team-based Commission - shares sales credit across a group. Each structure creates different incentives and risk profiles. Our calculator handles all these variations to help you understand your potential earnings.'
+              'text': 'Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods. Unlike simple interest, which only earns on the original amount, compound interest creates a snowball effect where your money grows exponentially over time. The formula is A = P(1 + r/n)^(nt), where A is the final amount, P is principal, r is annual rate, n is compounding frequency, and t is time in years. For example, $10,000 at 5% compounded monthly for 10 years grows to $16,470, while simple interest would yield only $15,000.'
             }
           },
           {
             '@type': 'Question',
-            'name': 'How do tiered commission structures work?',
+            'name': 'How does compounding frequency affect my returns?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Tiered commissions increase your commission rate as you reach higher sales thresholds. For example, a tiered structure might pay 5% on the first $25,000 in sales, 7% on sales between $25,001 and $50,000, and 10% on everything above $50,000. These can be calculated in two ways: total volume tiers (higher rate applies to all sales once a threshold is reached) or marginal tiers (higher rates only apply to amounts above each threshold). Tiered structures incentivize high performance by significantly increasing earnings potential for top performers. On average, moving up one tier can increase commission earnings by 20-40%.'
+              'text': 'More frequent compounding results in higher returns because interest is added to your principal more often, which then earns additional interest. For a $10,000 investment at 5% over 10 years: annual compounding yields $16,289; quarterly yields $16,436; monthly yields $16,470; and daily yields $16,487. While the differences may seem small, they become significant with larger amounts and longer time periods. This is why understanding APY (Annual Percentage Yield), which accounts for compounding frequency, is more useful than just looking at the stated interest rate.'
             }
           },
           {
             '@type': 'Question',
-            'name': 'How are commissions taxed?',
+            'name': 'What is the Rule of 72?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Commissions are taxed as ordinary income, but withholding works differently than for regular salary. The IRS considers commissions \"supplemental wages\" and provides two withholding methods: 1) The percentage method - withholding a flat 22% federal tax rate; or 2) The aggregate method - combining commission with regular wages to determine withholding. While 22% is withheld initially, your actual tax rate may be higher or lower depending on total annual income. Self-employed commission workers must pay both employee and employer portions of FICA taxes (15.3% total) and make quarterly estimated tax payments. Proper tax planning is essential for commission-based workers to avoid underpayment penalties or surprises at tax time.'
+              'text': 'The Rule of 72 is a simple formula to estimate how long it takes for an investment to double with compound interest. Divide 72 by the annual interest rate to get the approximate years to double your money. For example, at 6% interest, your money doubles in about 12 years (72 ÷ 6 = 12). At 8%, it doubles in about 9 years. This rule helps visualize the power of compound interest and makes it easy to compare different investment options. It works best for rates between 6-10% and becomes less accurate at very high or low rates.'
             }
           },
           {
             '@type': 'Question',
-            'name': 'What\'s the average commission rate in different industries?',
+            'name': 'Should I prioritize higher interest rates or more frequent contributions?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Commission rates vary significantly by industry, product margin, and sales cycle length. Average rates include: Real Estate (5-6% split between agents), Insurance (15-20% first-year commissions for life insurance, 7-15% for property and casualty), Automotive Sales (2-3% of sale price or 25-30% of dealer profit), Financial Services (0.25-1% for financial advisors managing assets, 3-5% for mortgage brokers), Software Sales (7-15% for SaaS products), Retail (2-15% depending on product category), and Manufacturing Reps (5-15% for industrial equipment). Rates also vary based on company size, with startups often offering higher commission percentages to attract talent while established companies may offer lower rates but higher overall compensation through base salary and benefits.'
+              'text': 'Both factors significantly impact your final returns, but their relative importance depends on your situation. For long-term investing (20+ years), a higher return rate has enormous impact due to exponential growth. For shorter periods, regular contributions often matter more. Ideally, maximize both: seek competitive returns while contributing consistently. For example, $200/month at 7% for 30 years yields $244,000, while $300/month at 5% yields only $249,000. The combination of reasonable returns with consistent contributions is the most reliable wealth-building strategy.'
             }
           },
           {
             '@type': 'Question',
-            'name': 'What is a draw against commission?',
+            'name': 'How does inflation affect compound interest calculations?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'A draw against commission is an advance that provides stable income during slow periods or when building a client base. There are two main types: 1) Recoverable draw - functions as a loan that must be repaid from future commissions, creating potential debt if sales targets aren\'t met; and 2) Non-recoverable draw - serves as a guaranteed minimum compensation that doesn\'t need repayment if commissions fall short. Draws typically reset monthly or quarterly. For example, with a $3,000 monthly recoverable draw, if you earn $4,000 in commissions, you\'d receive an additional $1,000; if you earn only $2,000, you\'d carry a $1,000 deficit into the next period. This arrangement helps balance income stability with performance incentives.'
+              'text': 'Inflation reduces the real purchasing power of your money over time. While your investment may show impressive nominal growth, the real return is the nominal return minus inflation. For example, if your investment earns 7% but inflation is 3%, your real return is roughly 4%. Over 30 years, $100,000 growing at 7% nominal becomes $761,000, but with 3% inflation, its purchasing power is equivalent to only $314,000 in today\'s dollars. Always consider real returns when planning long-term investments, and aim for investments that historically outpace inflation, such as diversified stock portfolios.'
             }
           }
         ]
@@ -124,29 +170,29 @@ export function generateCommissionSchema(url: string) {
 
 // Export metadata for the page
 export const metadata: Metadata = {
-  title: 'Commission Calculator | Calculate Sales Commission Earnings',
-  description: 'Calculate commission earnings, rates, and total compensation with our free calculator supporting various commission structures like tiered, base+commission, and more.',
+  title: 'Compound Interest Calculator | Calculate Investment Growth',
+  description: 'Calculate compound interest growth and see how your savings multiply over time. Free calculator with charts, contribution support, and year-by-year projections.',
   keywords: [
-    'commission calculator',
-    'sales commission calculator',
-    'tiered commission calculator',
-    'commission rate calculator',
-    'commission structure comparison',
-    'sales performance calculator',
-    'base plus commission calculator',
-    'draw against commission',
-    'sales earnings estimator',
-    'real estate commission calculator'
+    'compound interest calculator',
+    'compound interest formula',
+    'investment growth calculator',
+    'savings calculator',
+    'interest calculator',
+    'compound growth calculator',
+    'rule of 72 calculator',
+    'APY calculator',
+    'investment return calculator',
+    'compound interest example'
   ]
 };
 
 // Main component to include the JSON-LD schema in the page
-export default function CommissionSchema() {
+export default function CompoundInterestSchema() {
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateCommissionSchema('https://calculatorhub.space/calculators/commission')),
+        __html: JSON.stringify(generateCompoundInterestSchema('https://calculatorhub.space/calculators/compound-interest')),
       }}
     />
   );

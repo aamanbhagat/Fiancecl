@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 export function generate401kSchema(url: string) {
   // Use calculatorhub.space as the base URL
   const baseUrl = 'https://calculatorhub.space';
-  
+
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -26,7 +26,7 @@ export function generate401kSchema(url: string) {
           'Employer match calculation',
           'Investment return modeling',
           'Interactive charts and visualizations',
-          'Inflation adjustment', 
+          'Inflation adjustment',
           'Contribution strategy analysis',
           'Tax savings estimation',
           'Catch-up contribution planning',
@@ -46,7 +46,7 @@ export function generate401kSchema(url: string) {
           }
         }
       },
-      
+
       // BreadcrumbList schema with properly formatted structure
       {
         '@type': 'BreadcrumbList',
@@ -71,7 +71,7 @@ export function generate401kSchema(url: string) {
           }
         ]
       },
-      
+
       // FAQPage schema for the informational content - this is valuable for SEO
       {
         '@type': 'FAQPage',
@@ -117,6 +117,52 @@ export function generate401kSchema(url: string) {
             }
           }
         ]
+      },
+
+      // HowTo schema for educational SEO content
+      {
+        '@type': 'HowTo',
+        'name': 'How to Maximize Your 401(k) Retirement Savings',
+        'description': 'Step-by-step guide to calculating and optimizing your 401(k) contributions for retirement.',
+        'step': [
+          {
+            '@type': 'HowToStep',
+            'position': 1,
+            'name': 'Enter your current salary',
+            'text': 'Input your annual gross salary. This determines your maximum contribution limits and helps calculate employer matching.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 2,
+            'name': 'Set your contribution percentage',
+            'text': 'Choose what percentage of your salary to contribute. At minimum, contribute enough to get your full employer match (typically 3-6%).'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 3,
+            'name': 'Enter employer match details',
+            'text': 'Input your employer\'s matching formula (e.g., 50% match on first 6%). This "free money" significantly boosts your savings.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 4,
+            'name': 'Set expected return and time horizon',
+            'text': 'Enter your expected annual return (historically 7-10% for stock-heavy portfolios) and years until retirement.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 5,
+            'name': 'Consider catch-up contributions',
+            'text': 'If you\'re 50 or older, you can contribute an extra $7,500 annually. Factor this into your projections.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 6,
+            'name': 'Review your retirement projection',
+            'text': 'Examine your projected balance at retirement, including growth charts and the impact of different contribution scenarios.'
+          }
+        ],
+        'totalTime': 'PT3M'
       }
     ]
   };

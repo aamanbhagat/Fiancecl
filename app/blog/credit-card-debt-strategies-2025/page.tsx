@@ -6,14 +6,29 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
+import { Breadcrumbs } from "@/components/breadcrumbs"
+import { AuthorBio } from "@/components/author-bio"
+
+// Article data for structured data and metadata
+const articleData = {
+  title: "Credit Card Debt at 21.5% APR: Smart Payoff Strategies for 2025",
+  description: "With average credit card rates at 21.5%, learn the most effective strategies to eliminate high-interest debt and save thousands in interest.",
+  author: "David Chen",
+  datePublished: "2025-12-22",
+  dateModified: "2025-12-22",
+  image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=630",
+  category: "Debt",
+  readingTime: "12 min read",
+  wordCount: 2500,
+}
 
 export const metadata: Metadata = {
-  title: "Credit Card Debt at 21.5% APR: Smart Payoff Strategies for 2025 | CalculatorHub",
-  description: "With average credit card rates at 21.5%, learn the most effective strategies to eliminate high-interest debt and save thousands in interest.",
+  title: `${articleData.title} | CalculatorHub`,
+  description: articleData.description,
   openGraph: {
-    title: "Credit Card Debt at 21.5% APR: Smart Payoff Strategies for 2025",
+    title: articleData.title,
     description: "Proven methods to pay off credit card debt faster and save on interest.",
-    images: ["https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=630"],
+    images: [articleData.image],
   }
 }
 
@@ -21,8 +36,52 @@ export default function BlogPost() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+
+      {/* Article Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": articleData.title,
+            "description": articleData.description,
+            "image": articleData.image,
+            "author": {
+              "@type": "Person",
+              "name": articleData.author,
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "CalculatorHub",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://calculatorhub.space/og-image.png"
+              }
+            },
+            "datePublished": articleData.datePublished,
+            "dateModified": articleData.dateModified,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://calculatorhub.space/blog/credit-card-debt-strategies-2025"
+            },
+            "articleSection": articleData.category,
+            "wordCount": articleData.wordCount,
+            "keywords": ["credit card debt", "debt payoff", "avalanche method", "snowball method", "balance transfer", "debt consolidation", "21.5% APR"]
+          })
+        }}
+      />
+
       <main className="flex-1">
         <article className="container max-w-4xl py-12">
+          {/* Breadcrumbs */}
+          <Breadcrumbs
+            items={[
+              { name: "Blog", href: "/blog" },
+              { name: "Credit Card Debt Strategies 2025", href: "/blog/credit-card-debt-strategies-2025" },
+            ]}
+          />
+
           <Link href="/blog">
             <Button variant="ghost" className="mb-8">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -54,9 +113,11 @@ export default function BlogPost() {
           <div className="relative h-96 w-full mb-12 rounded-lg overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
-              alt="Credit cards and bills"
+              alt="Credit cards and bills illustrating high-interest debt strategies for 2025"
               fill
               className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
             />
           </div>
 
@@ -392,6 +453,8 @@ export default function BlogPost() {
             </div>
           </div>
 
+          {/* Author Bio */}
+          <AuthorBio authorName={articleData.author} publishDate="December 22, 2025" />
           <div className="mt-12 border-t pt-8">
             <h3 className="text-xl font-bold mb-4">Related Calculators</h3>
             <div className="grid gap-4 md:grid-cols-3">

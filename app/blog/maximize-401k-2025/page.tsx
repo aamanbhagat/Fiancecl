@@ -6,14 +6,29 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
+import { Breadcrumbs } from "@/components/breadcrumbs"
+import { AuthorBio } from "@/components/author-bio"
+
+// Article data for structured data and metadata
+const articleData = {
+  title: "Maximize Your 401(k) in 2025: New $23,500 Contribution Limits",
+  description: "The IRS increased 401(k) contribution limits to $23,500 for 2025. Discover strategies to maximize your retirement savings with these new limits.",
+  author: "Michael Rodriguez",
+  datePublished: "2025-12-25",
+  dateModified: "2025-12-25",
+  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630",
+  category: "Retirement",
+  readingTime: "10 min read",
+  wordCount: 2100,
+}
 
 export const metadata: Metadata = {
-  title: "Maximize Your 401(k) in 2025: New $23,500 Contribution Limits | CalculatorHub",
-  description: "The IRS increased 401(k) contribution limits to $23,500 for 2025. Discover strategies to maximize your retirement savings with these new limits.",
+  title: `${articleData.title} | CalculatorHub`,
+  description: articleData.description,
   openGraph: {
-    title: "Maximize Your 401(k) in 2025: New $23,500 Contribution Limits",
+    title: articleData.title,
     description: "Complete guide to making the most of increased 401(k) limits in 2025.",
-    images: ["https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630"],
+    images: [articleData.image],
   }
 }
 
@@ -21,8 +36,52 @@ export default function BlogPost() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+
+      {/* Article Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": articleData.title,
+            "description": articleData.description,
+            "image": articleData.image,
+            "author": {
+              "@type": "Person",
+              "name": articleData.author,
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "CalculatorHub",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://calculatorhub.space/og-image.png"
+              }
+            },
+            "datePublished": articleData.datePublished,
+            "dateModified": articleData.dateModified,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://calculatorhub.space/blog/maximize-401k-2025"
+            },
+            "articleSection": articleData.category,
+            "wordCount": articleData.wordCount,
+            "keywords": ["401k", "401(k)", "retirement savings", "contribution limits", "employer match", "catch-up contributions", "Roth 401k", "2025 limits"]
+          })
+        }}
+      />
+
       <main className="flex-1">
         <article className="container max-w-4xl py-12">
+          {/* Breadcrumbs */}
+          <Breadcrumbs
+            items={[
+              { name: "Blog", href: "/blog" },
+              { name: "Maximize 401k 2025", href: "/blog/maximize-401k-2025" },
+            ]}
+          />
+
           <Link href="/blog">
             <Button variant="ghost" className="mb-8">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -54,9 +113,11 @@ export default function BlogPost() {
           <div className="relative h-96 w-full mb-12 rounded-lg overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
-              alt="Retirement planning documents"
+              alt="Retirement planning documents and charts for 401k contribution strategies in 2025"
               fill
               className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
             />
           </div>
 
@@ -272,6 +333,9 @@ export default function BlogPost() {
               </p>
             </div>
           </div>
+
+          {/* Author Bio */}
+          <AuthorBio authorName={articleData.author} publishDate="December 25, 2025" />
 
           <div className="mt-12 border-t pt-8">
             <h3 className="text-xl font-bold mb-4">Related Calculators</h3>

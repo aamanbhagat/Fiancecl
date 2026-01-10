@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 export function generateHouseAffordabilitySchema(url: string) {
   // Use calculatorhub.space as the base URL
   const baseUrl = 'https://calculatorhub.space';
-  
+
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -46,7 +46,7 @@ export function generateHouseAffordabilitySchema(url: string) {
           }
         }
       },
-      
+
       // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
@@ -71,7 +71,7 @@ export function generateHouseAffordabilitySchema(url: string) {
           }
         ]
       },
-      
+
       // FAQPage schema for the informational content
       {
         '@type': 'FAQPage',
@@ -117,6 +117,52 @@ export function generateHouseAffordabilitySchema(url: string) {
             }
           }
         ]
+      },
+
+      // HowTo schema for educational SEO content
+      {
+        '@type': 'HowTo',
+        'name': 'How to Calculate How Much House You Can Afford',
+        'description': 'Step-by-step guide to determining your maximum affordable home price based on income, debt, and financial situation.',
+        'step': [
+          {
+            '@type': 'HowToStep',
+            'position': 1,
+            'name': 'Enter your gross annual income',
+            'text': 'Input your total household income before taxes. Include all regular income sources for you and any co-borrowers.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 2,
+            'name': 'List your monthly debt payments',
+            'text': 'Add up all monthly debt obligations: car loans, student loans, credit cards, and other recurring debt payments.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 3,
+            'name': 'Enter your available down payment',
+            'text': 'Input how much you have saved for a down payment. A 20% down payment avoids PMI and provides better loan terms.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 4,
+            'name': 'Set the interest rate',
+            'text': 'Enter current mortgage rates for your credit score range. Check rates from multiple lenders for accuracy.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 5,
+            'name': 'Add property taxes and insurance estimates',
+            'text': 'Enter estimated annual property tax rate and homeowner\'s insurance cost for your target area.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 6,
+            'name': 'Review your affordability results',
+            'text': 'See your maximum affordable home price, estimated monthly payment, and debt-to-income ratios to guide your house hunting.'
+          }
+        ],
+        'totalTime': 'PT3M'
       }
     ]
   };

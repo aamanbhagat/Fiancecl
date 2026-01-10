@@ -66,7 +66,7 @@ export function SiteFooter() {
             </div>
           </div>
           <div className="px-4 sm:px-0">
-            <h2 className="mb-4 text-sm font-semibold">Calculators</h2>
+            <h2 className="mb-4 text-sm font-semibold">Popular Calculators</h2>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/calculators/mortgage" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
@@ -75,27 +75,39 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/calculators/amortization" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+                <Link href="/calculators/compound-interest" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+                  <Coins className="h-4 w-4" aria-hidden="true" />
+                  <span>Compound Interest</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/investment" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+                  <DollarSign className="h-4 w-4" aria-hidden="true" />
+                  <span>Investment Calculator</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/401k" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+                  <PiggyBank className="h-4 w-4" aria-hidden="true" />
+                  <span>401(k) Calculator</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/house-affordability" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+                  <Building className="h-4 w-4" aria-hidden="true" />
+                  <span>Affordability Calculator</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/auto-loan" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
                   <Calculator className="h-4 w-4" aria-hidden="true" />
-                  <span>Amortization Calculator</span>
+                  <span>Auto Loan Calculator</span>
                 </Link>
               </li>
               <li>
-                <Link href="/calculators/refinance" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
-                  <RefreshCw className="h-4 w-4" aria-hidden="true" />
-                  <span>Refinance Calculator</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/calculators/rent" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
-                  <Landmark className="h-4 w-4" aria-hidden="true" />
-                  <span>Rent Calculator</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#calculators" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+                <Link href="/calculators" className="flex items-center gap-2 text-primary hover:text-primary/80 font-medium">
                   <Calculator className="h-4 w-4" aria-hidden="true" />
-                  <span>View All Calculators</span>
+                  <span>View All 65+ Calculators →</span>
                 </Link>
               </li>
             </ul>

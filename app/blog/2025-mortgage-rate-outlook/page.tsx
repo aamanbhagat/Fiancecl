@@ -6,23 +6,101 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
+import Script from "next/script"
+import { Breadcrumbs } from "@/components/breadcrumbs"
+import { AuthorBio } from "@/components/author-bio"
+
+// Article data for reuse in metadata and structured data
+const articleData = {
+  title: "2025 Mortgage Rate Outlook: What Homebuyers Need to Know",
+  description: "With mortgage rates averaging 6.62% in December 2025, learn what this means for your home buying power and how to secure the best rates in today's market.",
+  author: "Sarah Johnson",
+  datePublished: "2025-12-28",
+  dateModified: "2025-12-28",
+  image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630",
+  category: "Mortgage",
+  readingTime: "8 min read",
+  url: "https://calculatorhub.space/blog/2025-mortgage-rate-outlook"
+}
 
 export const metadata: Metadata = {
-  title: "2025 Mortgage Rate Outlook: What Homebuyers Need to Know | CalculatorHub",
-  description: "With mortgage rates averaging 6.62% in December 2025, learn what this means for your home buying power and how to secure the best rates in today's market.",
+  title: `${articleData.title} | CalculatorHub`,
+  description: articleData.description,
+  authors: [{ name: articleData.author }],
   openGraph: {
-    title: "2025 Mortgage Rate Outlook: What Homebuyers Need to Know",
-    description: "Comprehensive guide to understanding mortgage rates in 2025 and strategies to get the best deal.",
-    images: ["https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630"],
+    title: articleData.title,
+    description: articleData.description,
+    type: 'article',
+    publishedTime: articleData.datePublished,
+    modifiedTime: articleData.dateModified,
+    authors: [articleData.author],
+    images: [articleData.image],
+    section: articleData.category,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: articleData.title,
+    description: articleData.description,
+    images: [articleData.image],
+  },
+  alternates: {
+    canonical: articleData.url,
   }
 }
 
 export default function BlogPost() {
+  // Article structured data for rich search results
+  const articleStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleData.title,
+    description: articleData.description,
+    image: articleData.image,
+    author: {
+      '@type': 'Person',
+      name: articleData.author
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'CalculatorHub',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://calculatorhub.space/calculator.png'
+      }
+    },
+    datePublished: articleData.datePublished,
+    dateModified: articleData.dateModified,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleData.url
+    },
+    articleSection: articleData.category,
+    wordCount: 1500,
+    keywords: ['mortgage rates', '2025 housing market', 'home buying', 'mortgage calculator', 'interest rates']
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
+      {/* Article Structured Data */}
+      <Script
+        id="article-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleStructuredData)
+        }}
+      />
+
       <SiteHeader />
       <main className="flex-1">
         <article className="container max-w-4xl py-12">
+          {/* SEO Breadcrumbs */}
+          <Breadcrumbs
+            items={[
+              { name: 'Blog', href: '/blog' },
+              { name: '2025 Mortgage Rate Outlook', href: '/blog/2025-mortgage-rate-outlook' }
+            ]}
+          />
+
           <Link href="/blog">
             <Button variant="ghost" className="mb-8">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -54,9 +132,11 @@ export default function BlogPost() {
           <div className="relative h-96 w-full mb-12 rounded-lg overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
-              alt="Modern house exterior"
+              alt="Modern house exterior representing 2025 mortgage and housing market outlook"
               fill
               className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
             />
           </div>
 

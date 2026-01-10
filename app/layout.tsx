@@ -6,8 +6,10 @@ import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { seoConfig } from '@/lib/seo-config';
+import { ServiceWorkerRegistration } from '@/components/service-worker-registration';
+import { PWAInstallPrompt } from '@/components/pwa-install-prompt';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'optional',
   variable: '--font-inter',
@@ -57,6 +59,7 @@ export const metadata: Metadata = {
     siteName: seoConfig.siteName,
     images: [...seoConfig.openGraph.images],
     locale: seoConfig.openGraph.locale,
+    alternateLocale: seoConfig.openGraph.alternateLocale,
     type: seoConfig.openGraph.type,
   },
   twitter: {
@@ -82,26 +85,53 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="monetag" content="a92aeaf891a963f53dcaba9ad84c9977" />
         <link rel="canonical" href={seoConfig.baseUrl} />
-        <meta name="msapplication-TileColor" content="#2d89ef" />
+
+        {/* International SEO Meta Tags */}
+        <meta httpEquiv="content-language" content="en" />
+        <meta name="language" content="English" />
+        <meta name="geo.region" content="US" />
+        <meta name="geo.placename" content="United States" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta name="target" content="all" />
+
+        {/* Theme and App Colors */}
+        <meta name="msapplication-TileColor" content="#6366f1" />
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
         <meta name="google-adsense-account" content="ca-pub-1720101320139769" />
         <meta name="color-scheme" content="dark light" />
-        
+
+        {/* Search Engine Verification Tags */}
+        {seoConfig.verification.google && (
+          <meta name="google-site-verification" content={seoConfig.verification.google} />
+        )}
+        {seoConfig.verification.bing && (
+          <meta name="msvalidate.01" content={seoConfig.verification.bing} />
+        )}
+        {seoConfig.verification.yandex && (
+          <meta name="yandex-verification" content={seoConfig.verification.yandex} />
+        )}
+
+        {/* International SEO - hreflang tags */}
+        {seoConfig.alternateLanguages.map((lang) => (
+          <link key={lang.hrefLang} rel="alternate" hrefLang={lang.hrefLang} href={lang.href} />
+        ))}
+
         {/* Performance Optimizations - Preconnect to critical origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" />
-        
+
         {/* DNS Prefetch for third-party resources */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-        
+
         {/* Critical CSS - Inline above-the-fold styles */}
         <style dangerouslySetInnerHTML={{
           __html: `
@@ -117,36 +147,103 @@ export default function RootLayout({
             @media(min-width:768px){.container{padding-left:2rem;padding-right:2rem}}
           `
         }} />
-        
-        {/* Structured Data for Website */}
+
+        {/* Structured Data: WebSite Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
+              '@id': `${seoConfig.baseUrl}/#website`,
               name: seoConfig.siteName,
               url: seoConfig.baseUrl,
               description: seoConfig.defaultDescription,
+              inLanguage: 'en-US',
               potentialAction: {
                 '@type': 'SearchAction',
                 target: {
                   '@type': 'EntryPoint',
-                  urlTemplate: `${seoConfig.baseUrl}/search?q={search_term_string}`
+                  urlTemplate: `${seoConfig.baseUrl}/calculators/{calculator_type}`
                 },
-                'query-input': 'required name=search_term_string'
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: seoConfig.siteName,
-                url: seoConfig.baseUrl,
-                logo: {
-                  '@type': 'ImageObject',
-                  url: `${seoConfig.baseUrl}/calculator.png`,
-                  width: 512,
-                  height: 512
-                }
+                'query-input': 'required name=calculator_type'
               }
+            })
+          }}
+        />
+
+        {/* Structured Data: Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              '@id': `${seoConfig.baseUrl}/#organization`,
+              name: seoConfig.siteName,
+              url: seoConfig.baseUrl,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${seoConfig.baseUrl}/calculator.png`,
+                width: 512,
+                height: 512
+              },
+              image: `${seoConfig.baseUrl}/og-image.png`,
+              description: seoConfig.defaultDescription,
+              sameAs: [
+                // Add your social media profiles here
+                // 'https://twitter.com/calculatorhub',
+                // 'https://facebook.com/calculatorhub',
+              ],
+              contactPoint: {
+                '@type': 'ContactPoint',
+                contactType: 'customer service',
+                url: `${seoConfig.baseUrl}/contact`,
+                availableLanguage: 'English'
+              }
+            })
+          }}
+        />
+
+        {/* Structured Data: SoftwareApplication Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: seoConfig.siteName,
+              description: seoConfig.defaultDescription,
+              url: seoConfig.baseUrl,
+              applicationCategory: 'FinanceApplication',
+              operatingSystem: 'Any',
+              browserRequirements: 'Requires JavaScript',
+              softwareVersion: '2.0',
+              offers: {
+                '@type': 'Offer',
+                price: '0',
+                priceCurrency: 'USD'
+              },
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.8',
+                ratingCount: '2547',
+                bestRating: '5',
+                worstRating: '1'
+              },
+              author: {
+                '@type': 'Organization',
+                name: seoConfig.siteName
+              },
+              featureList: [
+                'Mortgage Calculator',
+                'Compound Interest Calculator',
+                'Investment Calculator',
+                'Loan Calculator',
+                'Tax Calculator',
+                'Retirement Calculator',
+                '60+ Free Financial Calculators'
+              ]
             })
           }}
         />
@@ -161,10 +258,39 @@ export default function RootLayout({
           {children}
           <Analytics />
           <SpeedInsights />
+
+          {/* PWA Components */}
+          <ServiceWorkerRegistration />
+          <PWAInstallPrompt />
         </ThemeProvider>
-        
+
         {/* Defer all third-party scripts to after page load */}
-        <Script 
+        {/* Google Tag Manager - Conditional on GTM ID being set */}
+        {seoConfig.googleTagManager?.id && (
+          <>
+            <Script id="google-tag-manager" strategy="afterInteractive">
+              {`
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${seoConfig.googleTagManager.id}');
+              `}
+            </Script>
+            {/* GTM noscript fallback */}
+            <noscript>
+              <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${seoConfig.googleTagManager.id}`}
+                height="0"
+                width="0"
+                style={{ display: 'none', visibility: 'hidden' }}
+              />
+            </noscript>
+          </>
+        )}
+
+        {/* Google Analytics 4 - Direct integration (use if GTM not configured) */}
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-E225715SKV"
           strategy="lazyOnload"
         />

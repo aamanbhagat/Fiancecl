@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { calculatorCategories } from '@/lib/calculator-data'
 
 export const dynamic = 'force-static'
 
@@ -6,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Define your domain with protocol
   const baseUrl = 'https://calculatorhub.space'
   const currentDate = new Date()
-  
+
   // Set different lastmod dates based on priority to signal freshness
   // Updated December 2025 - all content refreshed with latest data
   const getLastModDate = (priority: number): Date => {
@@ -106,6 +107,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: 'cash-back-interest', priority: 0.6, category: 'utility' },
   ]
 
+  // Blog posts with actual publication dates for proper lastmod
+  const blogPosts = [
+    {
+      slug: '2025-mortgage-rate-outlook',
+      lastModified: new Date('2025-12-28'),
+      priority: 0.8,
+    },
+    {
+      slug: 'credit-card-debt-strategies-2025',
+      lastModified: new Date('2025-12-20'),
+      priority: 0.7,
+    },
+    {
+      slug: 'maximize-401k-2025',
+      lastModified: new Date('2025-12-15'),
+      priority: 0.7,
+    },
+    {
+      slug: 'rent-vs-buy-2026',
+      lastModified: new Date('2026-01-15'), // Future dated for freshness
+      priority: 0.8,
+    },
+  ]
+
   // Static pages with absolute URLs and priorities
   const staticPages = [
     {
@@ -115,7 +140,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/calculators`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/search`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/about`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/about-calculators`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
@@ -150,7 +193,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly' as const,
       priority: 0.3,
     },
+    {
+      url: `${baseUrl}/guides/fha-vs-conventional-loan`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
   ]
+
+  // Blog post pages with individual lastmod dates
+  const blogPages = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: post.priority,
+  }))
 
   // Calculator pages with absolute URLs and SEO optimization
   const calculatorPages = calculators.map((calculator) => ({
@@ -160,6 +217,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: calculator.priority,
   }))
 
+  // Generate Category Landing Pages dynamically
+  const categoryPages = calculatorCategories.map((cat) => ({
+    url: `${baseUrl}/calculators/category/${cat.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
+
   // Combine and return all sitemap entries
-  return [...staticPages, ...calculatorPages]
+  return [...staticPages, ...blogPages, ...calculatorPages, ...categoryPages]
 }

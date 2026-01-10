@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 export function generateInvestmentSchema(url: string) {
   // Use calculatorhub.space as the base URL
   const baseUrl = 'https://calculatorhub.space';
-  
+
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -46,7 +46,7 @@ export function generateInvestmentSchema(url: string) {
           }
         }
       },
-      
+
       // Simplified BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
@@ -71,7 +71,7 @@ export function generateInvestmentSchema(url: string) {
           }
         ]
       },
-      
+
       // FAQPage schema for the informational content
       {
         '@type': 'FAQPage',
@@ -117,6 +117,52 @@ export function generateInvestmentSchema(url: string) {
             }
           }
         ]
+      },
+
+      // HowTo schema for educational SEO content
+      {
+        '@type': 'HowTo',
+        'name': 'How to Calculate Investment Returns and Plan Your Portfolio',
+        'description': 'Learn how to project investment growth, set contribution schedules, and plan for long-term financial goals.',
+        'step': [
+          {
+            '@type': 'HowToStep',
+            'position': 1,
+            'name': 'Enter your initial investment',
+            'text': 'Start by entering your current savings or the amount you plan to invest initially. This is your starting principal.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 2,
+            'name': 'Set your expected annual return',
+            'text': 'Enter the expected annual return rate. Historical stock market averages are 7-10%, while bonds average 3-5%. Be realistic about expectations.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 3,
+            'name': 'Define your investment timeline',
+            'text': 'Set how many years you plan to invest. Longer timeframes allow for more aggressive investment strategies and greater compound growth.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 4,
+            'name': 'Add regular contributions',
+            'text': 'Enter how much you will contribute regularly (monthly, quarterly, or annually). Consistent contributions dramatically accelerate wealth building.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 5,
+            'name': 'Account for fees and inflation',
+            'text': 'Add expected management fees and inflation rate to see real returns. A 1% difference in fees can significantly impact long-term results.'
+          },
+          {
+            '@type': 'HowToStep',
+            'position': 6,
+            'name': 'Analyze your projections',
+            'text': 'Review your projected final balance, total contributions vs. earnings, and use the charts to visualize your wealth-building timeline.'
+          }
+        ],
+        'totalTime': 'PT3M'
       }
     ]
   };

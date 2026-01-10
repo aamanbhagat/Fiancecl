@@ -1,21 +1,82 @@
 {
-  "name": "CalculateHub - Financial Calculators",
-  "short_name": "CalculateHub",
-  "description": "Free online financial calculators for making informed financial decisions",
+  "name": "CalculatorHub - Free Online Financial Calculators",
+  "short_name": "CalculatorHub",
+  "description": "Access 60+ free online financial calculators for mortgage, investment, loans, taxes, retirement and more. Make informed financial decisions.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a0a",
+  "theme_color": "#6366f1",
+  "categories": [
+    "finance",
+    "productivity",
+    "utilities"
+  ],
+  "lang": "en-US",
+  "dir": "ltr",
+  "prefer_related_applications": false,
   "icons": [
     {
-      "src": "calculator.png",
+      "src": "/calculator.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "calculator.png",
+      "src": "/calculator.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "CalculatorHub Homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mortgage Calculator",
+      "short_name": "Mortgage",
+      "description": "Calculate your mortgage payments",
+      "url": "/calculators/mortgage",
+      "icons": [
+        {
+          "src": "/calculator.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Compound Interest",
+      "short_name": "Interest",
+      "description": "Calculate compound interest growth",
+      "url": "/calculators/compound-interest",
+      "icons": [
+        {
+          "src": "/calculator.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Investment Calculator",
+      "short_name": "Invest",
+      "description": "Plan your investments",
+      "url": "/calculators/investment",
+      "icons": [
+        {
+          "src": "/calculator.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "iarc_rating_id": "",
+  "handle_links": "preferred"
 }
