@@ -49,10 +49,12 @@ export default function AuthPage() {
     
     try {
       await signUp(email, password, name);
-      router.push('/');
+      setError('Check your email to confirm your account!');
+      setLoading(false);
+      // Don't redirect immediately - user needs to confirm email
     } catch (err: any) {
-      setError(err.message || 'Failed to sign up');
-    } finally {
+      console.error('Signup error:', err);
+      setError(err.message || err.error_description || 'Failed to sign up');
       setLoading(false);
     }
   };
@@ -108,7 +110,11 @@ export default function AuthPage() {
                       required
                     />
                   </div>
-                  {error && <p className="text-sm text-red-500">{error}</p>}
+                  {error && (
+                    <p className={`text-sm ${error.includes('Check your email') ? 'text-green-600' : 'text-red-500'}`}>
+                      {error}
+                    </p>
+                  )}
                   <Button type="submit" className="w-full" disabled={loading}>
                     {loading ? 'Signing in...' : 'Sign In'}
                   </Button>
@@ -149,7 +155,11 @@ export default function AuthPage() {
                       minLength={6}
                     />
                   </div>
-                  {error && <p className="text-sm text-red-500">{error}</p>}
+                  {error && (
+                    <p className={`text-sm ${error.includes('Check your email') ? 'text-green-600' : 'text-red-500'}`}>
+                      {error}
+                    </p>
+                  )}
                   <Button type="submit" className="w-full" disabled={loading}>
                     {loading ? 'Creating account...' : 'Sign Up'}
                   </Button>
