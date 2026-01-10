@@ -8,6 +8,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { seoConfig } from '@/lib/seo-config';
 import { ServiceWorkerRegistration } from '@/components/service-worker-registration';
 import { PWAInstallPrompt } from '@/components/pwa-install-prompt';
+import { WebVitals } from './web-vitals';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
     siteName: seoConfig.siteName,
     images: [...seoConfig.openGraph.images],
     locale: seoConfig.openGraph.locale,
-    alternateLocale: seoConfig.openGraph.alternateLocale,
+    alternateLocale: [...seoConfig.openGraph.alternateLocale],
     type: seoConfig.openGraph.type,
   },
   twitter: {
@@ -255,6 +256,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* Core Web Vitals Tracking */}
+          <WebVitals />
+          
           {children}
           <Analytics />
           <SpeedInsights />

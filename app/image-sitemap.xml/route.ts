@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
-import { calculatorData } from '@/lib/calculator-data'
+import { getAllCalculators } from '@/lib/calculator-data'
 import { seoConfig } from '@/lib/seo-config'
+
+export const dynamic = 'force-static'
+export const revalidate = 3600 // Revalidate every hour
 
 /**
  * Image Sitemap for Google Image Search
@@ -20,13 +23,14 @@ interface ImageEntry {
 
 function generateImageSitemap() {
   const images: ImageEntry[] = []
+  const calculators = getAllCalculators()
 
   // Add calculator-specific images (if they exist)
-  calculatorData.forEach((calc) => {
+  calculators.forEach((calc) => {
     // Add featured image for each calculator
     images.push({
       url: `${seoConfig.baseUrl}/calculators/${calc.slug}/featured.png`,
-      title: `${calc.title} - Free Online Calculator`,
+      title: `${calc.name} - Free Online Calculator`,
       caption: calc.description,
       location: `${seoConfig.baseUrl}/calculators/${calc.slug}`,
     })
@@ -34,8 +38,8 @@ function generateImageSitemap() {
     // Add calculator icon/screenshot
     images.push({
       url: `${seoConfig.baseUrl}/calculators/${calc.slug}/screenshot.png`,
-      title: `${calc.title} Screenshot`,
-      caption: `How to use the ${calc.title.toLowerCase()}`,
+      title: `${calc.name} Screenshot`,
+      caption: `How to use the ${calc.name.toLowerCase()}`,
       location: `${seoConfig.baseUrl}/calculators/${calc.slug}`,
     })
   })
