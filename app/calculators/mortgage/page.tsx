@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { useCalculatorCurrency } from "@/hooks/use-calculator-currency";
+import { useAuth } from "@/contexts/auth-context";
+import { saveCalculation } from "@/lib/calculator-storage";
 import { CurrencySelector } from "@/components/currency-selector";
 import {
   Card,
@@ -46,6 +48,7 @@ import {
   TrendingDown,
   LineChart,
   TrendingUp,
+  Save,
 } from "lucide-react";
 import {
   Tooltip,
@@ -190,6 +193,7 @@ function useIsClient() {
 export default function MortgageCalculator() {
   const isClient = useIsClient();
   const { currencyData, formatCurrency } = useCalculatorCurrency();
+  const { user } = useAuth();
 
   // State Declarations
   const [loanAmount, setLoanAmount] = useState(300000);
@@ -211,6 +215,7 @@ export default function MortgageCalculator() {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
 
   const mathRef1 = useRef<HTMLDivElement | null>(null);
   const mathRef2 = useRef<HTMLDivElement | null>(null);
@@ -229,6 +234,50 @@ export default function MortgageCalculator() {
 
     return () => observer.disconnect();
   }, [isClient]);
+
+  // Save calculation function
+  const handleSaveCalculation = async () => {
+    if (!user) {
+      alert('Please sign in to save calculations');
+      return;
+    }
+
+    setSaveStatus('saving');
+    
+    try {
+      await saveCalculation({
+        calculator_type: 'mortgage',
+        inputs: {
+          loanAmount,
+          interestRate,
+          loanTerm,
+          downPayment,
+          propertyTax,
+          insurance,
+          includeHOA,
+          hoaFees,
+          includePMI,
+          pmiRate,
+          extraPayment,
+          currency: currencyData.code,
+        },
+        results: {
+          monthlyPayment,
+          totalPayment,
+          paymentBreakdown,
+          totalInterest: amortizationSchedule[amortizationSchedule.length - 1]?.totalInterest || 0,
+          totalCost: loanAmount + (amortizationSchedule[amortizationSchedule.length - 1]?.totalInterest || 0),
+        },
+      });
+      
+      setSaveStatus('saved');
+      setTimeout(() => setSaveStatus('idle'), 3000);
+    } catch (error) {
+      console.error('Failed to save calculation:', error);
+      setSaveStatus('error');
+      setTimeout(() => setSaveStatus('idle'), 3000);
+    }
+  };
 
   // Mortgage Calculation Logic
   useEffect(() => {
@@ -859,6 +908,43 @@ export default function MortgageCalculator() {
                         </div>
                       </TabsContent>
                     </Tabs>
+
+                    {/* Save Calculation Button */}
+                    {user && (
+                      <div className="mt-4 pt-4 border-t">
+                        <Button
+                          onClick={handleSaveCalculation}
+                          disabled={saveStatus === 'saving'}
+                          className="w-full"
+                          variant={saveStatus === 'saved' ? 'outline' : 'default'}
+                        >
+                          {saveStatus === 'saving' && (
+                            <>
+                              <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
+                              Saving...
+                            </>
+                          )}
+                          {saveStatus === 'saved' && (
+                            <>
+                              <Check className="mr-2 h-4 w-4" />
+                              Saved Successfully!
+                            </>
+                          )}
+                          {saveStatus === 'error' && (
+                            <>
+                              <AlertCircle className="mr-2 h-4 w-4" />
+                              Failed to Save
+                            </>
+                          )}
+                          {saveStatus === 'idle' && (
+                            <>
+                              <Save className="mr-2 h-4 w-4" />
+                              Save This Calculation
+                            </>
+                          )}
+                        </Button>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </div>
