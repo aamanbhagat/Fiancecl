@@ -1,23 +1,26 @@
 "use client"
 
 import Link from "next/link"
-import { Calculator, Menu, X, ChevronDown, CreditCard, Percent, LineChart, PiggyBank, DollarSign, Building, Car, Wallet, GraduationCap, Briefcase, Scale, Clock, RefreshCw, BadgeDollarSign, FileSpreadsheet, Landmark, Home, Coins, LogIn, UserPlus } from "lucide-react"
+import { Calculator, Menu, X, ChevronDown, CreditCard, Percent, LineChart, PiggyBank, DollarSign, Building, Car, Wallet, GraduationCap, Briefcase, Scale, Clock, RefreshCw, BadgeDollarSign, FileSpreadsheet, Landmark, Home, Coins, LogIn, UserPlus, User, LogOut } from "lucide-react"
 import { useState } from "react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Search } from "@/components/search"
+import { useAuth } from "@/contexts/auth-context"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const { user, signOut } = useAuth()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -183,14 +186,44 @@ export function SiteHeader() {
           </div>
           
           <div className="hidden md:flex items-center gap-2">
-            <ThemeToggle />
-            <Button variant="outline" size="sm" className="flex items-center gap-1 h-8 px-2 text-xs">
-              <LogIn className="h-3 w-3" aria-hidden="true" />
-              <span>Login</span>
-            </Button>
-            <Button variant="default" size="sm" className="flex items-center gap-1 h-8 px-2 text-xs">
-              <UserPlus className="h-3 w-3" aria-hidden="true" />
-              <span>Sign Up</span>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm" className="flex items-center gap-1 h-8 px-2 text-xs">
+                    <User className="h-3 w-3" aria-hidden="true" />
+                    <span className="max-w-[100px] truncate">{user.email}</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem asChild>
+                    <Link href="/dashboard" className="cursor-pointer">
+                      <Calculator className="mr-2 h-4 w-4" />
+                      <span>My Calculations</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer text-destructive">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Sign Out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <Button variant="outline" size="sm" asChild className="flex items-center gap-1 h-8 px-2 text-xs">
+                  <Link href="/auth">
+                    <LogIn className="h-3 w-3" aria-hidden="true" />
+                    <span>Login</span>
+                  </Link>
+                </Button>
+                <Button variant="default" size="sm" asChild className="flex items-center gap-1 h-8 px-2 text-xs">
+                  <Link href="/auth">
+                    <UserPlus className="h-3 w-3" aria-hidden="true" />
+                    <span>Sign Up</span>
+                  </Link>
+                </Button>
+              </>
+            )}ign Up</span>
             </Button>
           </div>
           
@@ -262,14 +295,46 @@ export function SiteHeader() {
             >
               About
             </Link>
-            <Link
-              href="/blog"
-              className="flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blog
-            </Link>
-            <Link
+            {user ? (
+              <>
+                <div className="p-2 border rounded-md text-xs">
+                  <p className="text-muted-foreground">Signed in as</p>
+                  <p className="font-medium truncate">{user.email}</p>
+                </div>
+                <Button variant="outline" asChild className="flex items-center justify-center gap-1 h-8 text-xs">
+                  <Link href="/dashboard" onClick={() => setIsMenuOpen(false)}>
+                    <Calculator className="h-3 w-3" aria-hidden="true" />
+                    <span>My Calculations</span>
+                  </Link>
+                </Button>
+                <Button 
+                  variant="destructive" 
+                  className="flex items-center justify-center gap-1 h-8 text-xs"
+                  onClick={() => {
+                    signOut();
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <LogOut className="h-3 w-3" aria-hidden="true" />
+                  <span>Sign Out</span>
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="outline" asChild className="flex items-center justify-center gap-1 h-8 text-xs">
+                  <Link href="/auth" onClick={() => setIsMenuOpen(false)}>
+                    <LogIn className="h-3 w-3" aria-hidden="true" />
+                    <span>Login</span>
+                  </Link>
+                </Button>
+                <Button variant="default" asChild className="flex items-center justify-center gap-1 h-8 text-xs">
+                  <Link href="/auth" onClick={() => setIsMenuOpen(false)}>
+                    <UserPlus className="h-3 w-3" aria-hidden="true" />
+                    <span>Sign Up</span>
+                  </Link>
+                </Button>
+              </>
+            )}
               href="/contact"
               className="flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline"
               onClick={() => setIsMenuOpen(false)}
