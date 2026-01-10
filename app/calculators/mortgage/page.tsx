@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { useCalculatorCurrency } from "@/hooks/use-calculator-currency";
+import { CurrencySelector } from "@/components/currency-selector";
 import {
   Card,
   CardContent,
@@ -164,15 +166,6 @@ const INITIAL_PAYMENT_BREAKDOWN = {
   hoa: 0,
 };
 
-// Utility Functions
-const formatCurrency = (amount: number) =>
-  new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-  }).format(amount);
-
 // Define AmortizationItem interface
 interface AmortizationItem {
   payment: number;
@@ -196,6 +189,7 @@ function useIsClient() {
 
 export default function MortgageCalculator() {
   const isClient = useIsClient();
+  const { currencyData, formatCurrency } = useCalculatorCurrency();
 
   // State Declarations
   const [loanAmount, setLoanAmount] = useState(300000);
@@ -566,10 +560,15 @@ export default function MortgageCalculator() {
               <div className="lg:col-span-2">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Enter Your Mortgage Details</CardTitle>
-                    <CardDescription>
-                      Provide your loan information to calculate monthly payments and view the amortization schedule.
-                    </CardDescription>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <CardTitle>Enter Your Mortgage Details</CardTitle>
+                        <CardDescription>
+                          Provide your loan information to calculate monthly payments and view the amortization schedule.
+                        </CardDescription>
+                      </div>
+                      <CurrencySelector variant="dropdown" />
+                    </div>
                   </CardHeader>
                   <CardContent className="space-y-8">
                     <div className="space-y-4">
@@ -578,7 +577,9 @@ export default function MortgageCalculator() {
                         <div className="space-y-2">
                           <Label htmlFor="loan-amount">Loan Amount</Label>
                           <div className="relative">
-                            <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
+                              {currencyData.symbol}
+                            </span>
                             <Input
                               id="loan-amount"
                               type="number"
@@ -671,7 +672,9 @@ export default function MortgageCalculator() {
                           </div>
                           {includeHOA && (
                             <div className="relative">
-                              <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
+                                {currencyData.symbol}
+                              </span>
                               <Input
                                 id="hoa-fees"
                                 type="number"
@@ -716,7 +719,9 @@ export default function MortgageCalculator() {
                         <div className="space-y-2">
                           <Label htmlFor="extra-payment">Extra Monthly Payment</Label>
                           <div className="relative">
-                            <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
+                              {currencyData.symbol}
+                            </span>
                             <Input
                               id="extra-payment"
                               type="number"

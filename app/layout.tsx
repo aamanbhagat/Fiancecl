@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
+import { CurrencyProvider } from '@/contexts/currency-context';
 import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -256,16 +257,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* Core Web Vitals Tracking */}
-          <WebVitals />
-          
-          {children}
-          <Analytics />
-          <SpeedInsights />
+          <CurrencyProvider>
+            {/* Core Web Vitals Tracking */}
+            <WebVitals />
+            
+            {children}
+            <Analytics />
+            <SpeedInsights />
 
-          {/* PWA Components */}
-          <ServiceWorkerRegistration />
-          <PWAInstallPrompt />
+            {/* PWA Components */}
+            <ServiceWorkerRegistration />
+            <PWAInstallPrompt />
+          </CurrencyProvider>
         </ThemeProvider>
 
         {/* Defer all third-party scripts to after page load */}
