@@ -1,5 +1,5 @@
-import { supabase } from './supabase';
-import type { Calculation } from './supabase';
+import { supabase } from './supabase-client';
+import type { Calculation } from './supabase-client';
 
 /**
  * Save a calculation to the database
