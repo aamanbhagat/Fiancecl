@@ -491,6 +491,24 @@ export function Search({ className, expandOnFocus = false }: { className?: strin
         href: "/calculators/interest",
         category: "Business & Finance"
       },
+      
+      // Health & Wellness
+      {
+        title: "BMI Calculator",
+        description: "Calculate your Body Mass Index and understand your health metrics.",
+        icon: Calculator,
+        href: "/calculators/bmi",
+        category: "Health & Wellness"
+      },
+      
+      // Utility
+      {
+        title: "Temperature Converter",
+        description: "Convert between Celsius, Fahrenheit, and Kelvin temperature scales.",
+        icon: Calculator,
+        href: "/calculators/temperature",
+        category: "Utility"
+      },
     ]
     
     setCalculators(allCalculators)
@@ -552,21 +570,13 @@ export function Search({ className, expandOnFocus = false }: { className?: strin
   return (
     <>
       <div className={cn("relative", className)}>
-        <div className={cn(
-          "relative w-full transition-all duration-300",
-          expandOnFocus && isFocused ? "w-[300px] md:w-[350px] lg:w-[400px]" : ""
-        )}>
+        <div className="relative w-full">
           <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             type="search"
             placeholder="Search calculator"
-            className={cn(
-              "pl-10 pr-4 w-full h-9 xl:h-10 transition-all duration-300",
-              expandOnFocus && "focus:w-[300px] md:focus:w-[350px] lg:focus:w-[400px]"
-            )}
+            className="pl-10 pr-4 w-full h-9 xl:h-10"
             onClick={() => setOpen(true)}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
             readOnly
             aria-label="Search calculators"
           />
