@@ -6,7 +6,6 @@ import type { Calculation } from './supabase-client';
  */
 export async function saveCalculation(data: {
   calculator_type: string;
-  scenario_name?: string;
   inputs: Record<string, any>;
   results: Record<string, any>;
 }): Promise<Calculation | null> {
@@ -23,7 +22,6 @@ export async function saveCalculation(data: {
   const insertData = {
     user_id: user.id,
     calculator_type: data.calculator_type,
-    scenario_name: data.scenario_name || null,
     inputs: data.inputs,
     results: data.results,
   };

@@ -15,7 +15,6 @@ export type Calculation = {
   id: string;
   user_id: string;
   calculator_type: string;
-  scenario_name: string | null;
   inputs: Record<string, any>;
   results: Record<string, any>;
   is_favorite: boolean;
