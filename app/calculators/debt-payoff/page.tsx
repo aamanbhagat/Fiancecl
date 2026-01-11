@@ -6,6 +6,7 @@ import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { SaveCalculationButton } from "@/components/save-calculation-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -847,6 +848,21 @@ export default function DebtPayoffCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="debt-payoff"
+                    inputs={{
+                      debts,
+                      paymentStrategy,
+                      extraPayment,
+                      paymentFrequency
+                    }}
+                    results={{
+                      monthsToPayoff: 0,
+                      totalInterest: 0,
+                      interestSaved: 0
+                    }}
+                  />
                 </Card>
               </div>
             </div>

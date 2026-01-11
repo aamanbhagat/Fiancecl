@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { SaveCalculationButton } from "@/components/save-calculation-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -331,6 +332,20 @@ export default function SimpleInterestCalculator() {
                       </TabsContent>
                     </Tabs>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="simple-interest"
+                    inputs={{
+                      principal,
+                      rate,
+                      time
+                    }}
+                    results={{
+                      interest,
+                      totalAmount,
+                      monthlyBreakdown
+                    }}
+                  />
                 </Card>
               </div>
             </div>

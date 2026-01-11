@@ -28,6 +28,7 @@ import autoTable from "jspdf-autotable";
 // UI Components
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { SaveCalculationButton } from "@/components/save-calculation-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
@@ -1656,6 +1657,24 @@ export default function AmortizationCalculatorPage() {
                       </div>
                     </div>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="amortization"
+                    inputs={{
+                      loanAmount,
+                      interestRate,
+                      loanTerm,
+                      startDate,
+                      paymentFrequency,
+                      extraPayment
+                    }}
+                    results={{
+                      monthlyPayment,
+                      totalInterest,
+                      totalPayment,
+                      payoffDate
+                    }}
+                  />
                 </Card>
               </div>
             </div>

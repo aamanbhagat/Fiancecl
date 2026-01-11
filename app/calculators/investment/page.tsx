@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { SaveCalculationButton } from "@/components/save-calculation-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -739,6 +740,24 @@ export default function InvestmentCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="investment"
+                    inputs={{
+                      initialInvestment,
+                      monthlyContribution,
+                      annualReturn,
+                      timeHorizon,
+                      managementFee,
+                      inflationRate,
+                      accountType
+                    }}
+                    results={{
+                      futureValue: initialInvestment,
+                      totalContributions: monthlyContribution * timeHorizon * 12,
+                      totalReturns: 0
+                    }}
+                  />
                 </Card>
               </div>
             </div>
