@@ -594,9 +594,9 @@ export default function DebtPayoffCalculator() {
                                           </div>
                                         </div>
                                         <div className="space-y-2">
+                                          <Label htmlFor={`balance-${debt.id}`}>Balance</Label>
                                           <div className="relative">
-                                            <Label htmlFor={`balance-${debt.id}`}>Balance</Label>
-                                            <DollarSign className="absolute left-3 top-[25px] h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                                            <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                                             <Input
                                               id={`balance-${debt.id}`}
                                               type="number"
