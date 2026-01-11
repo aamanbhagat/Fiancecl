@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { SaveCalculationButton } from "@/components/save-calculation-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -751,6 +752,32 @@ export default function FourZeroOneKCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="401k"
+                    inputs={{
+                      currentAge,
+                      retirementAge,
+                      currentBalance,
+                      annualSalary,
+                      contributionRate,
+                      employerMatchRate,
+                      employerMatchLimit,
+                      annualSalaryIncrease,
+                      expectedReturn,
+                      inflationRate,
+                      managementFees,
+                      compoundingFrequency,
+                      additionalContributions,
+                      catchUpContributions
+                    }}
+                    results={{
+                      projectedBalance,
+                      yearsToRetirement: retirementAge - currentAge,
+                      totalContributions,
+                      yearlyProjections
+                    }}
+                  />
                 </Card>
               </div>
             </div>

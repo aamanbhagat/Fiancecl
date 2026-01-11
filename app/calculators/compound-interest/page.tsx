@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { SaveCalculationButton } from "@/components/save-calculation-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -699,6 +700,30 @@ export default function CompoundInterestCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="compound-interest"
+                    inputs={{
+                      initialInvestment,
+                      monthlyContribution,
+                      contributionGrowth,
+                      enableContributionGrowth,
+                      annualInterestRate,
+                      compoundingFrequency,
+                      timeHorizon,
+                      includeInflation,
+                      inflationRate,
+                      reinvestDividends,
+                      taxRate
+                    }}
+                    results={{
+                      futureValue,
+                      realFutureValue,
+                      totalContributions,
+                      totalInterest,
+                      yearlyBreakdown
+                    }}
+                  />
                 </Card>
               </div>
             </div>
