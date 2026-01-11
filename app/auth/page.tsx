@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/auth-context';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -13,6 +13,7 @@ import { SiteFooter } from '@/components/site-footer';
 
 export default function AuthPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { signIn, signUp, signInWithGoogle, user } = useAuth();
   
   const [email, setEmail] = useState('');
@@ -20,10 +21,18 @@ export default function AuthPage() {
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [redirectUrl, setRedirectUrl] = useState('/');
+
+  useEffect(() => {
+    const redirect = searchParams.get('redirect');
+    if (redirect) {
+      setRedirectUrl(redirect);
+    }
+  }, [searchParams]);
 
   // Redirect if already logged in
   if (user) {
-    router.push('/');
+    router.push(redirectUrl);
     return null;
   }
 
@@ -34,7 +43,7 @@ export default function AuthPage() {
     
     try {
       await signIn(email, password);
-      router.push('/');
+      router.push(redirectUrl);
     } catch (err: any) {
       setError(err.message || 'Failed to sign in');
     } finally {
