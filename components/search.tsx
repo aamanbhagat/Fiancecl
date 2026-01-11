@@ -611,21 +611,20 @@ export function Search({ className, expandOnFocus = false }: { className?: strin
                     setOpen(false)
                     router.push(calculator.href)
                   }}
-                  className="group relative overflow-hidden cursor-pointer"
+                  asChild
                 >
-                  {/* Glow effect overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/0 to-primary/0 opacity-0 group-hover:opacity-100 group-hover:from-primary/10 group-hover:via-primary/20 group-hover:to-primary/10 transition-all duration-300 rounded-md -z-10"></div>
-                  
-                  {/* Pulsing glow on active/focus */}
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 group-focus:bg-primary/10 group-active:bg-primary/15 group-active:animate-pulse-glow rounded-md -z-10 transition-all duration-300"></div>
-                  
-                  <Calculator className="mr-2 h-4 w-4 text-primary group-hover:text-primary group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
-                  <div className="flex flex-col">
-                    <span className="group-hover:text-primary transition-colors duration-300">{calculator.title}</span>
-                    <span className="text-xs text-muted-foreground line-clamp-1 group-hover:text-primary/70 transition-colors duration-300">
-                      {calculator.description}
-                    </span>
-                  </div>
+                  <Link 
+                    href={calculator.href}
+                    className="flex items-center gap-2 cursor-pointer w-full"
+                  >
+                    <Calculator className="h-4 w-4 shrink-0" />
+                    <div className="flex flex-col flex-1 min-w-0">
+                      <span className="font-medium">{calculator.title}</span>
+                      <span className="text-xs text-muted-foreground truncate">
+                        {calculator.description}
+                      </span>
+                    </div>
+                  </Link>
                 </CommandItem>
               ))}
             </CommandGroup>
