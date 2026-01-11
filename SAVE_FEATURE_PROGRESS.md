@@ -3,15 +3,20 @@
 ## Overview
 Adding SaveCalculationButton component to all 65 calculators to allow users to save their calculations to their account.
 
-## Current Status: 4/65 Complete (6%)
+## Current Status: 9/65 Complete (14%)
 
-### ✅ Completed Calculators (4)
+### ✅ Completed Calculators (9)
 1. ✅ **mortgage** - Original implementation
 2. ✅ **compound-interest** - Added with all inputs and results
 3. ✅ **401k** - Added with projection data
 4. ✅ **savings** - Added with breakdown data
+5. ✅ **student-loan** - Added with loan details and amortization
+6. ✅ **roi** - Added with investment metrics
+7. ✅ **debt-to-income** - Added with income/debt items
+8. ✅ **auto-loan** - Added with vehicle and loan details
+9. ✅ **credit-card** - Added with payment schedule
 
-### 📋 Remaining Calculators (61)
+### 📋 Remaining Calculators (56)
 
 #### Investment & Retirement (12)
 - [ ] average-return
