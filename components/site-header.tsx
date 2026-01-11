@@ -182,7 +182,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2 ml-auto">
           {/* Desktop Search */}
           <div className="hidden md:flex items-center">
-            <Search className="w-48 lg:w-56 xl:w-64" expandOnFocus={true} />
+            <Search className="w-48 lg:w-56 xl:w-64" />
           </div>
           
           <div className="hidden md:flex items-center gap-2">

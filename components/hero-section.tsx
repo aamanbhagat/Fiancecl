@@ -43,7 +43,7 @@ export function HeroSection() {
             "sm:max-w-lg md:max-w-xl lg:max-w-2xl"
           )}>
             {isMounted ? (
-              <Search expandOnFocus={true} />
+              <Search />
             ) : (
               <SearchPlaceholder />
             )}
