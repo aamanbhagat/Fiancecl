@@ -718,6 +718,23 @@ export default function SalaryCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="salary"
+                    inputs={{
+                      grossSalary,
+                      payFrequency,
+                      filingStatus,
+                      retirement401k,
+                      healthInsurance
+                    }}
+                    results={{
+                      netPay: 0,
+                      federalTax: 0,
+                      stateTax: 0,
+                      takeHomePay: 0
+                    }}
+                  />
                 </Card>
               </div>
             </div>
