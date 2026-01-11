@@ -18,7 +18,6 @@ export type Calculation = {
   scenario_name: string | null;
   inputs: Record<string, any>;
   results: Record<string, any>;
-  notes: string | null;
   is_favorite: boolean;
   created_at: string;
   updated_at: string;

@@ -9,7 +9,6 @@ export async function saveCalculation(data: {
   scenario_name?: string;
   inputs: Record<string, any>;
   results: Record<string, any>;
-  notes?: string;
 }): Promise<Calculation | null> {
   console.log('saveCalculation called with:', data);
   
@@ -27,7 +26,6 @@ export async function saveCalculation(data: {
     scenario_name: data.scenario_name || null,
     inputs: data.inputs,
     results: data.results,
-    notes: data.notes || null,
   };
   
   console.log('Inserting into database:', insertData);
