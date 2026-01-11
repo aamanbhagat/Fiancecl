@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 
-export default function AuthPage() {
+function AuthContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { signIn, signUp, signInWithGoogle, user } = useAuth();
@@ -216,5 +216,21 @@ export default function AuthPage() {
       </main>
       <SiteFooter />
     </div>
+  );
+}
+
+export default function AuthPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen flex-col">
+        <SiteHeader />
+        <main className="flex-1 flex items-center justify-center py-12 px-4">
+          <div>Loading...</div>
+        </main>
+        <SiteFooter />
+      </div>
+    }>
+      <AuthContent />
+    </Suspense>
   );
 }
