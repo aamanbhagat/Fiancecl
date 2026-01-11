@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { SaveCalculationButton } from "@/components/save-calculation-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -776,6 +777,26 @@ export default function StudentLoanCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="student-loan"
+                    inputs={{
+                      loanAmount,
+                      interestRate,
+                      loanTerm,
+                      loanType,
+                      repaymentPlan,
+                      annualIncome,
+                      familySize,
+                      extraMonthlyPayment
+                    }}
+                    results={{
+                      monthlyPayment,
+                      totalInterest,
+                      payoffDate,
+                      amortizationSchedule
+                    }}
+                  />
                 </Card>
               </div>
             </div>
