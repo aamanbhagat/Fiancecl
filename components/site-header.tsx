@@ -196,7 +196,7 @@ export function SiteHeader() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem asChild>
-                    <Link href="/dashboard" className="cursor-pointer">
+                    <Link href="/my-calculations" className="cursor-pointer">
                       <Calculator className="mr-2 h-4 w-4" />
                       <span>My Calculations</span>
                     </Link>
@@ -331,7 +331,7 @@ export function SiteHeader() {
                   <p className="font-medium truncate">{user.email}</p>
                 </div>
                 <Button variant="outline" asChild className="flex items-center justify-center gap-1 h-8 text-xs">
-                  <Link href="/dashboard" onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/my-calculations" onClick={() => setIsMenuOpen(false)}>
                     <Calculator className="h-3 w-3" aria-hidden="true" />
                     <span>My Calculations</span>
                   </Link>
