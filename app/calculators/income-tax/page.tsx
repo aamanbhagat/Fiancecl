@@ -812,6 +812,22 @@ export default function IncomeTaxCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="income-tax"
+                    inputs={{
+                      income,
+                      filingStatus,
+                      deductions,
+                      credits
+                    }}
+                    results={{
+                      federalTax,
+                      effectiveRate,
+                      marginalRate,
+                      taxableIncome
+                    }}
+                  />
                 </Card>
               </div>
             </div>

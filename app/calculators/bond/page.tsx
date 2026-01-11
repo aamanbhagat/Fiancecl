@@ -1321,6 +1321,26 @@ export default function BondCalculator() {
                       </div>
                     </div>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="bond"
+                    inputs={{
+                      faceValue,
+                      couponRate,
+                      paymentFrequency,
+                      timeToMaturity,
+                      marketPrice,
+                      yieldToMaturity
+                    }}
+                    results={{
+                      bondPrice,
+                      currentYield,
+                      yieldToMaturity,
+                      duration,
+                      convexity,
+                      totalReturn
+                    }}
+                  />
                 </Card>
               </div>
             </div>

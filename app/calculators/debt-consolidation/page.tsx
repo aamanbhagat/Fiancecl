@@ -748,6 +748,21 @@ export default function DebtConsolidationCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="debt-consolidation"
+                    inputs={{
+                      totalDebts: debts.length,
+                      consolidatedRate,
+                      consolidatedTerm
+                    }}
+                    results={{
+                      currentMonthlyPayment,
+                      consolidatedMonthlyPayment,
+                      monthlySavings,
+                      totalInterestSaved
+                    }}
+                  />
                 </Card>
               </div>
             </div>

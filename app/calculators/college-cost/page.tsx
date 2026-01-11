@@ -731,6 +731,26 @@ export default function CollegeCostCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="college-cost"
+                    inputs={{
+                      tuition,
+                      fees,
+                      roomAndBoard,
+                      booksAndSupplies,
+                      personalExpenses,
+                      transportation,
+                      yearsToComplete
+                    }}
+                    results={{
+                      costOfAttendance,
+                      totalCost: costOfAttendance * yearsToComplete,
+                      netCost: netCost * yearsToComplete,
+                      outOfPocket: outOfPocket * yearsToComplete,
+                      totalLoans: loans * yearsToComplete
+                    }}
+                  />
                 </Card>
               </div>
             </div>

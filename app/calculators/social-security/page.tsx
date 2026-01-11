@@ -613,6 +613,20 @@ export default function SocialSecurityCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="social-security"
+                    inputs={{
+                      birthYear,
+                      retirementAge,
+                      averageEarnings
+                    }}
+                    results={{
+                      monthlyBenefit,
+                      annualBenefit,
+                      lifetimeBenefit
+                    }}
+                  />
                 </Card>
               </div>
             </div>
