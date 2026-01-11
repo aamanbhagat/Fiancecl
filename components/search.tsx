@@ -181,6 +181,7 @@ export function Search({ className }: { className?: string }) {
                   key={calc.href}
                   value={calc.title}
                   onSelect={() => handleSelect(calc.href)}
+                  onClick={() => handleSelect(calc.href)}
                   className="cursor-pointer"
                 >
                   <Calculator className="mr-2 h-4 w-4 shrink-0" />
