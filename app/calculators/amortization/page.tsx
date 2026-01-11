@@ -1660,20 +1660,8 @@ export default function AmortizationCalculatorPage() {
                   
                   <SaveCalculationButton
                     calculatorType="amortization"
-                    inputs={{
-                      loanAmount,
-                      interestRate,
-                      loanTerm,
-                      startDate,
-                      paymentFrequency,
-                      extraPayment
-                    }}
-                    results={{
-                      monthlyPayment,
-                      totalInterest,
-                      totalPayment,
-                      payoffDate
-                    }}
+                    inputs={{}}
+                    results={{}}
                   />
                 </Card>
               </div>

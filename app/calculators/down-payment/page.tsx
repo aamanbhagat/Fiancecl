@@ -696,17 +696,8 @@ export default function DownPaymentCalculator() {
                   
                   <SaveCalculationButton
                     calculatorType="down-payment"
-                    inputs={{
-                      homePrice,
-                      downPaymentPercent,
-                      closingCostPercent
-                    }}
-                    results={{
-                      downPayment,
-                      closingCosts,
-                      totalUpfront,
-                      loanAmount
-                    }}
+                    inputs={{}}
+                    results={{}}
                   />
                 </Card>
               </div>

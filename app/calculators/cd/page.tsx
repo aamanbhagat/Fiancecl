@@ -840,17 +840,8 @@ export default function CDCalculator() {
               
               <SaveCalculationButton
                 calculatorType="cd"
-                inputs={{
-                  principal,
-                  rate,
-                  term,
-                  compoundingFrequency
-                }}
-                results={{
-                  futureValue,
-                  interestEarned,
-                  apy
-                }}
+                inputs={{}}
+                results={{}}
               />
             </div>
           </div>

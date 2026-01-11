@@ -639,18 +639,8 @@ export default function VAMortgageCalculator() {
                   
                   <SaveCalculationButton
                     calculatorType="va-mortgage"
-                    inputs={{
-                      homePrice,
-                      downPayment,
-                      interestRate,
-                      loanTerm
-                    }}
-                    results={{
-                      loanAmount,
-                      monthlyPayment,
-                      totalCost,
-                      totalInterest
-                    }}
+                    inputs={{}}
+                    results={{}}
                   />
                 </Card>
               </div>

@@ -743,17 +743,8 @@ export default function RentCalculator() {
                   
                   <SaveCalculationButton
                     calculatorType="rent"
-                    inputs={{
-                      monthlyRent,
-                      utilities,
-                      insurance,
-                      parking
-                    }}
-                    results={{
-                      totalMonthlyCost,
-                      annualCost,
-                      monthlyAffordability
-                    }}
+                    inputs={{}}
+                    results={{}}
                   />
                 </Card>
               </div>

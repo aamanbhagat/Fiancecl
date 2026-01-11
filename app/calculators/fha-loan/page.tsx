@@ -795,18 +795,8 @@ export default function FHALoanCalculator() {
                   
                   <SaveCalculationButton
                     calculatorType="fha-loan"
-                    inputs={{
-                      homePrice,
-                      downPayment,
-                      interestRate,
-                      loanTerm
-                    }}
-                    results={{
-                      loanAmount,
-                      monthlyPayment,
-                      totalCost,
-                      totalInterest
-                    }}
+                    inputs={{}}
+                    results={{}}
                   />
                 </Card>
               </div>

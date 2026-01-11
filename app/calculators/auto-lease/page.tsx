@@ -733,22 +733,8 @@ export default function AutoLeaseCalculator() {
                   
                   <SaveCalculationButton
                     calculatorType="auto-lease"
-                    inputs={{
-                      vehiclePrice,
-                      downPayment,
-                      leaseTerm,
-                      moneyFactor,
-                      residualPercent,
-                      salesTax,
-                      mileageAllowance
-                    }}
-                    results={{
-                      monthlyPayment,
-                      totalCost: totalCost.total,
-                      upfrontCost: totalCost.upfront,
-                      totalOfPayments: totalCost.monthly,
-                      residualValue: (vehiclePrice * residualPercent) / 100
-                    }}
+                    inputs={{}}
+                    results={{}}
                   />
                 </Card>
               </div>
