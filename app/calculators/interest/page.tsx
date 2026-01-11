@@ -1742,6 +1742,7 @@ export default function InterestCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="interest" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

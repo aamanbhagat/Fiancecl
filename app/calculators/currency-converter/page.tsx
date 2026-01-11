@@ -1370,6 +1370,7 @@ export default function CurrencyConverterPage() {
           </div>
         </section>
         
+      <SaveCalculationButton calculatorType="currency-converter" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

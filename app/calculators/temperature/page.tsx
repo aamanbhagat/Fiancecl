@@ -952,7 +952,8 @@ export default function TemperatureCalculator() {
   </div>
 </section> 
         
-        </main>
+        <SaveCalculationButton calculatorType="temperature" inputs={{}} results={{}} />
+      </main>
 
       <SiteFooter />
       

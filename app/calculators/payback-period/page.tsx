@@ -1445,6 +1445,7 @@ export default function PaybackPeriodCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="payback-period" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

@@ -984,6 +984,7 @@ export default function HouseAffordabilityCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="house-affordability" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

@@ -1317,6 +1317,7 @@ export default function FutureValueCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="future-value" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

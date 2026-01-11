@@ -1598,6 +1598,7 @@ export default function MortgagePayoffCalculator() {
     </div>
   </div>
 </section>
+      <SaveCalculationButton calculatorType="mortgage-payoff" inputs={{}} results={{}} />
       </main>
       <div className="mt-12 py-6">
         <SiteFooter />

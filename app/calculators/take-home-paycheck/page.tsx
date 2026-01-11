@@ -1193,6 +1193,7 @@ export default function TakeHomePaycheckPage() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="take-home-paycheck" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

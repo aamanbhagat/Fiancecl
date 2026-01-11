@@ -1683,6 +1683,7 @@ export default function MarginCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="margin" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

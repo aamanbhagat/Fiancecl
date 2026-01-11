@@ -1563,6 +1563,7 @@ export default function VATCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="vat" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

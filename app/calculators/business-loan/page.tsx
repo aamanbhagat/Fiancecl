@@ -1783,6 +1783,7 @@ export default function BusinessLoanCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="business-loan" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

@@ -1372,6 +1372,7 @@ export default function IRRCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="irr" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

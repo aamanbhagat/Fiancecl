@@ -1724,6 +1724,7 @@ export default function DepreciationCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="depreciation" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

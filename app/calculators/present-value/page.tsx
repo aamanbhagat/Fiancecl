@@ -1369,6 +1369,7 @@ export default function PresentValueCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="present-value" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

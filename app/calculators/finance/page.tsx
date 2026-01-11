@@ -1471,6 +1471,7 @@ export default function FinanceCalculator() {
   </div>
 </section>
         
+      <SaveCalculationButton calculatorType="finance" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

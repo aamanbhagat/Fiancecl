@@ -1513,6 +1513,7 @@ export default function RepaymentCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="repayment" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

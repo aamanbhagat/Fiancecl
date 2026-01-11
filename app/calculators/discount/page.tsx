@@ -1732,6 +1732,7 @@ export default function DiscountCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="discount" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

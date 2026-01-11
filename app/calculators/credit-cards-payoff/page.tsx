@@ -1634,6 +1634,7 @@ export default function CreditCardsPayoffCalculator() {
     </div>
   </div>
 </section>
+      <SaveCalculationButton calculatorType="credit-cards-payoff" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

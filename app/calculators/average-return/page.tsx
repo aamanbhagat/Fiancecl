@@ -1277,6 +1277,7 @@ export default function AverageReturnCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="average-return" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

@@ -1784,6 +1784,7 @@ export default function CashBackInterestCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="cash-back-interest" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

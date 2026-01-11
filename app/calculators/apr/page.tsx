@@ -534,6 +534,12 @@ export default function APRCalculatorPage() {
             </div>
           </div>
         </section>
+        
+        <SaveCalculationButton
+          calculatorType="apr"
+          inputs={{}}
+          results={{}}
+        />
       </main>
       <SiteFooter />
     </div>

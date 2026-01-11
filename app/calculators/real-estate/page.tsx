@@ -1963,6 +1963,7 @@ export default function RealEstateCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="real-estate" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

@@ -2032,6 +2032,7 @@ export default function InflationCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="inflation" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

@@ -641,6 +641,7 @@ export default function MarriageTaxCalculator() {
         </section>
   
     
+      <SaveCalculationButton calculatorType="marriage-tax" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

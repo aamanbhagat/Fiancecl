@@ -1716,6 +1716,7 @@ export default function InterestRateCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="interest-rate" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

@@ -1689,6 +1689,7 @@ export default function RMDCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="rmd" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

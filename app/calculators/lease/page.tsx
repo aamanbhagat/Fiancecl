@@ -1777,6 +1777,7 @@ export default function LeaseCalculator() {
             </div>
           </div>
         </section>
+      <SaveCalculationButton calculatorType="lease" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

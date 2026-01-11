@@ -1328,6 +1328,7 @@ export default function EstateCalculator() {
     </div>
   </div>
 </section>
+      <SaveCalculationButton calculatorType="estate-tax" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>

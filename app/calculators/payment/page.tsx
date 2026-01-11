@@ -1376,6 +1376,7 @@ export default function PaymentCalculatorPage() {
     </div>
   </div>
 </section>
+      <SaveCalculationButton calculatorType="payment" inputs={{}} results={{}} />
       </main>
       <SiteFooter />
     </div>
