@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { SaveCalculationButton } from '@/components/save-calculation-button'
 import dynamic from "next/dynamic"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -601,6 +602,13 @@ export default function BMICalculator() {
             </div>
           </div>
         </section>
+        
+        <SaveCalculationButton
+          calculatorType="bmi"
+          inputs={{}}
+          results={{}}
+        />
+        
         {/* Blog Section */}
 <section id="blog-section" className="py-12 bg-white dark:bg-black">
   <div className="container mx-auto max-w-5xl px-4">

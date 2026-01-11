@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { SaveCalculationButton } from '@/components/save-calculation-button'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -610,6 +611,12 @@ export default function AnnuityPayoutCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="annuity-payout"
+                    inputs={{}}
+                    results={{}}
+                  />
                 </Card>
               </div>
             </div>
