@@ -11,24 +11,34 @@ export async function saveCalculation(data: {
   results: Record<string, any>;
   notes?: string;
 }): Promise<Calculation | null> {
-  const { data: { user } } = await supabase.auth.getUser();
+  console.log('saveCalculation called with:', data);
+  
+  const { data: { user }, error: userError } = await supabase.auth.getUser();
+  
+  console.log('Current user:', user, 'Error:', userError);
   
   if (!user) {
     throw new Error('Must be logged in to save calculations');
   }
 
+  const insertData = {
+    user_id: user.id,
+    calculator_type: data.calculator_type,
+    scenario_name: data.scenario_name || null,
+    inputs: data.inputs,
+    results: data.results,
+    notes: data.notes || null,
+  };
+  
+  console.log('Inserting into database:', insertData);
+
   const { data: calculation, error } = await supabase
     .from('calculations')
-    .insert({
-      user_id: user.id,
-      calculator_type: data.calculator_type,
-      scenario_name: data.scenario_name || null,
-      inputs: data.inputs,
-      results: data.results,
-      notes: data.notes || null,
-    })
+    .insert(insertData)
     .select()
     .single();
+
+  console.log('Database response:', { calculation, error });
 
   if (error) throw error;
   return calculation;

@@ -34,18 +34,21 @@ export function SaveCalculationButton({
     setSaveStatus('saving');
     
     try {
-      await saveCalculation({
+      console.log('Attempting to save calculation:', { calculatorType, inputs, results });
+      const result = await saveCalculation({
         calculator_type: calculatorType,
         inputs,
         results,
       });
+      console.log('Save successful:', result);
       
       setSaveStatus('saved');
       setTimeout(() => setSaveStatus('idle'), 3000);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Failed to save calculation:', error);
+      console.error('Error details:', error?.message, error?.code, error?.details);
       setSaveStatus('error');
-      setTimeout(() => setSaveStatus('idle'), 3000);
+      setTimeout(() => setSaveStatus('idle'), 5000);
     }
   };
 
