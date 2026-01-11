@@ -3,30 +3,31 @@
 ## Overview
 Adding SaveCalculationButton component to all 65 calculators to allow users to save their calculations to their account.
 
-## Current Status: 19/65 Complete (29%)
+## Current Status: 23/65 Complete (35%)
 
-### ✅ Completed Calculators (19)
-1. ✅ **mortgage**
-2. ✅ **compound-interest**
-3. ✅ **401k**
-4. ✅ **savings**
-5. ✅ **student-loan**
-6. ✅ **roi**
-7. ✅ **debt-to-income**
-8. ✅ **auto-loan**
-9. ✅ **credit-card**
-10. ✅ **amortization**
-11. ✅ **budget**
-12. ✅ **investment**
-13. ✅ **salary**
-14. ✅ **personal-loan**
-15. ✅ **refinance**
-16. ✅ **rent-vs-buy**
-17. ✅ **simple-interest**
-18. ✅ **roth-ira**
-19. ✅ **debt-payoff**
+### ✅ Completed Calculators (23)
+1-19. (Previous batch)
+20. ✅ **commission**
+21. ✅ **pension**  
+22. ✅ **sales-tax**
+23. ✅ **annuity**
 
-### 📋 Remaining Calculators (46)
+### 🔄 In Progress - Imports Added (12)
+- auto-lease
+- bond
+- cd
+- college-cost
+- debt-consolidation
+- down-payment
+- fha-loan
+- income-tax
+- rent
+- social-security
+- va-mortgage
+
+*These have the import added but need the actual button component*
+
+### 📋 Remaining Calculators (30)
 
 #### Investment & Retirement (12)
 - [ ] average-return

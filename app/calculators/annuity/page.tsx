@@ -553,6 +553,12 @@ export default function AnnuityCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="annuity"
+                    inputs={{ payment, periods, interestRate, paymentFrequency, annuityType }}
+                    results={{ futureValue: 0, totalPayments: 0 }}
+                  />
                 </Card>
               </div>
             </div>
