@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Calculator, Search as SearchIcon, X } from "lucide-react"
 import { 
   CommandDialog,
@@ -30,6 +31,7 @@ export function Search({ className, expandOnFocus = false }: { className?: strin
   const [open, setOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
   const [calculators, setCalculators] = useState<CalculatorItem[]>([])
+  const router = useRouter()
   const [isFocused, setIsFocused] = useState(false)
 
   // Load all calculators
@@ -606,10 +608,10 @@ export function Search({ className, expandOnFocus = false }: { className?: strin
                   key={calculator.href}
                   value={calculator.title}
                   onSelect={() => {
-                    window.location.href = calculator.href
                     setOpen(false)
+                    router.push(calculator.href)
                   }}
-                  className="group relative overflow-hidden"
+                  className="group relative overflow-hidden cursor-pointer"
                 >
                   {/* Glow effect overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/0 to-primary/0 opacity-0 group-hover:opacity-100 group-hover:from-primary/10 group-hover:via-primary/20 group-hover:to-primary/10 transition-all duration-300 rounded-md -z-10"></div>
