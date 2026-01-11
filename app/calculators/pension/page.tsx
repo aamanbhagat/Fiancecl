@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { SaveCalculationButton } from '@/components/save-calculation-button'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -642,6 +643,12 @@ export default function PensionCalculator() {
                       </CardContent>
                     </Card>
                   </CardContent>
+                  
+                  <SaveCalculationButton
+                    calculatorType="pension"
+                    inputs={{ salary: 0, yearsOfService: 0, retirementAge: 0 }}
+                    results={{ monthlyPension: 0, annualPension: 0 }}
+                  />
                 </Card>
               </div>
             </div>
