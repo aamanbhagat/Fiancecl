@@ -51,13 +51,23 @@ const nextConfig = {
   webpack: (config, { dev, isServer }) => {
     config.experiments = { ...config.experiments, topLevelAwait: true }
 
+    // Optimize module resolution for faster builds
+    config.resolve = {
+      ...config.resolve,
+      symlinks: false,
+    }
+
     // Add performance optimizations for production builds
     if (!dev && !isServer) {
+      // Use faster hashing algorithm
+      config.output.hashFunction = 'xxhash64'
+      
       // Enable tree shaking
       config.optimization = {
         ...config.optimization,
         usedExports: true,
         sideEffects: true,
+        moduleIds: 'deterministic',
       }
 
       // Split chunks for better caching
